@@ -1,0 +1,31 @@
+<odoo>
+	<record id="res_config_settings_view_form" model="ir.ui.view">
+		<field name="name">res.config.settings.view.form.inherit.point_of_sale</field>
+		<field name="model">res.config.settings</field>
+		<field name="priority" eval="95" />
+		<field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//div[@id='auto_printing']" position="before">
+				<div class="col-12 col-lg-6 o_setting_box">
+					<div class="o_setting_right_pane">
+						<label for="pos_custom_logo_type" />
+						<div class="text-muted">
+	                        Replace company logo with custom logo or text
+	                    </div>
+						<div class="content-group mt16">
+							<field name="pos_custom_logo_type" colspan="4" nolabel="1" widget="radio" />
+							<div attrs="{'invisible' : [('pos_custom_logo_type', '=', 'text')]}">
+								<label string="Logo" for="pos_custom_logo" class="col-lg-2 o_light_label" />
+								<field name="pos_custom_logo" widget="image" attrs="{'required' : [('pos_custom_logo_type', '=', 'logo')]}" />
+							</div>
+							<div attrs="{'invisible' : [('pos_custom_logo_type', '=', 'logo')]}">
+								<label string="Text" for="pos_custom_text" class="col-lg-2 o_light_label" />
+								<field name="pos_custom_text" placeholder="e.g. Company Name!" attrs="{'required' : [('pos_custom_logo_type', '=', 'text')]}" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</field>
+	</record>
+</odoo>

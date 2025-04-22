@@ -1,0 +1,13 @@
+<!-- <record id="view_delivery_order_form_inherit" model="ir.ui.view">
+    <field name="name">Hide Delivery Person in Delivery Order Form</field>
+    <field name="model">delivery.order</field>
+    <field name="inherit_id" ref="sh_pos_all_in_one_retail.view_delivery_order_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//form/sheet/group/field[@name='delivery_person_id']" position="attributes">
+            <attribute name="attrs">{'invisible': True}</attribute>
+        </xpath>
+        <xpath expr="//form/sheet/group/field[@name='delivery_person_id']" position="after">
+        
+                </xpath>
+    </field>
+</record> -->

@@ -1,0 +1,1990 @@
+// <-- pos theme style 4 start -->
+
+@if $sh_pos_theme_style == "style_4" {
+  // <-- background image start -->
+
+  @if $sh_pos_body_background_type == "bg_img" {
+    .pos .payment-screen.screen .payment-status-container .label {color: white;}
+    
+    body {
+      .pos {
+        background: linear-gradient(119deg,rgba(darken($sh_pos_primary_color, 35%), $alpha: 0.85) 18%,rgba(darken($sh_pos_gradient_color, 40%), $alpha: 0.8)) !important;
+        &.sh_pos_night_mode {background: unset !important;}
+        div {
+          &.pos-topheader {background: transparent !important;}
+          &.loader {
+            &.o-swing-enter-active{background:transparent !important;backdrop-filter: blur(20px);}
+          }
+        }
+        .pos-content {background: transparent !important;
+          .window {
+            .subwindow {
+              .subwindow-container {
+                .screens {
+                  .screen {
+                    .screen-full-width {
+                      .leftpane {
+                        .order-container {
+                          .order {
+                            .header-note {color: white;}
+                            .summary {background: transparent !important;border: 0;
+                              .sh_order_summary_line{
+                                .total{
+                                  span,div{color: #fff !important;
+                                    span{color: #fff;}
+                                  }
+                                }
+                                .subentry{
+                                  span{color: #fff;}
+                                }
+                              }
+                              .sh_order_summary_left_line{
+                                .global_discount_line{
+                                  span{color: #fff;}
+                                }
+                                .sh_items_counter_orderline{
+                                  b{color: #fff;}
+                                }
+                                .sh_cart_weight_main{
+                                  span{color: #fff;}
+                                }
+                              }
+                            }
+                            .orderlines {
+                              .orderline {color: white;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;
+                                span,ul {color: white;
+                                  li {
+                                    em {color: white;}
+                                  }
+                                }
+                              }
+                            }
+                            .summary {
+                              .line {
+                                .entry {color: white;}
+                              }
+                            }
+                          }
+                        }
+                        .pads {background: transparent !important;
+                          .control-buttons {
+                            .control-button {color: white !important;}
+                          }
+                          .subpads {background: transparent !important;
+                            .numpad {
+                              button {color: white;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                            }
+                            .actionpad {
+                              .button {color: white;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                            }
+                          }
+                        }
+                      }
+                      .rightpane {
+                        .products-widget {
+                          .products-widget-control {
+                            .rightpane-header {
+                              .categories-header {
+                                .sh_switch_view_icon {
+                                  button {color: white;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;outline-color: transparent !important;}
+                                }
+                                .breadcrumbs {
+                                  .breadcrumb {
+                                    .breadcrumb-arrow {color: white;}
+                                    .breadcrumb-button {color: white !important;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                                  }
+                                }
+                                .category-list {
+                                  .category-simple-button {color: white !important;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                                }
+                              }
+                              .search-bar-container {color: white;background: transparent !important;
+                                div {
+                                  &.pos-search-bar {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;
+                                    input {color: white;
+                                      &::placeholder {color: white;}
+                                    }
+                                  }
+                                }
+                                .search-box {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;
+                                  .icon {color: white !important;}
+                                  input {color: white;
+                                    &::placeholder {color: white;}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                          .product-list-container {
+                            .product-list {
+                              .product {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;
+                                .product-content {color: white;
+                                  .product-name {color: white !important;}
+                                }
+                              }
+                              .product_list {
+                                table {
+                                  tbody {
+                                    tr {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;
+                                      &:nth-child(even){background: rgba($sh_even_row_color, $alpha : 0.15) !important;
+                                        td{color: #fff;}
+                                      }
+                                      &:nth-child(odd){background: rgba($sh_odd_row_color, $alpha : 0.15) !important;
+                                        td{color: #fff;}
+                                      }
+                                      td {color: white;
+                                        .variant_badge{border: 0;background: rgba(255, 255, 255, 0.15) !important;color: #fff;}
+                                        .product-image-icon{border-color: #fff;color: #fff;}
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            .product-list-empty {
+                              p {color: white;}
+                            }
+                          }
+                        }
+                        .controls {background: transparent !important;
+                          .buttons {
+                            button {
+                              &.discard {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;outline: 0 !important;color: #fff !important;
+                                &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;border: 0;}
+                              }
+                              &.highlight{border: 0;}
+                            }
+                          }
+                          .arrow-left {color: white;border: 0;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                          .pos-search-bar {border-radius: 50px;box-shadow: 0 1px 6px 3px rgba(0, 0, 0, 0.1);border: 0;
+                            .search {
+                              .search-icon {color: white;}
+                              .radius-left {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px);color: white;
+                                &::placeholder {color: white;}
+                              }
+                              .fields {
+                                ul {background: rgb(36, 19, 19) !important;color: white;
+                                  li {
+                                    span {color: white !important;}
+                                    &:hover {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.7) 18%,rgba($sh_pos_gradient_color, $alpha: 0.7)) !important;}
+                                    &.highlight {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.7) 18%,rgba($sh_pos_gradient_color, $alpha: 0.7)) !important;}
+                                  }
+                                }
+                              }
+                            }
+                            .radius-right {color: white;
+                              .options {background: rgb(36, 19, 19) !important;color: white;
+                                li {
+                                  &:hover {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.7) 18%,rgba($sh_pos_gradient_color, $alpha: 0.7)) !important;}
+                                }
+                              }
+                            }
+                          }
+                          .search {border-radius: 50px;color: white;border: 0;backdrop-filter: blur(7.5px) !important;}
+                          .filter {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                        }
+                        .orders {
+                          div {
+                            &.order-row {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;border-color: transparent;
+                              .col {color: white !important;}
+                              &.highlight {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.5) 18%,rgba($sh_pos_gradient_color, $alpha: 0.5)) !important;
+                                div {
+                                  &.col {color: white !important;}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .control-buttons {background: transparent !important;
+                        .control-button {transition: 0.5s;background: rgba(255, 255, 255, 0.15) !important;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(7.5px);color: white;
+                          a{color: #fff;}
+                          &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                        }
+                      }
+                    }
+                    .screen-content {
+                      .top-content {
+                        .searchbox-client {
+                          .sh_searchbox_temp_screen{background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;border-color: transparent;color: #fff;
+                            &::placeholder{color: #fff;}
+                          }
+                        }
+                        .sh-pos-order-filter{background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;border: 0;color: #fff;
+                          option{color: #7b7575;}
+                        }
+                        .searchbox-client {
+                          .sh_top_bar_search_box{background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;border: 0;color: #fff;
+                            input{color: #fff;
+                              &::placeholder{color: #fff;}
+                            }
+                          }
+                          .sh_top_bar_date_box{
+                            input{background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;border: 0 !important;color: #fff !important;
+                              &::placeholder{color: #fff;}
+                            }
+                          }
+                        }
+                        .search-bar-container {
+                          .pos-search-bar {border-color: transparent;border: 0 !important;background: rgba(255, 255, 255, 0.15) !important;color: #fff;
+                            input {color: white;
+                              &::placeholder {color: white;}
+                            }
+                          }
+                        }
+                        div {
+                          &.button {
+                            &.back {color: white !important;outline-color: transparent !important;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                            &.new-note {border: 0 ;}
+                          }
+                          &.top-content-center {
+                            h1 {background: linear-gradient(119deg,lighten($sh_pos_primary_color, 9%) 18%,lighten($sh_pos_gradient_color, 6%)) !important;background-clip: text !important;}
+                          }
+                        }
+                      }
+                      .full-content {
+                        .partner-window {
+                          .subwindow {
+                            .subwindow-container {
+                              .subwindow-container-fix {
+                                .partner-list {
+                                  thead {
+                                    tr {border-color: transparent !important;}
+                                  }
+                                  tbody {
+                                    tr {backdrop-filter: blur(7.5px) !important;border-color: transparent !important;
+                                      &:nth-child(even) {background: rgba($sh_even_row_color, $alpha: 0.15) !important;}
+                                      &:nth-child(odd) {background: rgba($sh_odd_row_color, $alpha: 0.15) !important;}
+                                      td {color: white !important;}
+                                      &.partner-line {
+                                        &.highlight {
+                                          td {color: white !important;}
+                                        }
+                                      }
+                                      &.highlight {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                                    }
+                                  }
+                                }
+                                .detail {color: white;border: 0;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;
+                                  &::placeholder {color: white;}
+                                  option {color: #919191 !important;}
+                                }
+                                .partner-details {border-top: 0;
+                                  .partner-details-left {
+                                    .partner-detail {
+                                      span{color: #fff;}
+                                      .detail {color: white;border: 0;
+                                        &::placeholder {color: white;}
+                                        option {color: #919191 !important;}
+                                      }
+                                    }
+                                  }
+                                  .partner-details-right {
+                                    .partner-detail {
+                                      .detail {color: white;
+                                        &::placeholder {color: white;}
+                                        option {color: #919191 !important;}
+                                      }
+                                    }
+                                  }
+                                }
+                                .sh_pos_order_detail_table{
+                                  table{
+                                    thead{
+                                      tr{border-color: transparent;}
+                                    }
+                                    tbody {
+                                     > tr {backdrop-filter: blur(7.5px) !important;border-color: transparent !important;
+                                        &:nth-child(even) {background: rgba($sh_even_row_color, $alpha: 0.15) !important;}
+                                        &:nth-child(odd) {background: rgba($sh_odd_row_color, $alpha: 0.15) !important;}
+                                        td {color: white !important;
+                                          table{
+                                           > thead{
+                                              tr{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;border-color: transparent;}
+                                            }
+                                            tbody{
+                                              tr{backdrop-filter: blur(7.5px) !important;border: 0 !important;
+                                                &:nth-child(even) {background: rgba($sh_even_row_color, $alpha: 0.15) !important;}
+                                                &:nth-child(odd) {background: rgba($sh_odd_row_color, $alpha: 0.15) !important;}
+                                              }
+                                            }
+                                          }
+                                        }
+                                        &.partner-line {
+                                          &.highlight {
+                                            td {color: white !important;}
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                        .window{
+                          .subwindow{
+                            .subwindow-container{
+                              .subwindow-container-fix {
+                                table{
+                                  thead{
+                                    tr{border: 0;}
+                                  }
+                                  tbody{
+                                    tr{backdrop-filter: blur(7.5px);
+                                      &:nth-child(odd){background: rgba($sh_odd_row_color, $alpha : 0.15) ;
+                                        td , i{color: #fff;}
+                                      }
+                                      &:nth-child(even){background: rgba($sh_odd_row_color, $alpha : 0.15) !important;
+                                        td , i{color: #fff;}
+                                      }
+                                      td{
+                                        table{
+                                            tr{
+                                              &:nth-child(odd){background: rgba($sh_odd_row_color, $alpha : 0.15) !important;
+                                                td , i{color: #fff;}
+                                              }
+                                              &:nth-child(even){background: rgba($sh_even_row_color, $alpha : 0.15) !important;
+                                                td , i{color: #fff;}
+                                              }
+                                            
+                                          }
+                                        }
+                                      }
+                                      &:hover{background: rgba($sh_hover_background_color, $alpha : 0.15) !important;}
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .main-content {
+                        .left-content {
+                          .paymentmethods-container {
+                            .pymnt_header_note{color: #fff;}
+                            .payment_order_note{
+                              textarea{color: white !important;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px);border: 0; box-shadow: none;}
+                            }
+                            .paymentmethods {
+                              .title-category {border-radius: 50px;background: #c9ccd236;color: white;}
+                              .paymentmethod {color: white !important;background: rgba(255, 255, 255, 0.15) !important;
+                                .payment-name {backdrop-filter: blur(7.5px) !important;}
+                              }
+                            }
+                            .paymentlines {
+                              .title-category {border-radius: 50px;background: #c9ccd236;color: white;}
+                              .paymentline {color: white !important;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                            }
+                          }
+                        }
+                        .center-content {
+                          .paymentlines-container {
+                            div {
+                              .payment-status-container {
+                                div {
+                                  .payment-status-remaining {
+                                    .label {color: white;}
+                                    .amount {background: linear-gradient(119deg,lighten($sh_pos_primary_color, 9%) 18%,lighten($sh_pos_gradient_color, 6%)) !important;background-clip: text !important;}
+                                  }
+                                  .payment-status-total-due {
+                                    span {color: white !important;}
+                                  }
+                                  .payment-status-change {
+                                    .label {color: white;}
+                                    .amount {background: linear-gradient(119deg,lighten($sh_pos_primary_color, 9%) 18%,lighten($sh_pos_gradient_color, 6%)) !important;background-clip: text !important;}
+                                  }
+                                }
+                              }
+                            }
+                            .paymentlines-empty {
+                              div {
+                                &.total {background: linear-gradient(119deg,lighten($sh_pos_primary_color, 9%) 18%,lighten($sh_pos_gradient_color, 6%)) !important;background-clip: text !important;}
+                              }
+                              .message {color: white;}
+                              .sh_rounding_div{
+                                .rounding_label{color: #fff;}
+                                .cb4_label{background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                              }
+                            }
+                          }
+                          .payment-buttons-container {
+                            .payment-numpad {
+                              .numpad {
+                                button {color: white;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;
+                                  &:hover {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.35) 18%,rgba($sh_pos_gradient_color, $alpha: 0.35));}
+                                }
+                              }
+                            }
+                          }
+                        }
+                        .right-content {
+                          .payment-buttons {background: transparent;
+                            .partner-button {border-color: transparent;
+                              .button {color: white !important;backdrop-filter: blur(7.5px) !important;background: rgba(255, 255, 255, 0.15);}
+                            }
+                            .payment-controls {border-color: transparent;
+                              .button {color: white !important;backdrop-filter: blur(7.5px) !important;background: rgba(255, 255, 255, 0.15);}
+                            }
+                          }
+                        }
+                      }
+                      .default-view {
+                        .sh_receipt_actions {
+                          h1 {color: white;}
+                          .successful {color: white;}
+                          .buttons {
+                            .button {color: white;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;outline-color: transparent !important;}
+                          }
+                          .send-email {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;border-color: transparent;border: 0;
+                            &.hide_send_mail {
+                              + .successful {margin-top: 20px;}
+                            }
+                            .email-icon {color: white;}
+                            .input-email {background: transparent !important;border-color: transparent;
+                              input {color: white;
+                                &::placeholder {color: white;}
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .sh_pagination {color: white;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;border: 0 ;
+                        ul{
+                          li{
+                            span{box-shadow: none;}
+                          }
+                        }
+                      }
+                    }
+                    .owl-carousel {
+                      &#owl-demo {background: transparent !important;}
+                      .owl-stage-outer {
+                        .owl-stage {
+                          .owl-item {
+                            .control-button {color: white !important;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;
+                              .btn-primary{color: #fff !important;}
+                            }
+                          }
+                        }
+                      }
+                    }
+                    div {
+                      &.screen-content-flexbox {background: transparent !important;
+                        .floor-selector {
+                          .button {box-shadow: inset 0px 0px 12px 2px rgba(0, 0, 0, 0.46);
+                            &.active {box-shadow:inset 10px 15px 20px rgba(0, 0, 0, 0.46),5px 5px 15px rgba(0, 0, 0, 0.35),10px 10px 15px rgba(0, 0, 0, 0.32) !important; background: transparent !important;}
+                          }
+                        }
+                      }
+                    }
+                    .rightpane{
+                      .flex-container{
+                        .control-panel{
+                          .item{
+                            &.button{
+                              &.back{color: white;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;outline: 0;}
+                            }
+                            input{color: white;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;border-color: transparent;
+                              &::placeholder{color: #fff;}
+                            }
+                          }
+                        }
+                        .orders{
+                          .order-list{
+                            .order-row{border-color: transparent;
+                              .col{color: #fff;}
+                              &:nth-child(odd){background: rgba($sh_odd_row_color, $alpha : 0.15);backdrop-filter: blur(7.5px) !important;}
+                              &:nth-child(even){background: rgba($sh_even_row_color, $alpha : 0.15);backdrop-filter: blur(7.5px) !important;}
+                              &:hover{background: rgba($sh_hover_background_color, $alpha : 0.15) !important;}
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .contents {
+                      .top-content {
+                        .button {
+                          &.back {color: white !important;border: 0;outline: 0;background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                        }
+                        div {
+                          &.top-content-center {
+                            h1 {background: linear-gradient(119deg,lighten($sh_pos_primary_color, 9%) 18%,lighten($sh_pos_gradient_color, 6%)) !important;background-clip: text !important;}
+                          }
+                        }
+                      }
+                      .main {background: transparent !important;
+                        .lines {
+                          .order {
+                            .orderlines {
+                              li {
+                                &.orderline {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.4) 18%,rgba($sh_pos_gradient_color, $alpha: 0.4)) !important;
+                                  &.selected {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.8) 18%,rgba($sh_pos_gradient_color, $alpha: 0.8)) !important;}
+                                }
+                                span,
+                                ul {color: white;}
+                              }
+                            }
+                          }
+                        }
+                        .controls {
+                          .order-info {
+                            span {
+                              &.subtotal {background: linear-gradient(119deg,lighten($sh_pos_primary_color, 9%) 18%,lighten($sh_pos_gradient_color, 6%)) !important;background-clip: text !important;}
+                            }
+                          }
+                          .pay-button {
+                            .button {color: white;}
+                          }
+                        }
+                      }
+                    }
+                  }
+                  div{
+                    &.login-overlay{background: transparent !important;backdrop-filter: blur(10px);}
+                  }
+                }
+                .partner-details-contents {
+                  .partner-details {
+                    .partner-details-left {
+                      .partner-detail {
+                        input {
+                          &.detail {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                        }
+                      }
+                    }
+                    .partner-details-right {
+                      .partner-detail {
+                        input {
+                          &.detail {background: rgba(255, 255, 255, 0.15) !important;backdrop-filter: blur(7.5px) !important;}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // <-- product style 3 start -->
+
+    @if $sh_pos_product_style == "style_3" {
+      body {
+        .pos {
+          .pos-content {
+            .window {
+              .subwindow {
+                .subwindow-container {
+                  .screens {
+                    .screen {
+                      .screen-full-width {
+                        .rightpane {
+                          .products-widget {
+                            .product-list-container {
+                              .product-list {
+                                .product {background: #fff !important;box-shadow: 04px11px5pxrgba (0, 0, 0, 0.1) !important;border-top: 0;border-left: 0;border-right: 0;}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // <-- product style 3 end -->
+  }
+
+  // <-- background image end -->
+
+  body {
+    .pos {
+      .control-button.highlight,
+      .button.highlight {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;}
+      div {
+        &.loader {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;}
+      }
+      .pos-topheader {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+        .pos-rightheader {
+          .back-to-floor-portal {
+            .floor-button {background: transparent !important;color: white;}
+          }
+        }
+      }
+      .pos-content {background: $sh_pos_body_background_color;
+        .window {
+          .subwindow {
+            .subwindow-container {
+              .subwindow-container-fix {
+                .screen {background: transparent;overflow-x: hidden;
+                  .screen-full-width {
+                    .leftpane {background: transparent !important;
+                      @if $sh_cart_position =="right_side" {border-left-width: 3px !important;border-left-style: solid;border-image: linear-gradient(to bottom, $sh_pos_primary_color, $sh_pos_gradient_color) 1 100%;}
+                      @if $sh_cart_position =="left_side" {border-right-width: 3px !important;border-right-style: solid;border-image: linear-gradient(to bottom, $sh_pos_primary_color, $sh_pos_gradient_color) 1 100%;}
+                      .order-container {background: transparent;
+                        .order {
+                          .order-empty {color: #a9abaf;}
+                          .orderlines {
+                            .orderline {border: 0;margin: 5px 10px;transition: 0.5s;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                              &.selected {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;
+                                span , li ,em{color: #fff !important;border-color: #fff;}
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .pads {
+                        .subpads {
+                          .numpad {
+                            button {
+                              &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;}
+                              &.selected-mode {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                            }
+                          }
+                          .actionpad {
+                            .button {
+                              &.toggle {border: 0;
+                                &:active {border-color: transparent;}
+                              }
+                              &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;
+                                .pay-circle {
+                                  .fa {background: rgba(255, 255, 255, 0.5);color: white;}
+                                }
+                              }
+                            }
+                          }
+                        }
+                        .control-buttons {background: transparent !important;
+                          .control-button {
+                            &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                          }
+                        }
+                      }
+                    }
+                    .rightpane {background: transparent !important;
+                      .products-widget {
+                        .products-widget-control {box-shadow: none;
+                          .rightpane-header {background: transparent;
+                            .categories-header {
+                              .sh_switch_view_icon {
+                                button {border: 0;
+                                  &.highlight {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                                }
+                              }
+                              .breadcrumbs {
+                                .breadcrumb {display: flex;align-items: center;overflow: unset;
+                                  .breadcrumb-home {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;padding: 10px 20px;font-size: 18px;line-height: normal;color: white !important;}
+                                  .breadcrumb-button {
+                                    &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;}
+                                  }
+                                }
+                              }
+                              .category-list {
+                                .category-simple-button {
+                                  &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;}
+                                }
+                              }
+                            }
+                            .search-bar-container {border: 0 !important;
+                              .pos-search-bar {transition: 0.5s;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);border: 1px solid transparent;
+                                &:hover {border-color: $sh_pos_primary_color;}
+                              }
+                              .search-box {border-radius: 50px !important;background: #fff;box-shadow: 0 4px 11px 5px rgba(0, 0, 0, 0.1);}
+                            }
+                          }
+                        }
+                        .product-list-container {background: transparent !important;
+                          .product-list {
+                            .product {
+                              @if $sh_display_product_image_name == "product_name" {background: $product_background_color !important;}
+                              .product-content {
+                                .price-tag {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                                .counter-tag {border: 0 !important;background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;border-radius: 100%;color: #4a4f59;}
+                              }
+                              &:hover {box-shadow: 0 6px 8px 1px rgba(0, 0, 0, 0.1) !important;transform: translateY(-2px);}
+                              &:active {transform: scale(0.9);}
+                              @include media-breakpoint-down(sm) {&:active {border: 0;transform: scale(0.9);}}
+                              @include media-breakpoint-only(md) {&:active {border: 0;transform: scale(0.9);}}
+                              @include media-breakpoint-only(sm) {&:active {border: 0;transform: scale(0.9);}}
+                            }
+                            table {
+                              thead {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;
+                                th {background: transparent !important;}
+                              }
+                              tbody {
+                                tr {
+                                  &:nth-child(odd){background: $sh_odd_row_color;}
+                                  &:nth-child(even){background: $sh_even_row_color;}
+                                }
+                              }
+                            }
+                          }
+                          .search-more-button {
+                            .button {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;border: 0;}
+                          }
+                        }
+                      }
+                      .controls {
+                        .buttons {
+                          button {
+                            &.highlight {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                            &.discard {background: #fff;box-shadow: 0 4px 11px 5px rgba(0, 0, 0, 0.1);border: 0;outline: 1px solid $sh_pos_primary_color;
+                              &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;outline-color: transparent;}
+                            }
+                          }
+                          + .search {background: #fff;box-shadow: 0 4px 11px 5px rgba(0, 0, 0, 0.1);}
+                        }
+                        .arrow-left {background: #fff;box-shadow: 0 4px 11px 5px rgba(0, 0, 0, 0.1);}
+                        .pos-search-bar {
+                          // border: 0;
+                          .search {
+                            .radius-left {background: #fff;}
+                            .fields {border-radius: 20px;
+                              ul {border-radius: 20px;box-shadow: 0 1px 6px 3px rgba(0, 0, 0, 0.1);
+                                li {color: #4a4f59;
+                                  &:first-child {border-top-right-radius: 50px;border-top-left-radius: 50px;}
+                                  &:last-child {border-bottom-right-radius: 50px;border-bottom-left-radius: 50px;}
+                                  &.highlight {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.35) 18%,rgba($sh_pos_gradient_color, $alpha: 0.35));}
+                                  &:hover {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.35) 18%,rgba($sh_pos_gradient_color, $alpha: 0.35));}
+                                }
+                              }
+                            }
+                          }
+                          .radius-right {background: #fff;
+                            .options {box-shadow: 0 1px 6px 3px rgba(0, 0, 0, 0.1);
+                              li {
+                                &:first-child {border-top-right-radius: 50px;border-top-left-radius: 50px;}
+                                &:last-child {border-bottom-right-radius: 50px;border-bottom-left-radius: 50px;}
+                                &:hover {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.35) 18%,rgba($sh_pos_gradient_color, $alpha: 0.35));}
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .orders {
+                        .header-row {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;z-index: 1;border: 0;
+                          .col {background: transparent !important;align-items: center;}
+                          @include media-breakpoint-down(sm) {display: inline-flex;}
+                        }
+                        .order-row {box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);transition: 0.5s;
+                          &.highlight {
+                            .col {color: $sh_pos_primary_color !important;}
+                          }
+                          .col{
+                            &.delete-button{color: #fff !important;}
+                          }
+                          @include media-breakpoint-down(sm) {display: inline-flex !important;}
+                        }
+                      }
+                    }
+                    .control-buttons {background: transparent !important;box-shadow: none;
+                      @if $sh_action_button_position =="right_side" {border-left-width: 3px !important;border-left-style: solid;border-image: linear-gradient(to bottom, $sh_pos_primary_color, $sh_pos_gradient_color) 1 100%;}
+                      @if $sh_action_button_position =="left_side" {border-right-width: 3px !important;border-right-style: solid;border-image: linear-gradient(to bottom, $sh_pos_primary_color, $sh_pos_gradient_color) 1 100%;}
+                      .control-button {transition: 0.5s;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                        &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;
+                          a{color: #fff !important;}
+                        }
+                      }
+                    }
+                  }
+                  .screen-content {background: transparent;
+                    .top-content {
+                      .top-content-center {
+                        h1 {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;background-clip: text !important;-webkit-text-fill-color: transparent;text-shadow: none;}
+                      }
+                      .search-bar-container {
+                        .pos-search-bar {transition: 0.5s;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                          &:hover {border: 1px solid $sh_pos_primary_color;}
+                          &:focus {border: 1px solid $sh_pos_primary_color;}
+                        }
+                      }
+                      .button {
+                        &.back {background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;color: $sh_pos_primary_color !important;border: 0 !important;outline: 1px solid $sh_pos_primary_color;
+                          &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;outline-color: transparent !important;color: white !important;}
+                        }
+                        &.new-customer {
+                          &.highlight {color: white;background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;border: 0;}
+                        }
+                        &.return_order_button{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;color: #fff;border: 0;}
+                        &.new-note{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important; border: 0;}
+                      }
+                      .top-right-buttons {
+                        .more-info {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;border: 0;}
+                      }
+                      .highlight {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;border: 0;}
+                    }
+                    .full-content {overflow-x: hidden;
+                      .partner-window {
+                        .subwindow {
+                          .subwindow-container {
+                            .subwindow-container-fix {
+                              .partner-list {
+                                thead {
+                                  tr {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;z-index: 1;
+                                    th {background: transparent !important;}
+                                  }
+                                }
+                                tbody {
+                                  tr {transition: 0.5s;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                                    td {
+                                      .unselect-tag {border-radius: 50px;background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;color: #fff;}
+                                      .edit-partner-button {border: 0;background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;
+                                        &:hover {border: 0;color: white;}
+                                      }
+                                    }
+                                    &.highlight {background: #fff;
+                                    }
+                                  }
+                                }
+                              }
+                              .search-more-button {
+                                .button {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                              }
+                              .detail {transition: 0.5s;background: #fff;
+                                &:hover {border-color: $sh_pos_primary_color !important;}
+                              }
+                            }
+                            .partner-details-contents {
+                              .sh_pos_order_detail_table{
+                                table{
+                                  thead{
+                                    tr{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                                      th{background: transparent !important;}
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .window{
+                        .subwindow{
+                          .subwindow-container{
+                            .subwindow-container-fix{
+                              table{
+                                thead{
+                                  tr{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                                    th{color: #fff !important;background: transparent !important;}
+                                  }
+                                }
+                                tbody{
+                                  tr{
+                                    td{
+                                      table{
+                                        tr{
+                                          &:first-child{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                                            th{background: transparent !important;color: #fff;}
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .main-content {
+                      .center-content {
+                        .paymentlines-container {background: transparent !important;
+                          .paymentlines-empty {
+                            .total {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;background-clip: text !important;-webkit-text-fill-color: transparent;text-shadow: none;}
+                          }
+                          .payment-status-container {
+                            .payment-status-change {
+                              .amount {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;background-clip: text !important;-webkit-text-fill-color: transparent;text-shadow: none;}
+                            }
+                            .payment-status-remaining {
+                              .amount {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;background-clip: text !important;-webkit-text-fill-color: transparent;text-shadow: none;}
+                            }
+                          }
+                        }
+                        .payment-buttons-container {
+                          .payment-numpad {
+                            div {
+                              &.numpad {
+                                button {
+                                  &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: #fff;}
+                                  &.selected-mode {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                                }
+                              }
+                            }
+                          }
+                        }
+                        @include media-breakpoint-down(sm) {border: 0 !important;}
+                        @include media-breakpoint-only(md) {border: 0 !important;}
+                      }
+                      .right-content {
+                        .payment-buttons {
+                          .partner-button {
+                            .button {border: 0;}
+                          }
+                          .partner-button {
+                            .button {color: #505156;
+                              &.highlight {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;border: 0;color: white !important;}
+                            }
+                          }
+                          .payment-controls {
+                            .button {color: #505156;border: 0;
+                              &.highlight {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;border: 0;}
+                            }
+                          }
+                        }
+                      }
+                      .left-content {
+                        .paymentmethods-container {
+                          .paymentmethods {
+                            .title-category {border-radius: 50px;}
+                            .paymentmethod {border: 0;
+                              &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;}
+                            }
+                          }
+                          .paymentlines {
+                            .title-category {border-radius: 50px;}
+                            .paymentline {border: 0;align-items: center;
+                              &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;}
+                            }
+                          }
+                        }
+                        .button {
+                          &.highlight {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                        }
+                        .paymentlines-container {background: #fff;
+                          .paymentlines-empty {
+                            .total {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;background-clip: text !important;-webkit-text-fill-color: transparent;text-shadow: none;}
+                          }
+                          div {
+                            .payment-status-container {
+                              div {
+                                .payment-status-remaining,
+                                .payment-status-change {
+                                  .amount {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;background-clip: text !important;-webkit-text-fill-color: transparent;text-shadow: none;}
+                                }
+                                .payment-status-total-due {
+                                  span {
+                                    &:not(.label) {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;background-clip: text !important;-webkit-text-fill-color: transparent;text-shadow: none;}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .default-view {
+                      .sh_receipt_actions {
+                        .buttons {
+                          .button {background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);border: 0;outline: 1px solid $sh_pos_primary_color;
+                            &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: #fff;}
+                          }
+                        }
+                        .send-email {
+                          .email-icon {z-index: 1;background: transparent;
+                            i {position: unset;}
+                          }
+                          .input-email {background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                            .send {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.4) 18%,rgba($sh_pos_gradient_color, $alpha: 0.4)) !important;
+                              &.highlight {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                            }
+                            input {background: transparent;}
+                            &:hover {border-color: $sh_pos_primary_color;}
+                          }
+                        }
+                      }
+                      .pos-receipt-container {
+                        .pos-receipt {border-radius: 30px;}
+                      }
+                    }
+                    .next {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.4) 18%,rgba($sh_pos_gradient_color, $alpha: 0.4)) !important;border: 0;
+                      &.highlight {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                    }
+                    .switchpane {
+                      .btn-switchpane {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                    }
+                    .sh_pagination{
+                      ul{
+                        li{
+                          a{
+                            &.page-link{
+                              &.next{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;color: #fff;}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .rightpane{background: transparent !important;
+                    .flex-container{
+                      .control-panel{
+                        .button{
+                          &.back{color: $sh_pos_primary_color;border: 0;outline: 1px solid  $sh_pos_primary_color;background: #fff;
+                            &:hover{outline-color: transparent;background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;color: #fff;}
+                          }
+                        }
+                      }
+                      .orders{
+                        .header-row{
+                          background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                        }
+                      }
+                    }
+                  }
+                  .owl-carousel {background: transparent !important;
+                    .owl-stage-outer {
+                      .owl-stage {
+                        .owl-item {
+                          .item {
+                            .control-button {box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                              &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;box-shadow: none;}
+                              &.highlight {transition: 0.5s;background: #fff !important;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);color: #414141 !important;
+                                &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white !important;}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .screen-content-flexbox {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                    .floor-selector {
+                      .button {border-radius: 50px;border: 0;color: #ddd;transition: 0.5s;
+                        &.active {background: $sh_pos_primary_color !important;color: white;}
+                      }
+                    }
+                    .floor-map {background: transparent !important;}
+                  }
+                  .contents {
+                    .top-content {
+                      .back {background: #fff;box-shadow: 0 4px 11px 5px rgba(0, 0, 0, 0.1);
+                        &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;outline-color: transparent;}
+                      }
+                      .top-content-center {
+                        h1 {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;background-clip: text !important;-webkit-text-fill-color: transparent;text-shadow: none;}
+                      }
+                    }
+                    .main {
+                      .lines {
+                        .order {background: transparent !important;
+                          .orderlines {
+                            .orderline {border: 0;background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.4) 18%,rgba($sh_pos_gradient_color, $alpha: 0.4));
+                              &.selected {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;color: white;
+                                span,ul,em {color: white;}
+                              }
+                              em {color: white;}
+                            }
+                          }
+                        }
+                      }
+                      .controls {
+                        .order-info {
+                          .subtotal {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;background-clip: text !important;-webkit-text-fill-color: transparent;text-shadow: none;}
+                        }
+                        .pay-button {
+                          .button {border: 0;background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.4) 18%,rgba($sh_pos_gradient_color, $alpha: 0.4)) !important;
+                            &:hover {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                .login-overlay {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                  .screen-login {
+                    @include media-breakpoint-only(xs) {height: 50% !important;
+                      .login-body {
+                        .login-element {
+                          .login-button {background: linear-gradient(119deg,$sh_pos_primary_color 18%,$sh_pos_gradient_color) !important;}
+                        }
+                      }
+                    }
+                    .login-body {
+                      .login-element {
+                        .login-button {background: #fff !important;border: 0;}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .popups {
+        .modal-dialog {backdrop-filter: blur(7.5px);background: rgba(0, 0, 0, 0.4);
+          .modal-dialog{background: rgba(0, 0, 0, 0);}
+          .popup {
+            .popup-input {
+              &:focus {border-color: $sh_pos_primary_color;}
+            }
+            .popup-numpad {
+              button {border: 0;margin: 3px;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(7.5px);
+                &:active {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;}
+                &.selected-mode {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;}
+                &:hover {background: linear-gradient(119deg,rgba($sh_pos_primary_color, $alpha: 0.35) 18%,rgba($sh_pos_gradient_color, $alpha: 0.35)) ;
+                }
+              }
+            }
+            .title {background: transparent;color: #4a4f59;}
+            .main-body{
+              .discount_table{
+                  thead{
+                    tr{
+                      background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                      th{
+                        background: transparent !important;
+                      }
+                    }
+                  
+                }
+              }
+              .main_div_sh_payment_table{
+                table{
+                  thead{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                      th{background: transparent !important;}
+                  }
+                }
+              }
+            }
+            .body {
+              .sh_group_by_attribute{
+                .sh_attribute_name_and_value{
+                  .sh_attribute_id{
+                    .sh_attribute_id3{
+                      &.highlight{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;}
+                    }
+                  }
+                }
+              }
+              .cash-move {
+                .input-amount {
+                  .input-type {border: 0;
+                    &.highlight {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;border: 0 !important;}
+                  }
+                }
+              }
+              .payment-methods-overview {
+                table {
+                  thead {
+                    tr {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                      th {background: transparent !important;text-align: left;}
+                    }
+                  }
+                }
+              }
+              .notes-container {padding: 20px 0;}
+              .opening-cash-notes {border-radius: 50px;padding: 20px;}
+              .attribute {
+                div {
+                  .configurator_select {border-radius: 50px;}
+                }
+              }
+              .product-list-container{
+                .product-list{
+                  .product{
+                    .product-content{
+                      .price-tag{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;right: 0;}
+                    }
+                  }
+                }
+              }
+              .button_div{
+                #note_button{
+                  .each_note_button{border: 0;outline: 1px solid $sh_pos_primary_color;
+                    &.selected{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important; outline: 0;}
+                  }
+                }
+              }
+              .sh_order_type_div{
+                .sh_order_type_table{
+                  tbody{
+                    tr{
+                      &.selectedorder{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;}
+                    }
+                  }
+                }
+              }
+            }
+            .footer {
+              .button {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;color: white !important;border: 0 !important;
+                &:hover {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;color: white;border-color: transparent !important;}
+                &.cancel {border-color: $sh_pos_primary_color !important;border: 0;outline: 1px solid $sh_pos_primary_color;background: #fff !important ;color: #4A4F59 !important;
+                  &:hover {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;color: white !important;outline-color: transparent !important;}
+                }
+              }
+            }
+            &.money-details {
+              footer {
+                .button {background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;border: 0;color: white !important;}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $sh_pos_product_style == "style_4" {
+  body {
+    .pos {
+      .pos-content {
+        .window {
+          .subwindow {
+            .subwindow-container {
+              .subwindow-container-fix {
+                .screen {
+                  .screen-full-width {
+                    .leftpane {background: transparent !important;
+                      .order-container {background: transparent;
+                        .order {
+                          .orderlines {
+                            .orderline {border-radius: 30px !important;
+                              .span_product_image {
+                                .cart_product_image {border-radius: 100%;}
+                              }
+                              @include media-breakpoint-only(xs){padding: 20px 30px;}
+                              @include media-breakpoint-only(sm){padding: 20px 30px;}
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .rightpane {
+                      .products-widget {
+                        .product-list-container {
+                          .product-list {
+                            .product {border-radius: 15px;margin: 13px 12px !important;overflow: unset;transition: 0.3s;background: #fff;box-shadow: 0 4px 11px 5px rgba(0, 0, 0, 0.1);
+                              @if $sh_display_product_image_name == "product_name" {background: $product_background_color !important;}
+                              .product-img {border-radius: 15px;padding: 8px 8px 0 8px;
+                                img {border-radius: 15px;}
+                              }
+                              .product-content {padding-bottom: 10px;
+                                .product-name {margin: 0;}
+                                .sh_action_icons_product{margin: 0 auto;}
+                                .sh_warehouse_display{border-radius: 50px;}
+                                .price-tag {background: $sh_pos_primary_color;right: -10px;border-radius: 50px;}
+                                .counter-tag {border-radius: 50px;}
+                                .sh_action_icons_product{
+                                  .sh_product_bundle_badge{border-radius: 50px !important;}
+                                }
+                              }
+                              &:hover {box-shadow: 0 0 12px 8px #ddd;}
+                              @include media-breakpoint-down(sm) {
+                                &:active {border: 0;transform: scale(0.9);}
+                              }
+                              @include media-breakpoint-only(md) {
+                                &:active {border: 0;transform: scale(0.9);}
+                              }
+                              @include media-breakpoint-only(sm) {
+                                &:active {border: 0;transform: scale(0.9);}
+                              }
+                            }
+                            table {
+                              thead {background: $sh_pos_primary_color;
+                                th {background: transparent !important;}
+                              }
+                              tbody {
+                                tr {transition: 0.5s;border-radius: 50px;
+                                  td {
+                                    img {border-radius: 100%;}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .popups{
+        .modal-dialog{
+          .modal-dialog {
+            .popup{
+              .body{
+                .product-list-container{
+                  .product-list{
+                    .product{border-radius: 15px;box-shadow: 0 4px 11px 5px rgba(0, 0, 0, 0.1);
+                      .product-content{
+                        .sh_warehouse_display{border-radius: 50px;}
+                        .price-tag{border-radius: 50px;}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $sh_pos_button_style == "style_4" {
+  .pos .control-button.highlight,.pos .button.highlight {background: $sh_pos_primary_color !important;border-color: $sh_pos_primary_color !important;}
+  .pos .control-button.highlight,.pos .footer .button.highlight {background: $sh_pos_primary_color !important;border-color: $sh_pos_primary_color !important;}
+  body {
+    div {
+      &.pos {
+        .loader{
+          .loader-feedback{
+            .lds-ellipsis{
+              .button{border-radius: 50px !important;}
+            }
+          }
+        }
+        .pos-topheader {
+          .pos-rightheader {
+            .back-to-floor-portal {
+              .floor-button {background: transparent;color: white;}
+            }
+          }
+          .pos-branding{
+            .create_product{border-radius: 50px;}
+          }
+        }
+        .pos-content {
+          .window {
+            .subwindow {
+              .subwindow-container {
+                .subwindow-container-fix {
+                  .screen {
+                    .rightpane{
+                      .flex-container{
+                        .control-panel{
+                          .button{border-radius: 50px;}
+                        }
+                      }
+                    }
+                    .contents {
+                      .top-content {
+                        .back {border-color: $sh_pos_primary_color;color: $sh_pos_primary_color;border-radius: 50px;border: 0;outline: 1px solid $sh_pos_primary_color;
+                          &:hover {background: $sh_pos_primary_color;color: white;outline-color: transparent;}
+                        }
+                      }
+                      .main {
+                        .controls {
+                          .pay-button {
+                            .button {border-radius: 50px;background: rgba($sh_pos_primary_color, $alpha: 0.4);
+                              &:hover {background: $sh_pos_primary_color;}
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .screen-full-width {
+                      .leftpane {
+                        .order-container {
+                          .order {
+                            .orderlines {
+                              .orderline {
+                                .sh_orderline_icons {
+                                  li{border-radius: 100%;}
+                                }
+                                .span_delete_icon {border-radius: 100%;}
+                              }
+                            }
+                          }
+                        }
+                        .pads {
+                          .subpads {
+                            .numpad {
+                              button {border: 0;margin: 3px;border-radius: 100%;transition: 0.5s;background: #fff;box-shadow: 0 4px 11px 5px rgba(0, 0, 0, 0.1);
+                                &:active {background: $sh_pos_primary_color;}
+                                &.selected-mode {background: $sh_pos_primary_color;}
+                              }
+                            }
+                            .actionpad {
+                              .button {border-radius: 50px;margin: 0 5px;transition: 0.5s;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);border: 0;
+                                &.toggle {border-radius: 50px;
+                                  &:active {border-color: transparent;}
+                                }
+                                &:hover {background: $sh_pos_primary_color;
+                                  .pay-circle {
+                                    .fa {background: rgba(255, 255, 255, 0.5);color: white;}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                          .control-buttons {
+                            .control-button {border-radius: 50px;transition: 0.5s;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                              &:hover {background: $sh_pos_primary_color;color: white;}
+                              &.highlight {border-radius: 50px;}
+                            }
+                          }
+                        }
+                      }
+                      .rightpane {
+                        .products-widget {
+                          .product-list-container {
+                            .sh_product_list_main{
+                              .sh_product_list{
+                                table{
+                                  tbody{
+                                    tr{
+                                      td{
+                                        .product-image-icon{border-radius: 50px;}
+                                        .variant_badge{border-radius: 50px;}
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            .search-more-button {
+                              .button {background: $sh_pos_primary_color;border-radius: 50px;}
+                            }
+                          }
+                          .products-widget-control {
+                            .rightpane-header {
+                              .categories-header {
+                                .sh_switch_view_icon {margin-right: 10px;
+                                  button {border-radius: 100%;transition: 0.5s;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);outline: 1px solid $sh_pos_primary_color;
+                                    &.highlight {background: $sh_pos_primary_color;outline-color: transparent;}
+                                  }
+                                }
+                                .breadcrumbs {display: flex;align-items: center;
+                                  .breadcrumb {overflow: unset;display: flex;align-items: center;
+                                    .breadcrumb-home {background: $sh_pos_primary_color;padding: 10px 20px;font-size: 18px;line-height: normal;color: white !important;border-radius: 50px;}
+                                    .breadcrumb-button {background: #fff;border-radius: 50px;color: #919191;font-weight: 600;line-height: 41px;padding: 0px 20px;transition: 0.5s;box-shadow: 2px 3px 16px -2px rgba(0, 0, 0, 0.27);
+                                      &.breadcrumb-home {background: $sh_pos_primary_color;}
+                                      &:hover {background: $sh_pos_primary_color;color: white;}
+                                    }
+                                  }
+                                }
+                                .category-list {
+                                  .category-simple-button {border-radius: 50px;color: #919191;font-weight: 600;line-height: 41px;padding: 0px 20px;margin: 0 5px;transition: 0.5s;background: #fff;box-shadow: 2px 3px 16px -2px rgba(0, 0, 0, 0.27);
+                                    &:hover {background: $sh_pos_primary_color;color: white;}
+                                  }
+                                }
+                              }
+                              .search-bar-container {border-radius: 50px;}
+                            }
+                          }
+                        }
+                        .controls {
+                          .buttons {
+                            button {
+                              &.highlight {background: $sh_pos_primary_color;border-radius: 50px;border: 0;color: white;}
+                              &.discard {border-color: $sh_pos_primary_color !important;border-radius: 50px;color: $sh_pos_primary_color;transition: 0.5s;
+                                &:hover {background: $sh_pos_primary_color;color: white;}
+                              }
+                            }
+                          }
+                          .arrow-left {border-radius: 50px;}
+                          .search{border-radius: 50px;}
+                        }
+                        .orders {
+                          .order-row {
+                            .col {
+                              i {border-radius: 100%;}
+                              &.delete-button{border-radius: 50px;}
+                            }
+                            @include media-breakpoint-only(md){display: inline-flex;}
+                            @include media-breakpoint-only(sm){display: inline-flex;}
+                            @include media-breakpoint-only(xs){display: inline-flex;}
+                          }
+                        }
+                      }
+                      @if $sh_action_button_position == "right_side" {
+                        .sh_left_control_buttons {
+                          .control-button {border-radius: 50px;
+                            &:hover {background: $sh_pos_primary_color;color: white;
+                              span , a{color: #fff;}
+                            }
+                          }
+                        }
+                      }
+                      @if $sh_action_button_position == "left_side" {
+                        .sh_left_control_buttons {
+                          .control-button {border-radius: 50px;
+                            &:hover {background: $sh_pos_primary_color;color: white;
+                              span , a{color: #fff;}
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .owl-carousel {
+                      .owl-stage-outer {
+                        .owl-stage {
+                          .owl-item {
+                            .item {
+                              .control-button {color: #414141;border-radius: 50px;transition: 0.5s;background: #fff;box-shadow: 0 4px 11px 5px rgba(0, 0, 0, 0.1);
+                                &:hover {background: $sh_pos_primary_color;color: white !important;box-shadow: none;
+                                  span , a{color: #fff !important;}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .screen-content {
+                      .top-content {
+                        .button {
+                          &.highlight {background: $sh_pos_primary_color;border-color: $sh_pos_primary_color;border-radius: 50px;}
+                          &.back {background: white;color: $sh_pos_primary_color;border-color: $sh_pos_primary_color;border-radius: 50px;
+                            &:hover {background: $sh_pos_primary_color;color: white;}
+                          }
+                          &.return_order_button {background: white;border-color: $sh_pos_primary_color;border-radius: 50px;
+                            &:hover {background: $sh_pos_primary_color;color: white;}
+                          }
+                        }
+                        .top-right-buttons {
+                          .more-info {background: $sh_pos_primary_color;border-radius: 50px;}
+                        }
+                      }
+                      .full-content {
+                        .partner-window {
+                          .subwindow {
+                            .subwindow-container {
+                              .subwindow-container-fix {
+                                .partner-list {
+                                  tbody {
+                                    tr {
+                                      td {background: transparent !important;vertical-align: middle;
+                                        .unselect-tag {border-radius: 50px;background: $sh_pos_primary_color;}
+                                        .edit-partner-button {border-radius: 50px;background: $sh_pos_primary_color;
+                                          &:hover {color: white;}
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                        .window{
+                          .subwindow{
+                            .subwindow-container{
+                              .subwindow-container-fix{
+                                table{
+                                  tbody{
+                                    tr{
+                                      td{
+                                        i{border-radius: 50px;}
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .main-content {
+                        .center-content {
+                          .payment-buttons-container {
+                            .payment-numpad {
+                              .numpad {margin: auto;
+                                button {margin: 5px;height: auto;border-radius: 20px;transition: 0.5s;background: #fff;box-shadow: 2px 0px 27px -10px rgba(0, 0, 0, 0.27) !important;border: 0;
+                                  &:active {background: $sh_pos_primary_color;}
+                                  &.selected-mode {background: $sh_pos_primary_color;}
+                                  &:hover {background: rgba($sh_pos_primary_color, $alpha: 0.3);}
+                                }
+                              }
+                            }
+                          }
+                        }
+                        .right-content {
+                          .payment-buttons {
+                            .partner-button {
+                              .button {border-radius: 50px !important;color: #505156;}
+                            }
+                            .payment-controls {
+                              .button {border-radius: 50px !important;color: #505156;
+                                &.highlight {background: $sh_pos_primary_color;border: 0;}
+                              }
+                            }
+                          }
+                        }
+                        .left-content {
+                          .paymentmethods-container {
+                            .paymentmethods {
+                              .paymentmethod {border-radius: 50px;transition: 0.5s;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);color: #505156;
+                                .payment-name {border-radius: 50px;}
+                                &:hover {background: $sh_pos_primary_color;color: white;border: 0;}
+                              }
+                            }
+                            .paymentlines {
+                              .paymentline {transition: 0.5s;border-radius: 50px !important;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);color: #505156;
+                                &:hover {background: $sh_pos_primary_color;color: white;border: 0;}
+                              }
+                            }
+                          }
+                          .button {border-radius: 50px;color: #505156;
+                            &.highlight {background: $sh_pos_primary_color;}
+                          }
+                        }
+                      }
+                      .default-view {
+                        .sh_receipt_actions {
+                          .buttons {
+                            .button {border-radius: 50px;}
+                          }
+                          .send-email {border-radius: 50px;
+                            .email-icon {
+                              i {position: unset;}
+                            }
+                            .input-email {border-radius: 50px;
+                              .send {background: rgba($sh_pos_primary_color, $alpha: 0.4);border-radius: 50px;
+                                &.highlight {background: $sh_pos_primary_color;}
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .button {border-radius: 50px;
+                        &.highlight {background: $sh_pos_primary_color;}
+                      }
+                      .switchpane {
+                        .btn-switchpane {border-radius: 50px;}
+                      }
+                      .sh_pagination{
+                        ul{
+                          li{
+                            span,a {border-radius: 50px;}
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .login-overlay {
+                    .screen-login {
+                      @include media-breakpoint-only(xs) {height: 50% !important;
+                        .login-body {
+                          .login-element {
+                            .login-button {background: $sh_pos_primary_color;border: 0;border-radius: 50px;}
+                          }
+                        }
+                      }
+                      .login-body {
+                        .login-element {
+                          .login-button {border: 0;border-radius: 50px;}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .popups {
+          .modal-dialog {
+            .popup {
+              .popup-numpad {
+                button {border: 0;margin: 3px;border-radius: 100%;background: #fff;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                  &:active {background: $sh_pos_primary_color;}
+                  &.selected-mode {background: $sh_pos_primary_color;}
+                  &:hover {background: rgba($sh_pos_primary_color, $alpha: 0.35);}
+                }
+              }
+              .title {background: transparent;color: #4a4f59;}
+              .body {
+                .cash-move {
+                  .input-amount {
+                    .input-type {border-radius: 50px;}
+                  }
+                }
+                .button_div{
+                  #note_button{
+                    .each_note_button{border-radius: 50px;}
+                  }
+                }
+              }
+              .footer {
+                .button {border-radius: 50px;border-color: $sh_pos_primary_color;background: white;color: #4a4f59;border: 0 !important;outline: 1px solid $sh_pos_primary_color;
+                  &.confirm {background: $sh_pos_primary_color;color: white;}
+                  &.highlight {background: $sh_pos_primary_color;border: 0;}
+                  &.cancel {color: $sh_pos_primary_color;border-color: $sh_pos_primary_color;
+                    &:hover {background: $sh_pos_primary_color;color: white;}
+                  }
+                  &:hover {background: $sh_pos_primary_color;color: white;border-color: transparent !important;outline-color: transparent !important;}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $sh_form_element_style == "style_4" {
+  body {
+    .pos {
+      .pos-content {
+        .window {
+          .subwindow {
+            .subwindow-container {
+              .subwindow-container-fix {
+                .screen {
+                  .screen-full-width {
+                    .rightpane {background: transparent !important;
+                      .products-widget {
+                        .products-widget-control {
+                          .rightpane-header {
+                            .search-bar-container {
+                              .pos-search-bar {border-radius: 50px;}
+                              .search-box {border-radius: 50px !important;}
+                            }
+                          }
+                        }
+                      }
+                      .controls {
+                        .pos-search-bar {border-radius: 50px;box-shadow: 0 1px 6px 3px rgba(0, 0, 0, 0.1);
+                          .search {
+                            .radius-left {border-top-left-radius: 50px;border-bottom-left-radius: 50px;}
+                          }
+                          .radius-right {border-top-right-radius: 50px;border-bottom-right-radius: 50px;
+                            .options {border-radius: 20px;}
+                          }
+                        }
+                        .search {border-radius: 50px;}
+                      }
+                    }
+                  }
+                  .screen-content {
+                    .top-content {
+                      .sh_searchbox_client_top_part{
+                        input{border-radius: 50px;}
+                      }
+                      .search-bar-container {border-radius: 50px;
+                        .pos-search-bar {border-radius: 50px;background: white;box-shadow: 0 4px 11px 1px rgba(0, 0, 0, 0.18);}
+                      }
+                      .searchbox-client {
+                        .sh_top_bar_search_box{border-radius: 50px;}
+                        .sh_top_bar_date_box{
+                          input{border-radius: 50px;}
+                        }
+                      }
+                      .sh-pos-order-filter{border-radius: 50px;}
+                    }
+                    .tip-options{
+                      .tip-amount-options{
+                        .custom-amount-form{
+                          .item{border-radius: 50px;}
+                        }
+                      }
+                    }
+                    .full-content {
+                      .partner-window {
+                        .subwindow {
+                          .subwindow-container {
+                            .partner-details-contents {
+                              .partner-details {
+                                .partner-details-left{
+                                  .partner-detail {
+                                    .sh_custom{
+                                      .sh_custom_control_indicator{
+                                        border-radius: 50px;
+
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                              .detail , select {border-radius: 50px;padding: 10px 20px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                                @include media-breakpoint-only(xs) {padding: 20px 0 !important;padding-left: 10px !important;}
+                              }
+                            }
+                            .partner-list {
+                              thead {
+                                tr {background: $sh_pos_primary_color !important;border-radius: 50px;
+                                  th {background: transparent !important;}
+                                }
+                              }
+                              tbody {
+                                tr {transition: 0.5s;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                                  td {background: transparent !important;vertical-align: middle;
+                                    .unselect-tag {border-radius: 50px;background: $sh_pos_primary_color;}
+                                    .edit-partner-button {border-radius: 50px;border: 0;background: $sh_pos_primary_color;
+                                      &:hover {border: 0;color: white;}
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .default-view {
+                      .sh_receipt_actions {
+                        .send-email {
+                          .email-icon {
+                            i {position: unset;}
+                          }
+                          .input-email {padding: 10px 25px;}
+                        }
+                      }
+                    }
+                    .main-content{
+                      .left-content{
+                        .paymentmethods-container{
+                          .payment_order_note{
+                            textarea{
+                              border-radius: 20px;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .contents {
+                    .main {
+                      .lines {
+                        .order {background: transparent !important;border: 0;
+                          .orderlines {background: transparent !important;
+                            .orderline {border-radius: 50px;background: rgba($sh_pos_primary_color, $alpha: 0.12);margin: 5px 0;
+                              &.selected {background: $sh_pos_primary_color;color: white;
+                                span,ul,em {color: white;}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .rightpane{
+                    .flex-container{
+                      .control-panel{
+                        .item{
+                          input{border-radius: 50px;}
+                        }
+                      }
+                    }
+                  }
+                }
+                .login-overlay {
+                  .screen-login {border-radius: 20px;}
+                }
+              }
+            }
+          }
+        }
+      }
+      .popups {
+        .modal-dialog {
+          .popup {border-radius: 20px;
+            header {border-top-left-radius: 40px;border-top-right-radius: 40px;}
+            .popup-input {border-radius: 50px !important;
+              &:focus {border-color: $sh_pos_primary_color;}
+            }
+            .main-body {
+              .main_div_signature{
+                .signature_detail_div{
+                  canvas{border-radius: 20px;}
+                }
+              }
+              textarea{border-radius: 30px;}
+              .discount_amount_div{
+                .sh_discount_value{border-radius: 50px;}
+              }
+              #sh_table_id{
+                table{
+                  thead{
+                    tr{background: linear-gradient(119deg, $sh_pos_primary_color 18%, $sh_pos_gradient_color) !important;
+                      th{background: transparent !important;}
+                    }
+                  }
+                }
+              }
+            }
+            .body {
+              div{
+                textarea{border-radius: 20px;}
+              }
+              .sh_group_by_attribute{
+                .sh_attribute_name_and_value{
+                  .sh_attribute_id{
+                    .sh_attribute_id3{border-radius: 50px !important;}
+                  }
+                }
+              }
+              .cash-move {
+                .input-amount {
+                  .input-field {
+                    input {border-radius: 50px;}
+                  }
+                }
+                textarea {border-radius: 30px;padding: 20px 12px;}
+              }
+              input {border-radius: 50px;}
+              .notes-container {padding: 20px 0;
+                textarea {border-radius: 30px;}
+              }
+              select {border-radius: 50px;
+                &[name="skills"]{border-radius: 20px !important;
+                  option{padding: 2px 10px;}
+                }
+              }
+              .payment-methods-overview {
+                table {
+                  thead {
+                    tr {background: $sh_pos_primary_color;border-radius: 50px;
+                      th {background: transparent !important;text-align: left;
+                        &:first-child {border-top-left-radius: 50px;border-bottom-left-radius: 50px;padding-left: 30px;}
+                        &:last-child {border-top-right-radius: 50px;border-bottom-right-radius: 50px;}
+                      }
+                    }
+                  }
+                }
+              }
+              .sh_order_type_div{
+                .sh_order_type_table{
+                  tbody{
+                    tr{border-radius: 50px;
+                      td{
+                        &:first-child{border-top-left-radius: 50px;border-bottom-left-radius: 50px;}
+                        &:last-child{border-top-right-radius: 50px;border-bottom-right-radius: 50px;}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .footer{
+              .sh_store_checkbox{
+                .sh_custom_label{
+                  &::before{
+                    border-radius: 50px;
+                  }
+                }
+              }
+            }
+            .popup-textarea-wrap {border-radius: 50px;padding: 20px;
+              textarea {border-radius: 20px;padding: 20px;}
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// <-- pos theme style 4 end -->

@@ -1,0 +1,235 @@
+.pos{
+    .partner-list{
+        .partner-line{
+            
+            .sh_wallet_icon_td{
+                vertical-align: middle;
+                svg{
+                    .cls-1{
+                        fill: #666666 !important;
+                    }
+                }
+            }
+            &.highlight,
+            &:hover{
+                .sh_wallet_icon_td{
+                    svg{
+                        .cls-1{
+                            fill: $sh_pos_primary_color !important;
+                        }
+                    }
+                } 
+            }
+        }
+    }
+    .sh_pos_wallet_balance_check_popup{
+        max-width: 600px !important;
+        .main-body{
+            .sh_main_wallet_div{
+                .sh_sub_wallet_header{
+                    font-size: 15px !important;
+                }
+                .sh_create_recharge_button{
+                    &.button{
+                        margin: 0 auto !important;
+                        float: unset !important;
+                        padding: 15px 17px;
+                        width: fit-content;
+                        height: unset;
+                        line-height: unset;
+                        @if $sh_pos_button_style=="style_1" {
+                            border-radius: 5px;
+                        }
+                        @if $sh_pos_button_style=="style_2"{
+                            border-radius: 10px 0px 10px 0px;
+                        }
+                        @if $sh_pos_button_style=="style_3" {
+                            border-radius: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    
+    }
+    .sh_pos_wallet_balance_check_popup,
+    .sh_pos_wallet_create_balance_popup{
+        .main-body{
+            .sh_main_wallet_div{
+                .sh_wallet_Detail{
+                    .sh_wallet_close_popup{
+                        text-align: end;
+                    }
+                    .sh_main_wallet_header{
+                        font-size: 19px;
+                        font-weight: bold;
+                        margin: 30px 0;
+                        color: #000;
+                    }
+                    .sh_sub_wallet_header{
+                        font-size: 19px;
+                        margin: 30px 0 15px;
+                    }
+                }
+                .sh_new_wallet_detail{
+                    width: 90%;
+                    margin: 0 auto;
+                    .sh_wallet_remark_lbl,
+                    .sh_wallet_amount_lbl{
+                        text-align: start;
+                        font-size: 16px;
+                        padding-bottom: 5px;
+                    }
+                    .sh_wallet_remark_input,
+                    .sh_wallet_amount_input{
+                        margin-bottom: 15px;
+                        text-align: start;
+                        input{
+                            outline: none !important;
+                            box-shadow: none !important;
+                            border:  1px solid gainsboro;
+                            @if $sh_form_element_style =="style_1" {
+                                border-radius: 4px !important;
+                                }
+                            @if $sh_form_element_style =="style_2" {
+                                border-radius: 10px 0px 10px 0px !important;
+                            }
+                            @if $sh_form_element_style =="style_3" {
+                                border-radius: 0px !important;
+                            }
+                            &:hover,
+                            &:focus{
+                                border-color:  $sh_pos_primary_color !important;
+                            }
+                        }
+                    }
+                }
+                .sh_add_money_button{
+                    margin: 10px !important;
+                    float: unset !important;
+                    margin-left: 25px !important;
+                    padding: 15px 17px;
+                    width: fit-content;
+                    height: unset;
+                    line-height: unset;
+                    @if $sh_pos_button_style=="style_1" {
+                        border-radius: 5px;
+                    }
+                    @if $sh_pos_button_style=="style_2"{
+                        border-radius: 10px 0px 10px 0px;
+                    }
+                    @if $sh_pos_button_style=="style_3" {
+                        border-radius: 0px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .paymentmethods{
+        .sh_wallet_div_main{
+            padding: 10px 20px;
+            .wallet_balance_div{
+                padding-top: 10px;
+                text-align: center;
+                .wallet_balance_lbl{
+                    font-weight: bold;
+                    font-size: 12px;
+                }
+                .wallet_balance_val{
+                    font-weight: bold;
+                    font-size: 12px;
+                    color: $sh_pos_primary_color !important;
+                }
+            }
+            .sh_wallet_div{
+                .wallet_label{
+                    font-size: 12px;
+                    margin-left: 10px;
+                    vertical-align: bottom;
+                    font-weight: bold;
+                }
+                .sh_wallet_switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 40px;
+                    height: 23px;
+                    input {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+                }
+                .tgl-btn {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #ccc;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                    border-radius: 34px;
+                    border: 0 !important;
+                    &:before {
+                        position: absolute;
+                        content: "";
+                        height: 16px;
+                        width: 16px;
+                        left: 4px;
+                        bottom: 4px;
+                        background-color: white;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                        border-radius: 50%;
+                    }
+                }
+                input {
+                    &:checked {
+                        & + .tgl-btn {
+                            background-color: $sh_pos_primary_color !important;
+                            &:before {
+                                -webkit-transform: translateX(16px);
+                                -ms-transform: translateX(16px);
+                                transform: translateX(16px);
+                            }
+                        }
+                    }
+                    &:focus {
+                        & + .tgl-btn {
+                            box-shadow: 0 0 1px $sh_pos_primary_color !important;
+                        }
+                    }
+                }            
+            }
+        }
+        
+    }
+    .paymentmethods .button.paymentmethod#sh_hide_method{
+        display: none;
+    }
+}
+
+.partnerlist-screen{
+    .screen-content{
+        .top-content{
+            .hasNowalletButton,
+            .haswalletButton{
+                border: 2px solid  $sh_pos_primary_color !important;
+                background: #fff;
+                font-size: 14px;
+                color:  $sh_pos_primary_color !important;
+                font-weight: 600;
+                padding: 3px 16px;
+                border-radius: 5px;
+                line-height: 32px;
+                margin-left: 10px;
+                &.highlight{
+                    background:  $sh_pos_primary_color !important;
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+<t t-name="TicketScreen_x" t-inherit="sh_pos_all_in_one_retail.TicketScreen_x" t-inherit-mode="extension" owl="1">
+    <xpath expr="//td[hasclass('pos_order_state')]" position="after">
+        <td class="sh_order_return_icon_td" t-if="env.pos.config.sh_enable_order_list">
+            <t t-if="pos_order.company_order_id == '' and pos_order.state != 'cancel' and pos_order.x_delivery_status != 'delivered' and pos_order.state != 'paid' and pos_order.state != 'invoiced'">
+                <span class="order_exchange">
+                    <span class="tool" data-tip="delivery person" title="delivery person">
+                        <i aria-hidden="true" t-attf-data-order-id="{{ pos_order.id }}" 
+                        t-on-click="() => dileviry_pos_order(pos_order.id)" style="font-size: 18px;">👷‍♂️</i>
+                    </span>
+                </span>
+                </t>
+                <t t-if="pos_order.company_order_id and pos_order.company_order_id != '' and pos_order.state != 'cancel' and pos_order.x_delivery_status != 'delivered' and pos_order.state != 'paid' and pos_order.state != 'invoiced'">
+                    <span class="order_exchange">
+                        <span class="tool" data-tip="Company" title="Company">
+                            <i style="font-size: 18px;" aria-hidden="true" 
+                            t-attf-data-order-id="{{ pos_order.id }}" 
+                            t-on-click="() => after_send_with_company(pos_order.id)">🛵</i>
+                        </span>
+                    </span>
+                
+            </t>
+        </td>
+    </xpath>
+</t>
+
+
+
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="TicketScreen_x" t-inherit="sh_pos_all_in_one_retail.TicketScreen_x" t-inherit-mode="extension" owl="1">
+        <xpath expr="//td[hasclass('pos_order_state')]" position="after">
+            <!-- <td class="sh_order_return_icon_td" t-if="env.pos.config.sh_allow_exchange or env.pos.config.sh_allow_return"> -->
+            <td class="sh_order_return_icon_td" t-if="env.pos.config.sh_enable_order_list">
+                <!-- <t t-if="pos_order.x_delivery_state != 'delivered' and pos_order.state != 'paid' "> -->
+                <t t-if=" pos_order.state == 'paid' or pos_order.state == 'invoiced' ">
+                    <!-- <span class="order_exchange" t-if="env.pos.config.sh_allow_return"> -->
+                    <span class="order_exchange" t-if="env.pos.config.sh_enable_order_list">
+                        <span class="tool" data-tip="Return" title="Return">
+                            <i class="fa fa-reply" aria-hidden="true" 
+                               t-attf-data-order-id="{{ pos_order.id }}" 
+                               t-on-click="() => dileviry_pos_order(pos_order.id)"></i>
+                        </span>
+                    </span>
+                </t>
+<t t-else="pos_order.state == 'new' or pos_order.state == 'cancelled' ">
+    <span class="order_exchange" t-if="env.pos.config.sh_enable_order_list">
+        <span class="tool" data-tip="Send" title="Send">
+            <i class="fa fa-paper-plane" aria-hidden="true" 
+                t-attf-data-order-id="{{ pos_order.id }}" 
+                t-on-click="() => dileviry_pos_order(pos_order.id)"></i>
+        </span>
+    </span>
+</t>
+            </td>
+        </xpath>
+    </t>
+</templates> -->
+<!-- env.pos.config.sh_enable_order_list -->
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="TicketScreen_x" t-inherit="sh_pos_all_in_one_retail.TicketScreen_x" t-inherit-mode="extension" owl="1">
+        <xpath expr="//td[hasclass('pos_order_state')]" position="after">
+            <!-- <td class="sh_order_return_icon_td" t-if="env.pos.config.sh_allow_exchange or env.pos.config.sh_allow_return"> -->
+            <td class="td_cancel_fronted_order" t-if="env.pos.config.sh_allow_exchange or env.pos.config.sh_allow_return">
+                <t t-if="pos_order.x_delivery_state != 'delivered' and pos_order.state != 'paid' ">
+                    <span class="order_exchange" t-if="env.pos.config.sh_allow_return">
+                        <span class="tool" data-tip="Return" title="Return">
+                            <i class="fa fa-reply" aria-hidden="true" 
+                               t-attf-data-order-id="{{ pos_order.id }}" 
+                               t-on-click="() => dileviry_pos_order(pos_order.id)"></i>
+                        </span>
+                    </span>
+                </t>
+            </td>
+        </xpath>
+    </t>
+</templates>
+<!-- env.pos.config.sh_enable_order_list -->
+
+
+
+
+
+
+
+

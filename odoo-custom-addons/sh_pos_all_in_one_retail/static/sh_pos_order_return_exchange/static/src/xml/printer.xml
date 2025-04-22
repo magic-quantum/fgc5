@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderReceipt">
+        <div class="pos-receipt" style="font-family: Arial, sans-serif; font-size: 18px;">
+
+            <!-- Logo Section -->
+            <t t-if="order.company.logo">
+                <div style="text-align: center;">
+                    <img t-att-src="order.company.logo" alt="Company Logo" width="200" height="150"/>
+                </div>
+            </t>
+            <div style="text-align: center; font-size: 20px; font-weight: normal;">
+                <t t-esc="order.header or 'Header not available'"/>
+            </div>
+  <div style="text-align: center;"><b>--------------------------------------</b></div>
+
+<br>
+<t t-if="order.company_order_id != false">
+            <div style="text-align: center; font-size: 20px">Company Order ID: <t t-esc="order.company_order_id" /></div>
+        </t>
+
+<t t-if="order.delivery_person_name">
+            <div style="font-size: 20px;font-weight:bold;text-align: center;">Delivery Person: <t t-esc="order.delivery_person_name"/></div>
+        </t>
+            
+            <div style="text-align: center;"><b>--------------------------------------</b></div>
+            <!-- Order Details -->
+            <div class="pos-receipt-title" style="text-align: center; margin-bottom: 5px; font-weight: normal;font-size: 20px">
+                <div>Served by: <t t-esc="order.cashier"/></div>
+                <t t-if="order.partner">
+                    <div> Client: <t t-esc="order.partner"/></div>
+                    <t t-if="order.partner_address">
+                        <div>Address: <t t-esc="order.partner_address"/></div>
+                    </t>
+                    <t t-if="order.partner_mobile">
+                        <div>Mobile: <t t-esc="order.partner_mobile"/></div>
+                    </t>
+                </t>
+                <t t-if="order.table_name">
+                    <div>Table: <t t-esc="order.table_name"/></div>
+                </t>
+            </div>
+
+            <!-- Order Summary -->
+            <div style="text-align: center;"><b>--------------------------------------</b></div>
+            <div style="text-align: center; font-size: 25px;font-weight: normal;">
+                <t t-esc="order.order_reference or 'Not Available'"/>
+            </div>
+            <div style="font-size: 25px; text-align: center; font-weight: normal;">
+                <t t-esc="order.formatted_date"/>
+            </div>
+            <br>
+
+            <!-- Product Details -->
+            <table class="pos-receipt-products" style="width: 100%; margin: 5px auto 10px auto; border-collapse: collapse; border-spacing: 0px; page-break-inside: avoid;">
+                <thead>
+                    <tr style="background-color: #333; color: #fff; height: 30px;">
+                        <th style="text-align: left; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000; white-space: nowrap;">Product</th>
+                        <th style="text-align: center; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000; white-space: nowrap;">Qty</th>
+                        <th style="text-align: right; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000; white-space: nowrap;">Unit Price</th>
+                        <th style="text-align: right; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000; white-space: nowrap;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="order.lines" t-as="line" style="background-color: #f5f5f5; height: 20px;">
+                        <td style="text-align: center; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000;">
+                            <t t-esc="line.product"/>
+                        </td>
+                        <td style="text-align: center; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000;">
+                            <t t-esc="line.quantity"/>
+                        </td>
+                        <td style="text-align: center; font-size:20px; font-weight: bold; padding: 15px; border: 2px solid #000;">
+                            <t t-esc="line.price_unit"/>
+                        </td>
+                        <td style="text-align: center; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000;">
+                            <t t-esc="line.price_unit * line.quantity"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Payment Details -->
+            <div style="margin-top: 5px; margin-bottom: 5px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: bold; font-size: 25px; text-align: left;">Total:</span>
+                <span style="font-weight: bold; font-size: 25px; text-align: right;">
+                    <t t-esc="order.total_amount or 'Total not available'"/> IQD
+                </span>
+            </div>
+        
+            <!-- Footer -->
+            <tr t-foreach="order.lines" t-as="line" style="background-color: #f5f5f5; height: 20px;">
+                <td style="text-align: center; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000;">
+                    <t t-esc="line.customer_note"/>
+                </td>
+            </tr>
+            <t t-if="order.footer">
+                <p style="font-size: 20px; text-align: center; font-weight: normal;">
+                    <t t-esc="order.footer"/>
+                </p>
+             <div style="font-size: 25px; text-align: center;">
+            شركة خليج المستقبل للوكلات التجارية
+        </div>        
+        <div style="font-size: 24px; text-align: center;">
+            07718818872 - 07716666818
+        </div>
+        <br>
+        <div style="font-size: 13px; text-align: center;">
+            Powered By: Magic Quantum Technologies
+        </div>
+        <div style="font-size: 13px; text-align: center;">
+            www.magic-quantum.com
+        </div>
+        <div style="font-size: 13px; text-align: center;">
+            07744 000 582 - 7844 000 582
+        </div>
+
+            </t>
+        </div>
+    </t>
+</templates>

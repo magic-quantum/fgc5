@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="TicketScreenPopup_x" owl="1">
+        <div role="dialog" class="modal-dialog sh_order_return_product_modal_dialog">
+            <div class="popup popup-text popup-lg product-configurator-popup sh_order_return_popup">
+                <header class="title">
+                    Delivery Person Information
+                </header>
+                <div class="main-body touch-scrollable scrollable-y note_body sh_return_exchange_main_body">
+                    <div class="main_div_return_exchange">
+                        <table class="return_product_table">
+                            <thead>
+                                <tr>
+                                    <th class="sh_product_th">Delivery Person Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Loop through deliveryOrders and display each name_id -->
+                                <!-- <t t-foreach="props.deliveryOrders" t-as="order" t-key="order.name_id">
+                                    <tr>
+                                        <td t-attf-data-person-id="{{ order.id }}" t-on-click="assignDeliveryPerson">
+                                            <t t-esc="order.name_id" />
+                                        </td>
+                                    </tr>
+                                </t> -->
+                                <t t-foreach="props.bilal.deliveryOrders" t-as="order" t-key="order.name_id">
+                                    <tr>
+                                        <td t-attf-data-person-info="{{ order.name_id }}+{{ props.bilal.order }}+{{ props.bilal.orderReceipt.header }}+{{ props.bilal.orderReceipt.footer }}+{{ props.bilal.orderReceipt.name }}" t-on-click="assignDeliveryPerson">
+                                            <t t-esc="order.name_id" />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <footer class="footer sh_order_return_exch_footer">
+                    <div class="button cancel sh_cancel_footer_btn" t-on-click="cancel">
+                        Close
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,10 @@
+
+    <templates id="template" xml:space="preserve">
+        <!-- Inherit and remove the ProductInfoButton in Point of Sale -->
+        <t t-name="ProductInfoButton" t-inherit="point_of_sale.ProductInfoButton" t-inherit-mode="extension">
+            <!-- Use XPath to target and remove the control-button element -->
+            <xpath expr="//div[@class='control-button']" position="attributes">
+                <attribute name="editable"/>        
+            </xpath>
+        </t>
+    </templates>

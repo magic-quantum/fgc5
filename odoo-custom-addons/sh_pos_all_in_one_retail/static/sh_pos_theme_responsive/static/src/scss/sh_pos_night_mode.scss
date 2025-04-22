@@ -1,0 +1,2816 @@
+$sh_pos_primary_color_night_mode: #2f333d;
+$sh_pos_secondary_color_night_mode: #242733;
+$sh_pos_third_color_night_mode: #191c24;
+
+$sh_pos_night_mode_orderline_second_text_color: #aaafbd;
+$sh_pos_night_mode_orderline: #2e364f;
+$sh_pos_night_mode_second_text_color: #636576;
+$sh_pos_night_mode_highlight_text_color: #808491;
+$sh_pos_night_mode_text_color: #ebe7e7;
+
+.pos {
+    .loader {
+      background: $sh_pos_primary_color !important;
+    }
+    &.sh_pos_night_mode {
+  
+      .loader {
+        background: $sh_pos_third_color_night_mode !important;
+      }
+      .ticket-button [badge]:after {
+        background: $sh_pos_primary_color_night_mode;
+      }
+  
+      .breadcrumb-button {
+        background: $sh_pos_secondary_color_night_mode !important;
+        color: $sh_pos_night_mode_text_color;
+  
+        &.breadcrumb-home {
+          background: $sh_pos_primary_color !important;
+        }
+  
+        &:hover {
+          background: $sh_pos_primary_color !important;
+        }
+      }
+  
+      .search-bar-portal {
+        .search-box {
+          span {
+            color: $sh_pos_night_mode_text_color !important;
+          }
+  
+          input {
+            background: $sh_pos_third_color_night_mode;
+            color: $sh_pos_night_mode_text_color !important;
+            border-color: $sh_pos_third_color_night_mode !important;
+            border-radius: 5px;
+  
+            &::placeholder {
+              color: $sh_pos_night_mode_text_color !important;
+            }
+  
+            &:focus {
+              border-color: $sh_pos_primary_color_night_mode !important;
+            }
+          }
+        }
+      }
+  
+      .leftpane {
+        border-right-color: $sh_pos_primary_color_night_mode !important;
+  
+        @if $sh_pos_product_style == "style_2" {
+          border-left-color: $sh_pos_primary_color_night_mode;
+        }
+  
+        @if $sh_pos_product_style == "style_3" {
+          border-left-color: $sh_pos_primary_color_night_mode;
+        }
+      }
+  
+      .status-buttons > div {
+        color: $sh_pos_night_mode_text_color !important;
+  
+        &:hover {
+          transition: 0.5s;
+          color: white !important;
+          background: transparent !important;
+        }
+      }
+  
+      .fa-wifi {
+        &::before {
+          color: $sh_pos_night_mode_text_color !important;
+  
+          &:hover {
+            color: white !important;
+            transition: 0.5s;
+          }
+        }
+      }
+  
+      .pos-topheader {
+        background: $sh_pos_secondary_color_night_mode !important;
+  
+        .pos-branding {
+          .cash-move-button {
+            color: $sh_pos_night_mode_text_color !important;
+  
+            &:hover {
+              background: transparent !important;
+              color: white !important;
+              transition: 0.5s;
+            }
+          }
+
+          .create_product{
+            background: $sh_pos_primary_color_night_mode !important;
+            color: $sh_pos_night_mode_text_color !important;
+          }
+  
+          .ticket-button {
+            color: $sh_pos_night_mode_text_color !important;
+  
+            &:hover {
+              color: white !important;
+              transition: 0.5s;
+            }
+          }
+        }
+  
+        .with-badge {
+          &.sh_cart_badge {
+            &::after {
+              background: $sh_pos_primary_color_night_mode;
+            }
+          }
+        }
+      }
+  
+      .pos-content
+      .window
+      .subwindow
+      .subwindow-container
+      .subwindow-container-fix
+      .screen
+      .screen-full-width
+      .rightpane
+      .products-widget
+      .product-list-container {
+        background: $sh_pos_third_color_night_mode !important;
+            .product-list-empty {
+                p{color: $sh_pos_night_mode_text_color;}
+            }
+        @if $sh_pos_body_background_type == "bg_img" {
+          background: transparent !important;
+        }
+      }
+      @if $sh_pos_body_background_type == "bg_color" {
+        .order-container {
+          background: $sh_pos_third_color_night_mode !important;
+  
+          .header-note {
+            &.highlight {
+              color: $sh_pos_primary_color_night_mode;
+            }
+          }
+        }
+  
+        .pads {
+          background: $sh_pos_third_color_night_mode !important;
+        }
+  
+        .screen #owl-demo {
+          background: $sh_pos_secondary_color_night_mode !important;
+        }
+      }
+  
+      .pos-content {
+        @if $sh_pos_body_background_type == "bg_img" {
+          background: #000000d1 !important ;
+        }
+
+        .rightpane-header {
+          background: $sh_pos_third_color_night_mode !important;
+        }
+        table {
+         
+  
+          tbody {
+            tr {
+              border: 0;
+
+              td{
+                .variant_badge{border-color: $sh_pos_primary_color_night_mode !important;}
+              }
+  
+              &:nth-child(odd) {
+                background: $sh_pos_secondary_color_night_mode !important;
+                color: $sh_pos_night_mode_text_color;
+              }
+  
+              &:nth-child(even) {
+                background: #1b1e26 !important;
+                color: $sh_pos_night_mode_text_color;
+  
+                &:hover {
+                  background: #1b1e26 !important;
+                }
+              }
+            }
+          }
+        }
+        .window {
+          .subwindow {
+            .subwindow-container {
+              .subwindow-container-fix {
+                .screen {
+                  &.floor-screen {
+                    .screen-content-flexbox{
+                      @if $sh_pos_theme_style == "style_4" {
+                        background: linear-gradient(119deg,darken($sh_pos_primary_color, 25%) 18%, darken($sh_pos_gradient_color, 30%)) !important;
+                      }
+                    }
+                  }
+                  .screen-content {
+                    .top-content {
+                      .button{
+                        &.back{
+                          background: $sh_pos_secondary_color_night_mode !important;
+                          border-color: $sh_pos_primary_color_night_mode !important;
+                          color: $sh_pos_night_mode_text_color !important;
+                          outline: 0 !important;
+                        }
+                      }
+                      .sh-pos-order-filter{
+                        background: $sh_pos_secondary_color_night_mode !important;
+                        border-color: $sh_pos_primary_color_night_mode !important;
+                        color: $sh_pos_night_mode_text_color !important;
+                      }
+                      .searchbox-client {
+                        .sh_top_bar_search_box{
+                          background: $sh_pos_secondary_color_night_mode !important;
+                          border-color: $sh_pos_primary_color_night_mode !important;
+                        }
+                      }
+                      .search-bar-container {
+                        .pos-search-bar {
+                          background: $sh_pos_secondary_color_night_mode !important;
+                          border-color: $sh_pos_primary_color_night_mode !important;
+                          input {
+                            color: $sh_pos_night_mode_text_color;
+                          }
+                        }
+                      }
+                    }
+                    .default-view{
+                        .actions{
+                            .send-email{
+                                border-color: $sh_pos_primary_color_night_mode;
+                            }
+                        }
+                    }
+                    .centered-content{
+                        border-color: $sh_pos_primary_color_night_mode;
+                        .button{
+                            &.print{
+                                background: $sh_pos_primary_color_night_mode;
+                                border-color: $sh_pos_primary_color_night_mode;
+                                color: $sh_pos_night_mode_text_color;
+                            }
+                        }
+                    }
+                    .main-content {
+                      .left-content {
+                        .paymentmethods-container {
+                          .paymentlines-empty{
+                            .message{
+                              color: $sh_pos_night_mode_text_color;
+                            }
+                            .sh_rounding_div{
+                              .rounding_label{
+                                color: $sh_pos_night_mode_text_color;
+                              }
+                              .cb4_label{
+                                background: transparent !important;
+                              }
+                            }
+                          }
+                            .pymnt_header_note{color: $sh_pos_night_mode_text_color;}
+                            .payment_order_note{
+                                #payment_note_textarea{background: $sh_pos_secondary_color_night_mode; color: $sh_pos_night_mode_text_color; box-shadow: none;}
+                            }
+                          .paymentlines {
+                            .paymentline {
+                              // color: #a3a3a3 !important;
+                            }
+                          }
+                        }
+                      }
+                      .center-content{
+                        .paymentlines-container{
+                            .paymentlines-empty{
+                                .sh_rounding_div{
+                                    .tgl-btn {
+                                        background: $sh_pos_primary_color_night_mode;
+                                    }
+                                }
+                                .message , b {color: $sh_pos_night_mode_text_color !important;}
+                            }
+                        }
+                      }
+                    }
+                    .full-content {
+                      .partner-window {
+                        .subwindow {
+                          .subwindow-container {
+                            .partner-details-contents {
+                              .partner-details {
+                                border-color: $sh_pos_primary_color_night_mode;
+                              }
+                            }
+                            .subwindow-container-fix {
+                              .partner-list {
+                                tbody {
+                                  tr {
+                                    &.partner-line {
+                                    //   background: $sh_pos_primary_color_night_mode !important;
+                                    }
+                                    &.highlight {
+                                      td {
+                                        color: white !important;
+                                      }
+                                    }
+                                    td {
+                                      .edit-partner-button {
+                                        color: white;
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                      .window{
+                        .subwindow{
+                          .subwindow-container{
+                            .subwindow-container-fix {
+                              table{
+                                tbody{
+                                  tr{
+                                    td{
+                                      color: $sh_pos_night_mode_text_color;
+                                      .input_name{
+                                        input{
+                                          background: $sh_pos_primary_color_night_mode !important;
+                                          color: $sh_pos_night_mode_text_color !important;
+                                          border-color: transparent !important;
+                                        }
+                                      }
+                                      table{
+                                        tr{
+                                          border-color: $sh_pos_primary_color_night_mode !important;
+                                        }
+                                      }
+                                    }
+                                    &:nth-child(odd) {
+                                      background: $sh_pos_secondary_color_night_mode !important;
+                                    }
+                        
+                                    &:nth-child(4n+1) {
+                                      background: #1b1e26 !important;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .sh_pagination{
+                      ul{
+                        li{
+                          a , span{
+                            background: $sh_pos_primary_color_night_mode;
+                            color: $sh_pos_night_mode_text_color;
+                            border-color: $sh_pos_primary_color_night_mode;
+                            box-shadow: none;
+                            input{
+                              background: $sh_pos_third_color_night_mode;
+                              color: $sh_pos_night_mode_text_color;
+                              border-color: $sh_pos_night_mode_orderline !important;
+                              box-shadow: none;
+                            }
+                          }
+                          &.active{
+                            span{
+                              background: $sh_pos_night_mode_highlight_text_color;
+                              border-color: $sh_pos_primary_color_night_mode;
+                              box-shadow: none;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .screen-full-width{
+                    .rightpane{
+                      .controls{
+                        background: $sh_pos_secondary_color_night_mode !important;
+                      }
+                    }
+                    .leftpane{
+                        .order-container{
+                            .order-scroller {
+                                .order{
+                                    .header-note{
+                                        border-color: $sh_pos_primary_color_night_mode;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                  }
+                }
+                .templateproductlist-screen {
+                  .screen-content{
+                    .full-content{
+                      .window{
+                        .subwindow{
+                          .subwindow-container{
+                            .subwindow-container-fix {
+                              .table{
+                                tbody{
+                                  tr{
+                                    td{
+                                      color: $sh_pos_night_mode_text_color;
+                                    }
+                                    &:nth-child(odd) {
+                                      background: $sh_pos_secondary_color_night_mode !important;
+                                    }
+                        
+                                    &:nth-child(4n+1) {
+                                      background: #1b1e26 !important;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    } 
+                    .sh_pagination{
+                      background: $sh_pos_secondary_color_night_mode ;
+                      border-color: $sh_pos_primary_color_night_mode;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  
+      .numpad {
+        .disabled-mode {
+          background: #959595 !important;
+          color: #453737 !important;
+  
+          &:hover {
+            background: #959595 !important;
+            color: #453737 !important;
+          }
+  
+          &:active {
+            background: #959595 !important;
+            color: #453737 !important;
+          }
+        }
+  
+        button {
+          color: $sh_pos_night_mode_text_color !important;
+          background: $sh_pos_secondary_color_night_mode !important;
+  
+          &:active {
+            background: $sh_pos_primary_color_night_mode !important;
+            color: white !important;
+          }
+  
+          &:hover {
+            background: $sh_pos_secondary_color_night_mode;
+          }
+  
+          &.selected-mode {
+            background: $sh_pos_primary_color !important;
+            color: white !important;
+          }
+  
+          img {
+            filter: invert(1);
+          }
+        }
+      }
+  
+      .product {
+        background: $sh_pos_secondary_color_night_mode !important;
+        box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.16);
+        @if $sh_display_product_image_name =="product_name" {
+          background: $sh_pos_secondary_color_night_mode !important;
+
+        }
+  
+        .product-name {
+          color: $sh_pos_night_mode_text_color !important;
+          transition: 0.5s;
+        }
+
+        .product-content{
+            span , div{
+                p , i , span{color: $sh_pos_night_mode_text_color;}
+            }
+            .sh_warehouse_display{
+                background: $sh_pos_primary_color;
+                color: $sh_pos_night_mode_text_color;
+            }
+        }
+  
+        &:hover {
+          box-shadow: none !important;
+        }
+  
+        .price-tag {
+          transition: 0.5s;
+        }
+  
+        &:hover .price-tag {
+          color: white !important;
+        }
+  
+        &:hover .product-name {
+          color: white !important;
+        }
+  
+        @if $sh_pos_product_style == "style_3" {
+          border-color: $sh_pos_secondary_color_night_mode;
+          border-bottom-color: #c8385e !important;
+        }
+  
+        @media (max-width: 768px) {
+          &:active {
+            border-color: $sh_pos_primary_color_night_mode !important;
+          }
+        }
+      }
+  
+      .pos-receipt-container {
+        > div {
+          background: $sh_pos_primary_color_night_mode;
+          color: $sh_pos_night_mode_text_color;
+          border-color: $sh_pos_primary_color_night_mode;
+        }
+      }
+  
+      .category-simple-button {
+        background: $sh_pos_secondary_color_night_mode !important;
+        color: $sh_pos_night_mode_text_color !important;
+  
+        &:hover {
+          background: $sh_pos_primary_color !important;
+          color: white !important;
+        }
+      }
+  
+      .green-border-bottom {
+        border-color: $sh_pos_primary_color_night_mode !important;
+      }
+  
+      .actionpad {
+        .button {
+          &.pay {
+            .pay-circle {
+              .fa {
+                background: $sh_pos_third_color_night_mode !important;
+                color: $sh_pos_night_mode_text_color !important;
+              }
+            }
+          }
+  
+          &:hover .button.pay .pay-circle .fa {
+            color: white !important;
+          }
+        }
+      }
+  
+      .pos-content {
+        .actionpad {
+          .button {
+            background: $sh_pos_secondary_color_night_mode !important;
+            color: $sh_pos_night_mode_text_color;
+  
+            .fa-user {
+              background: $sh_pos_third_color_night_mode;
+            }
+  
+            .pay-circle {
+              .fa {
+                color: $sh_pos_night_mode_text_color;
+                background: $sh_pos_third_color_night_mode;
+              }
+            }
+  
+            &:hover {
+              background: $sh_pos_primary_color_night_mode !important;
+              color: white !important;
+            }
+  
+            &:hover .pay-circle .fa {
+              background: $sh_pos_secondary_color_night_mode !important;
+              color: white !important;
+              transition: 0.5s;
+            }
+  
+            &:hover .fa-user {
+              background: $sh_pos_secondary_color_night_mode !important;
+            }
+          }
+        }
+      }
+  
+      .product-screen {
+        .control-button {
+          background: $sh_pos_primary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color !important;
+  
+          &:hover {
+            background: $sh_pos_third_color_night_mode !important;
+            color: white !important;
+          }
+        }
+      }
+  
+      .rightpane-header {
+        .search-bar-container {
+            &.sb-product{
+                background: transparent !important;
+
+            }
+            .pos-search-bar {
+              background: $sh_pos_secondary_color_night_mode !important;
+              color: $sh_pos_night_mode_text_color !important;
+      
+              input {
+                color: $sh_pos_night_mode_text_color !important;
+      
+                ::placeholder {
+                  color: $sh_pos_night_mode_text_color !important;
+                }
+              }
+      
+              i {
+                &:active {
+                  color: white !important;
+                }
+              }
+            }
+        }
+      }
+  
+      button {
+        border-color: transparent !important;
+      }
+  
+      .sh_switch_view_icon button {
+        color: white !important;
+        background: $sh_pos_primary_color_night_mode !important;
+        outline: none !important;
+        &.highlight{
+          background: $sh_pos_primary_color !important;
+        }
+      }
+  
+      .order {
+        .orderlines {
+          .orderline {
+            background: $sh_pos_secondary_color_night_mode !important;
+            color: $sh_pos_night_mode_text_color;
+            border-color: $sh_pos_secondary_color_night_mode !important;
+            box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.16);
+  
+            &.selected {
+              background: $sh_pos_night_mode_orderline !important;
+              color: $sh_pos_night_mode_text_color !important;
+            }
+  
+            &.selected span {
+              color: white !important;
+            }
+  
+            &.selected ul {
+              color: white !important;
+            }
+  
+            .sh_orderline_icons{
+                li{
+                    border-color: $sh_pos_night_mode_text_color;
+                    color: $sh_pos_night_mode_text_color;
+                }
+            }
+
+            .product-name {
+              color: $sh_pos_night_mode_text_color;
+            }
+  
+            .info-list {
+              color: $sh_pos_night_mode_orderline_second_text_color !important;
+  
+              em {
+                color: $sh_pos_night_mode_orderline_second_text_color !important;
+              }
+            }
+          }
+        }
+  
+        .summary {
+            border-top-color: $sh_pos_primary_color_night_mode !important ;
+          .loyalty-points {
+            color: $sh_pos_night_mode_text_color !important;
+          }
+          .sh_order_summary_line , .sh_order_summary_left_line{
+            div{
+                color: $sh_pos_night_mode_text_color !important;
+                background: transparent !important;
+                span , a  , b{color: $sh_pos_night_mode_text_color !important;
+                    background: transparent !important;
+                }
+            }
+          }
+        }
+      }
+  
+      .screen {
+        .leftpane {
+          .order-container {
+            .order {
+              .summary {
+                background: $sh_pos_third_color_night_mode !important;
+                color: $sh_pos_night_mode_text_color;
+                border-top: 1px solid $sh_pos_night_mode_text_color;
+              }
+            }
+          }
+        }
+  
+        ::-webkit-scrollbar-thumb {
+          background: black;
+          min-height: 30px;
+        }
+      }
+  
+      .search-bar-container {
+        &.sb-product {
+          .icon {
+            color: $sh_pos_night_mode_text_color !important;
+          }
+        }
+  
+        .search-box {
+          background: $sh_pos_secondary_color_night_mode !important;
+  
+          input {
+            color: $sh_pos_night_mode_text_color;
+          }
+        }
+      }
+  
+      .popups {
+        .modal-dialog {
+          .popup-textarea {
+            background: $sh_pos_primary_color_night_mode;
+  
+            .popup-textarea-wrap {
+              textarea {
+                background: $sh_pos_secondary_color_night_mode;
+                box-shadow: 0 0 0 1px transparent;
+                color: $sh_pos_night_mode_text_color !important;
+  
+                &:focus {
+                  box-shadow: 0 0 0 1px $sh_pos_primary_color_night_mode !important;
+                }
+              }
+            }
+  
+            textarea {
+              background: $sh_pos_secondary_color_night_mode !important;
+              color: $sh_pos_night_mode_text_color !important;
+              box-shadow: 0 0 0 1px $sh_pos_secondary_color_night_mode;
+  
+              &:focus {
+                box-shadow: 0 0 0 1px $sh_pos_primary_color_night_mode;
+              }
+            }
+          }
+  
+          .popup.product-info-popup {
+            background: $sh_pos_secondary_color_night_mode;
+            color: $sh_pos_night_mode_text_color;
+          }
+  
+          .popup {
+            background: $sh_pos_third_color_night_mode !important;
+            color: $sh_pos_night_mode_text_color !important;
+
+            .title{
+              color: $sh_pos_night_mode_text_color;
+            }
+
+            label{color: $sh_pos_night_mode_text_color !important;}
+  
+            &.close-pos-popup {
+              background: $sh_pos_third_color_night_mode;
+              color: $sh_pos_night_mode_text_color;
+  
+              footer {
+                &.footer {
+                  div {
+                    &.button {
+                      &.highlight {
+                        color: $sh_pos_night_mode_text_color !important;
+                      }
+                    }
+                  }
+                }
+              }
+  
+              .footer {
+                .button {
+                  &:last-child {
+                    background: $sh_pos_primary_color_night_mode !important;
+                    border-color: $sh_pos_primary_color_night_mode !important;
+                  }
+                }
+              }
+  
+              main {
+                &.body {
+                  .pos-input {
+                    color: $sh_pos_night_mode_text_color;
+  
+                    &:focus {
+                      border-color: $sh_pos_night_mode_text_color;
+                    }
+                  }
+                }
+              }
+            }
+  
+            &.cash-move-popup {
+              background: $sh_pos_third_color_night_mode !important;
+              .body{
+                .cash-move{
+                    .input-amount{
+                        span{background: $sh_pos_primary_color_night_mode;}
+                    }
+                }
+              }
+            }
+  
+            &.money-details {
+              main {
+                &.body {
+                  .pos-input {
+                    &:focus {
+                      border-color: $sh_pos_primary_color_night_mode !important;
+                    }
+                  }
+                }
+              }
+            }
+  
+            .popup-number {
+              .footer {
+                .button {
+                  background: $sh_pos_primary_color_night_mode !important;
+                  color: white !important;
+                }
+              }
+            }
+
+            .body{
+              .sh_group_by_attribute{
+                .sh_attribute_name_and_value{
+                  .sh_attribute_name_id{
+                    color: $sh_pos_night_mode_text_color;
+                  }
+                  .sh_attribute_id{
+                    .sh_attribute_id3{
+                      background: $sh_pos_primary_color_night_mode !important;
+                      border-color: $sh_pos_primary_color_night_mode !important;
+                      &.highlight{
+                        background: $sh_pos_primary_color !important;
+                      }
+                    }
+                  }
+                }
+              }
+              .sh_order_type_div{
+                .sh_order_type_table{
+                  tbody{
+                    tr{
+                      background-color: $sh_pos_secondary_color_night_mode;
+                      &:hover{
+                        background-color: $sh_pos_secondary_color_night_mode !important;
+                      }
+                    }
+                  }
+                }
+              }
+              div{
+                input , select , option , textarea , #sh_add_barcode{
+                  box-shadow: none;
+                  background: $sh_pos_secondary_color_night_mode !important;
+                  color: $sh_pos_night_mode_text_color !important;
+                  border-color: $sh_pos_primary_color_night_mode !important;
+                }
+                #label_value{
+                  background: $sh_pos_secondary_color_night_mode;
+                  color: $sh_pos_night_mode_text_color;
+                  border-color: $sh_pos_primary_color_night_mode;
+                  box-shadow: none;
+                }
+              }
+              .product-list-container{
+                .product-list{
+                  background: $sh_pos_third_color_night_mode;
+                }
+              }
+              .button_div{
+                #note_button{
+                  .each_note_button{
+                    outline: 0;
+                  }
+                }
+              }
+            }
+
+            .main-body{
+              .sh_box{
+                textarea{
+                  background: $sh_pos_primary_color_night_mode;
+                  color: $sh_pos_night_mode_text_color;
+                  box-shadow: none;
+                }
+              }
+              .pricelist_table{
+                tbody{
+                  tr{
+                    td{
+                      color: $sh_pos_night_mode_text_color ;
+                    }
+                    &:nth-child(even){
+                      background: $sh_pos_primary_color_night_mode;
+                    }
+                    &:nth-child(odd){
+                    background: #1b1e26 !important;
+                    }
+                  }
+                }
+              }
+              .main_div_sh_payment_table{
+                .sh_payment_table{
+                  tbody{
+                    tr{
+                      td{
+                        color: $sh_pos_night_mode_text_color;
+                      }
+                      &:nth-child(even) {
+                        background: $sh_pos_secondary_color_night_mode !important;
+                      }
+          
+                      &:nth-child(odd) {
+                        background: #1b1e26 !important;
+                      }
+                    }
+                  }
+                }
+              }
+              .main_div_sh_payment_footer{
+                background: $sh_pos_primary_color_night_mode;
+              }
+              #textarea_note{
+                background: $sh_pos_secondary_color_night_mode;
+                color: $sh_pos_night_mode_text_color;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+              .button_div{
+                span{
+                  .dmy{
+                    background: $sh_pos_primary_color_night_mode;
+                    color: $sh_pos_night_mode_text_color;
+                    &.selected{background: $sh_pos_primary_color !important;}
+                  }
+                }
+              }
+              .main_div_signature{
+                .signature_detail_div{
+                  #signature{
+                    canvas{
+                      background: $sh_pos_secondary_color_night_mode !important;
+                      border-color: $sh_pos_primary_color_night_mode !important;
+                      box-shadow: none !important;
+                    }
+                  }
+                }
+              }
+              #sh_table_id{
+                .wh_qty{
+                  tbody{
+                    tr{
+                      td{
+                        color: $sh_pos_night_mode_text_color;
+                      }
+                      &:nth-child(even) {
+                        background: $sh_pos_secondary_color_night_mode !important;
+                      }
+          
+                      &:nth-child(odd) {
+                        background: #1b1e26 !important;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .footer{
+              .button{
+                &.cancel{
+                  background: $sh_pos_primary_color_night_mode !important;
+                  color: $sh_pos_night_mode_text_color  !important;
+                }
+              }
+            }
+          }
+  
+          main {
+            &.body {
+              .cash-move {
+                .input-amount {
+                  .input-field {
+                    input {
+                      background: $sh_pos_secondary_color_night_mode;
+                      color: $sh_pos_night_mode_text_color;
+                      border-color: transparent !important;
+                      box-shadow: 0 0 0 1px transparent !important;
+  
+                      &:focus {
+                        border-color: $sh_pos_primary_color_night_mode !important;
+                      }
+                    }
+                  }
+                }
+  
+                textarea {
+                  background: $sh_pos_secondary_color_night_mode !important;
+                  color: $sh_pos_night_mode_text_color !important;
+                  box-shadow: 0 0 0 1px transparent !important;
+  
+                  &:focus {
+                    box-shadow: 0 0 0 1px $sh_pos_primary_color_night_mode !important;
+                  }
+                }
+              }
+            }
+          }
+  
+          .popup.money-details {
+            .footer {
+              .button {
+                &:last-child {
+                  background: $sh_pos_primary_color_night_mode !important;
+                  border-color: $sh_pos_primary_color_night_mode !important;
+                }
+              }
+            }
+          }
+        }
+      }
+  
+      .popup {
+        .footer {
+          .button {
+            // background: $sh_pos_secondary_color_night_mode !important;
+            border-color: $sh_pos_third_color_night_mode !important;
+            color: white !important;
+            transition: 0.5s;
+  
+            &.cancel {
+              color: $sh_pos_night_mode_text_color !important;
+              border-color: $sh_pos_primary_color_night_mode !important;
+              background: $sh_pos_secondary_color_night_mode !important;
+  
+              &:hover {
+                background: $sh_pos_primary_color_night_mode !important;
+                color: white !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+            }
+
+
+  
+            &.confirm {
+              // background: $sh_pos_primary_color_night_mode !important;
+              // border-color: $sh_pos_primary_color_night_mode !important;
+            }
+  
+            // &:hover {
+            //   background: $sh_pos_primary_color_night_mode !important;
+            //   color: white !important;
+            // }
+          }
+        }
+  
+        .title {
+          background: 0;
+        }
+  
+        &.popup-selection {
+          .selection-item {
+            transition: 0.5s;
+  
+            &:nth-child(odd) {
+              background: $sh_pos_secondary_color_night_mode !important;
+            }
+  
+            &:nth-child(even) {
+              background: transparent !important;
+            }
+  
+            &:hover {
+              color: white !important;
+            }
+          }
+        }
+  
+        .opening-cash-section {
+          .button {
+            &.icon {
+              color: $sh_pos_primary_color_night_mode !important;
+            }
+          }
+        }
+  
+        .button {
+          border-color: $sh_pos_secondary_color_night_mode;
+        }
+  
+        input {
+          background: $sh_pos_secondary_color_night_mode;
+          box-shadow: 0 0 0 1px transparent inset;
+          color: $sh_pos_night_mode_text_color;
+          border-color: $sh_pos_primary_color_night_mode !important;
+  
+          &:focus {
+            box-shadow: 0 0 0 1px $sh_pos_primary_color_night_mode inset;
+          }
+        }
+  
+        &.popup-error {
+          .title {
+            background: $sh_pos_secondary_color_night_mode;
+            color: $sh_pos_night_mode_text_color !important;
+          }
+        }
+  
+        &.opening-cash-control {
+          .opening-cash-section {
+            .cash-input-sub-section {
+              .pos-input {
+                color: $sh_pos_night_mode_text_color !important;
+  
+                &:focus {
+                  border-color: $sh_pos_night_mode_text_color;
+                }
+              }
+            }
+          }
+  
+          .footer {
+            .button {
+              background: $sh_pos_primary_color_night_mode !important;
+              border-color: $sh_pos_primary_color_night_mode !important;
+              color: $sh_pos_night_mode_text_color !important;
+  
+              &:hover {
+                color: white !important;
+              }
+              &.dynamic-size{
+                background: $sh_pos_primary_color !important;
+                border-color: $sh_pos_primary_color !important;
+              }
+            }
+          }
+        }
+  
+        .pos-input {
+          &:focus {
+            border-bottom-color: $sh_pos_primary_color_night_mode !important;
+          }
+        }
+      }
+  
+      .rightpane {
+        background: $sh_pos_third_color_night_mode !important;
+        .orders{
+          @include media-breakpoint-only(xs){
+            display: inline-flex;
+          }
+          @include media-breakpoint-only(sm){
+            display: inline-flex;
+          }
+        }
+      }
+  
+      .sh_client_pos_content {
+        .subwindow-container {
+          .orders {
+            .header-row {
+              // @include media-breakpoint-down(md){
+              //     border-color: transparent !important;
+              // }
+            }
+          }
+        }
+      }
+  
+      .order-management-screen {
+        &.screen {
+          .orders {
+            .header-row {
+              background: $sh_pos_primary_color_night_mode;
+            }
+  
+            .order-list {
+              .order-row {
+                &:nth-child(odd) {
+                  background: $sh_pos_secondary_color_night_mode;
+                  color: $sh_pos_night_mode_text_color;
+                  border-color: $sh_pos_secondary_color_night_mode;
+  
+                  &:hover {
+                    color: $sh_pos_night_mode_text_color;
+                  }
+                }
+  
+                &:nth-child(even) {
+                  background: $sh_pos_third_color_night_mode;
+                  color: $sh_pos_night_mode_text_color;
+                  border-color: $sh_pos_third_color_night_mode;
+  
+                  &:hover {
+                    color: $sh_pos_night_mode_text_color;
+                  }
+                }
+  
+                color: $sh_pos_night_mode_text_color;
+  
+                &:hover {
+                  color: $sh_pos_night_mode_text_color;
+                }
+              }
+            }
+          }
+        }
+  
+        .control-panel {
+          border-color: $sh_pos_secondary_color_night_mode;
+          .button {
+            background: $sh_pos_secondary_color_night_mode;
+            color: $sh_pos_night_mode_text_color;
+            border-color: $sh_pos_primary_color_night_mode;
+  
+            &:hover {
+              background: $sh_pos_primary_color_night_mode;
+            }
+          }
+          .search-box {
+            input {
+              background: $sh_pos_secondary_color_night_mode;
+              border-color: $sh_pos_secondary_color_night_mode;
+              color: $sh_pos_night_mode_text_color !important;
+              &:focus {
+                border-color: $sh_pos_primary_color_night_mode;
+              }
+            }
+          }
+        }
+      }
+  
+      .ticket-screen {
+        .controls {
+          button {
+            &.highlight {
+              // background: $sh_pos_primary_color_night_mode !important;
+              // border-color: $sh_pos_primary_color_night_mode !important;
+            }
+  
+            &.discard {
+              background: $sh_pos_secondary_color_night_mode !important;
+              border-color: $sh_pos_primary_color_night_mode !important;
+              color: $sh_pos_night_mode_text_color !important;
+              transition: 0.5s;
+              outline-color: transparent !important;
+  
+              &:hover {
+                background: $sh_pos_primary_color_night_mode !important;
+                color: white !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+            }
+          }
+        }
+  
+        .pos-search-bar {
+          border-color: transparent !important;
+  
+          .search {
+            input {
+              background: $sh_pos_secondary_color_night_mode !important;
+              color: $sh_pos_night_mode_text_color !important;
+  
+              &:focus-within .sh_pos_night_mode_text_color {
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+            }
+  
+            .fields {
+              background: $sh_pos_primary_color_night_mode !important;
+  
+              li {
+                background: $sh_pos_third_color_night_mode !important;
+                color: $sh_pos_night_mode_text_color !important;
+                border-color: $sh_pos_third_color_night_mode !important;
+              }
+            }
+          }
+  
+          &:focus {
+            border-color: $sh_pos_primary_color_night_mode !important;
+          }
+  
+          .filter {
+            background: $sh_pos_secondary_color_night_mode !important;
+            color: $sh_pos_night_mode_text_color;
+            transition: 0.5s;
+  
+            &:hover {
+              color: white;
+            }
+  
+            .options {
+              background: $sh_pos_secondary_color_night_mode;
+  
+              li {
+                background: $sh_pos_secondary_color_night_mode;
+                color: $sh_pos_night_mode_text_color;
+  
+                &:hover {
+                  background: $sh_pos_third_color_night_mode;
+                  color: white;
+                }
+              }
+            }
+  
+            &::before {
+              display: none;
+            }
+          }
+  
+          &:focus-within {
+            border-color: $sh_pos_primary_color_night_mode !important;
+          }
+        }
+  
+        .item {
+          .page-controls {
+            & > div {
+              border-color: $sh_pos_primary_color_night_mode;
+              transition: 0.5s;
+  
+              &:hover {
+                color: white;
+              }
+            }
+          }
+        }
+  
+        .orders {
+          .header-row {
+            background: $sh_pos_primary_color_night_mode;
+            align-items: center;
+            border-color: $sh_pos_primary_color_night_mode;
+            @include media-breakpoint-only(xs) {
+              display: inline-flex;
+              // min-width: 774px;
+            }
+  
+            .col {
+              color: white !important;
+  
+              &.start {
+                color: unset;
+              }
+            }
+          }
+  
+          .order-row {
+            border-bottom: 0;
+            @include media-breakpoint-only(xs) {
+              display: inline-flex !important;
+              // min-width: 774px;
+            }
+  
+            &:nth-child(even) {
+              background: $sh_pos_secondary_color_night_mode !important;
+              color: $sh_pos_night_mode_text_color !important;
+              border-color: $sh_pos_secondary_color_night_mode;
+  
+              &:hover td {
+                color: white !important;
+              }
+            }
+  
+            &:nth-child(odd) {
+              background: #2c3141 !important;
+              color: $sh_pos_night_mode_text_color !important;
+              border-color: #2c3141;
+  
+              &:hover td {
+                color: white !important;
+              }
+            }
+  
+            &.highlight {
+              color: $sh_pos_night_mode_text_color !important;
+  
+              .col {
+                &.end {
+                  color: white !important;
+                }
+  
+                &.start {
+                  color: white !important;
+                }
+              }
+            }
+          }
+  
+          .col {
+            &.start {
+              color: unset;
+            }
+  
+            &.end {
+              color: unset;
+            }
+          }
+        }
+  
+        &.screen {
+          .rightpane.pane-border {
+            .controls {
+              .buttons {
+                .highlight {
+                  transition: 0.5s;
+  
+                  &:hover {
+                    color: white !important;
+                  }
+                }
+              }
+              .search {
+                background: $sh_pos_primary_color_night_mode !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+                color: white;
+              }
+              .arrow-left {
+                background: $sh_pos_primary_color_night_mode !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+  
+      .screen {
+        background: $sh_pos_third_color_night_mode;
+        .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .control-button {
+          i{color: $sh_pos_night_mode_text_color !important;}
+          background: $sh_pos_primary_color_night_mode !important;
+          &.highlight{
+            background: $sh_pos_primary_color_night_mode !important;
+          }
+          a{
+            color: $sh_pos_night_mode_text_color !important;  
+          }
+        }
+        .control-button {
+          background: $sh_pos_third_color_night_mode;
+          color: $sh_pos_night_mode_text_color;
+  
+          &:hover {
+            background: $sh_pos_primary_color_night_mode !important;
+            color: white !important;
+            box-shadow: none !important;
+          }
+        }
+  
+        .screen-content {
+          background: $sh_pos_third_color_night_mode;
+        }
+  
+        .left-content {
+          .paymentmethods-container {
+            .paymentmethods {
+              .paymentmethod {
+                border: 0;
+                background: $sh_pos_secondary_color_night_mode !important;
+                transition: 0.5s;
+  
+                &:hover {
+                  border-color: $sh_pos_primary_color_night_mode !important;
+                  background: $sh_pos_primary_color_night_mode !important;
+                  color: white !important;
+                }
+              }
+            }
+  
+            .paymentlines {
+              .paymentline {
+                border: 0;
+                background: $sh_pos_secondary_color_night_mode !important;
+                color: $sh_pos_night_mode_text_color;
+                display: flex;
+                align-items: center;
+  
+                &:hover {
+                  background: $sh_pos_primary_color_night_mode !important;
+                  border-color: $sh_pos_night_mode_text_color;
+                  color: white;
+                }
+              }
+            }
+          }
+  
+          .button {
+            &.next {
+              &.validation {
+                transition: 0.5s;
+  
+                .pay-circle {
+                  i {
+                    background: #cdc9c959;
+                  }
+                }
+  
+                &:hover {
+                  background: $sh_pos_primary_color_night_mode !important;
+                  color: white !important;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+  
+        .top-content {
+          .top-content-center {
+            h1 {
+              color: $sh_pos_night_mode_highlight_text_color !important;
+            }
+          }
+  
+          .button {
+            // background: $sh_pos_primary_color_night_mode !important;
+            // border-color: $sh_pos_primary_color_night_mode !important;
+            color: white !important;
+  
+            &.back {
+              border-color: $sh_pos_primary_color_night_mode !important;
+              color: $sh_pos_night_mode_text_color !important;
+              background: $sh_pos_secondary_color_night_mode !important;
+  
+              &:hover {
+                background: $sh_pos_primary_color_night_mode !important;
+                color: white !important;
+              }
+            }
+  
+            &:hover {
+              // background: $sh_pos_primary_color_night_mode !important;
+              color: white !important;
+            }
+          }
+  
+          div {
+            &.top-right-buttons {
+              .button {
+                &.more-info {
+                  a {
+                    transition: 0.5s;
+                    color: $sh_pos_night_mode_text_color !important;
+                  }
+  
+                  &:hover a {
+                    color: white !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+        p {
+          &.title-category {
+            background: $sh_pos_primary_color_night_mode;
+            color: $sh_pos_night_mode_text_color;
+          }
+        }
+  
+        &.receipt-screen {
+          .button {
+            &.next {
+              &.validation {
+                &:hover {
+                  background: $sh_pos_primary_color_night_mode !important;
+                  color: $sh_pos_night_mode_text_color !important;
+                  cursor: pointer;
+                }
+  
+                transition: 0.5s;
+              }
+            }
+          }
+        }
+      }
+  
+      .search-more-button {
+        .button {
+          background: $sh_pos_primary_color_night_mode !important;
+          border-color: $sh_pos_primary_color_night_mode;
+          color: $sh_pos_night_mode_text_color;
+  
+          &:hover {
+            color: white;
+          }
+        }
+      }
+  
+      .popup-input {
+        &.active {
+          color: $sh_pos_night_mode_text_color;
+          background: $sh_pos_secondary_color_night_mode;
+          border: 0;
+        }
+      }
+  
+      .payment-screen {
+        .payment-buttons {
+          background: transparent;
+  
+          .button {
+            border: 0;
+            background: $sh_pos_secondary_color_night_mode !important;
+            color: $sh_pos_night_mode_text_color !important;
+            border-color: $sh_pos_night_mode_text_color !important;
+  
+            &:hover i {
+              background: $sh_pos_primary_color_night_mode !important;
+              filter: brightness(2);
+            }
+  
+            &.highlight {
+              // background: $sh_pos_primary_color_night_mode !important;
+              color: white !important;
+              border: 0 !important;
+            }
+  
+            .fa {
+              color: white !important;
+            }
+          }
+  
+          > div {
+            border: 0;
+          }
+        }
+  
+        .main-content {
+          .center-content {
+            border-color: $sh_pos_third_color_night_mode !important;
+          }
+        }
+  
+        &.screen {
+          .payment-status-container {
+            .label {
+              color: $sh_pos_night_mode_text_color !important;
+            }
+          }
+        }
+      }
+  
+      .paymentlines-container {
+        background: $sh_pos_secondary_color_night_mode !important;
+  
+        .paymentlines-empty {
+          background: transparent;
+  
+          .message{
+            color: $sh_pos_night_mode_text_color;
+          }
+          .sh_rounding_div{
+            .rounding_label{
+              color: $sh_pos_night_mode_text_color;
+            }
+            .cb4_label{
+              background: transparent !important;
+            }
+          }
+        }
+      }
+  
+      .paymentmethod {
+        .payment-name {
+          background: $sh_pos_secondary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color !important;
+          transition: 0.5s;
+  
+          &:hover {
+            background: $sh_pos_primary_color_night_mode !important;
+            color: white !important;
+          }
+        }
+      }
+  
+      .button {
+        &.highlight {
+          // background-color: $sh_pos_primary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color !important;
+          border-color: $sh_pos_primary_color_night_mode !important;
+        }
+  
+        &.highlight
+          .sh_pos_night_mode
+          .screen
+          .left-content
+          .button.next.validation
+          .pay-circle
+          i {
+          background: $sh_pos_secondary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color !important;
+        }
+      }
+  
+      .screen .left-content .button.next.validation {
+        background: #53648b !important;
+  
+        &.highlight {
+          // background: $sh_pos_secondary_color_night_mode !important;
+        }
+      }
+  
+      .receipt-screen {
+        .default-view {
+          .actions {
+            .buttons {
+              .button {
+                background: $sh_pos_secondary_color_night_mode !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+                color: $sh_pos_night_mode_text_color;
+                outline: 0 !important;
+  
+                &:hover {
+                  background: $sh_pos_primary_color_night_mode;
+                  color: white;
+                }
+              }
+            }
+  
+            h1 {
+              color: $sh_pos_night_mode_text_color;
+            }
+  
+            .send-email {
+              background: $sh_pos_secondary_color_night_mode;
+              .email-icon {
+                background: $sh_pos_secondary_color_night_mode;
+                color: $sh_pos_night_mode_text_color;
+                position: absolute;
+  
+                .fa {
+                  position: absolute;
+                  top: -8px;
+                  left: -10px;
+                  z-index: 1;
+                }
+              }
+  
+              .input-email {
+                background: $sh_pos_secondary_color_night_mode !important;
+                border-color: $sh_pos_secondary_color_night_mode !important;
+                color: $sh_pos_night_mode_text_color;
+                position: relative;
+  
+                input {
+                  background: $sh_pos_secondary_color_night_mode;
+                  color: $sh_pos_night_mode_text_color;
+                }
+  
+                button {
+                  background: $sh_pos_primary_color_night_mode;
+                  transition: 0.5s;
+  
+                  &:hover {
+                    background: $sh_pos_third_color_night_mode;
+                  }
+                }
+              }
+  
+              button {
+                &.send {
+                  &.highlight {
+                    // background: $sh_pos_primary_color_night_mode;
+                  }
+                }
+              }
+  
+              input {
+                padding-left: 2rem;
+              }
+            }
+            .successful{
+              color: $sh_pos_night_mode_text_color;
+            }
+          }
+        }
+      }
+  
+      .partnerlist-screen {
+        .partner-list {
+          tr {
+            border-bottom: 0;
+  
+            &.highlight:nth-child(odd) {
+              background: $sh_pos_night_mode_orderline !important;
+  
+              td {
+                color: white !important;
+              }
+  
+              &:hover td {
+                color: white !important;
+              }
+            }
+          }
+  
+          td {
+            color: $sh_pos_night_mode_text_color !important;
+          }
+        }
+  
+        tr {
+          &.partner-line {
+            transition: 0.5s;
+  
+            &:hover {
+              background: transparent !important;
+              transition: 0.5s;
+            }
+  
+            &:hover td {
+              transition: 0.5s;
+              color: white !important;
+            }
+  
+            &:hover .edit-partner-button {
+              color: white !important;
+            }
+  
+            &:nth-child(odd):hover {
+              background: $sh_pos_secondary_color_night_mode !important;
+            }
+  
+            // &.highlight{
+            //     background: $sh_pos_night_mode_orderline;
+            //     color: white;
+            // }
+          }
+  
+          &.highlight {
+            div {
+              // &.unselect-tag {
+              //   background: $sh_pos_primary_color_night_mode !important;
+              // }
+  
+              &.company-field {
+                color: white !important;
+              }
+            }
+          }
+        }
+  
+        .partner-picture {
+          background: $sh_pos_secondary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color !important;
+        }
+      }
+  
+      // .edit-partner-button {
+      //   background: $sh_pos_primary_color_night_mode;
+      //   color: $sh_pos_night_mode_text_color;
+  
+      //   &:hover {
+      //     background: $sh_pos_primary_color_night_mode !important;
+      //     color: white;
+      //   }
+      // }
+  
+      .close-pos-popup {
+        header {
+          background: $sh_pos_secondary_color_night_mode;
+        }
+  
+        .closing-notes {
+          background: $sh_pos_third_color_night_mode;
+          color: $sh_pos_night_mode_text_color !important;
+          box-shadow: 0 0 0 1px $sh_pos_secondary_color_night_mode !important;
+  
+          &:focus {
+            box-shadow: 0 0 0 1px $sh_pos_primary_color_night_mode !important;
+          }
+        }
+  
+        .body {
+          .button {
+            &.icon {
+              i {
+                color: $sh_pos_night_mode_text_color !important;
+              }
+            }
+          }
+        }
+      }
+  
+      .login-overlay {
+        background: $sh_pos_primary_color_night_mode !important;
+      }
+  
+      .screen-login {
+        background: $sh_pos_secondary_color_night_mode !important;
+        color: $sh_pos_night_mode_text_color !important;
+      }
+  
+      .login-button {
+        background: $sh_pos_third_color_night_mode !important;
+        color: $sh_pos_night_mode_text_color !important;
+      }
+  
+      .opening-cash-control {
+        .opening-cash-notes {
+          background: $sh_pos_secondary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color !important;
+          box-shadow: 0 0 0 1px transparent !important;
+  
+          &:focus {
+            box-shadow: 0 0 0 1px $sh_pos_primary_color_night_mode !important;
+          }
+  
+          ::placeholder {
+            color: $sh_pos_night_mode_text_color !important;
+          }
+        }
+      }
+  
+      .partnerlist-screen {
+        .partner-name {
+          background: $sh_pos_secondary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color !important;
+          border-radius: 5px;
+        }
+  
+        .partner-details {
+          input,
+          select {
+            background: $sh_pos_primary_color_night_mode !important;
+            color: $sh_pos_night_mode_text_color !important;
+            border-color: transparent !important;
+  
+            &:hover {
+              border-color: $sh_pos_primary_color_night_mode !important;
+            }
+          }
+        }
+  
+        .pos-search-bar {
+          padding: 10px;
+          border-color: $sh_pos_primary_color_night_mode;
+          color: $sh_pos_night_mode_text_color !important;
+          border-radius: 5px;
+  
+          i {
+            &:active {
+              color: white;
+            }
+          }
+        }
+      }
+  
+      .clientlist-screen {
+        .client-details {
+          input,
+          select {
+            background: $sh_pos_secondary_color_night_mode !important;
+            color: $sh_pos_night_mode_text_color !important;
+            border-color: $sh_pos_secondary_color_night_mode !important;
+  
+            .client-name {
+              background: $sh_pos_secondary_color_night_mode !important;
+              color: $sh_pos_night_mode_text_color !important;
+            }
+  
+            &:hover,
+            &:focus {
+              border-color: $sh_pos_primary_color_night_mode !important;
+            }
+          }
+        }
+  
+        .client-list {
+          td {
+            color: unset !important;
+          }
+  
+          tr {
+            &.highlight td {
+              color: white !important;
+            }
+          }
+  
+          tbody {
+            tr {
+              &:nth-child(odd).highlight {
+                background: $sh_pos_secondary_color_night_mode !important;
+              }
+  
+              &:nth-child(even).highlight {
+                background: #1b1e26 !important;
+              }
+            }
+          }
+        }
+  
+        .client-details-box {
+          border-top-color: $sh_pos_secondary_color_night_mode !important;
+        }
+  
+        .client-picture {
+          background: $sh_pos_secondary_color_night_mode !important;
+        }
+      }
+  
+      .textarea {
+        box-shadow: 0 0 0 1px transparent !important;
+  
+        &:focus {
+          box-shadow: 0 0 0 1px $sh_pos_night_mode_text_color !important;
+        }
+      }
+  
+      .product-info-popup {
+        .searchable {
+          color: $sh_pos_night_mode_second_text_color;
+        }
+      }
+  
+      table {
+        thead {
+          tr {
+            border-bottom: 0;
+          }
+        }
+      }
+  
+      .payment-buttons {
+        .payment-controls {
+          .button {
+            &.js_invoice {
+              &:hover .payment-screen .payment-buttons .button i {
+                background: $sh_pos_third_color_night_mode !important;
+              }
+            }
+          }
+        }
+      }
+  
+      .control-button {
+        &:active {
+          background: $sh_pos_primary_color_night_mode;
+          color: white;
+        }
+      }
+  
+      .popup.popup-error {
+        box-shadow: none;
+      }
+  
+      .searchbox-client {
+        input {
+          background: $sh_pos_secondary_color_night_mode !important;
+          border-color: $sh_pos_secondary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color !important;
+  
+          &:focus {
+            border-color: $sh_pos_primary_color_night_mode !important;
+          }
+        }
+      }
+  
+      // media
+  
+      @media (max-width: 768px) {
+        .screen .left-content .paymentlines-container {
+          background: $sh_pos_secondary_color_night_mode;
+        }
+  
+        .switchpane .btn-switchpane.secondary {
+          background: $sh_pos_primary_color_night_mode;
+  
+          &:first-child {
+            border-right-color: $sh_pos_secondary_color_night_mode;
+          }
+        }
+  
+        .switchpane .btn-switchpane {
+          background: $sh_pos_primary_color_night_mode;
+  
+          &:first-child {
+            border-right-color: $sh_pos_secondary_color_night_mode;
+          }
+        }
+  
+        .ticket-screen{
+            .order-row{
+                .delete-button {
+                 background: transparent !important;
+               }
+            }
+        } 
+      }
+  
+      // floor map
+  
+      .floor-map {
+        background: $sh_pos_primary_color_night_mode !important;
+        @if $sh_pos_body_background_type == "bg_img" {
+          background: transparent !important;
+        }
+  
+        .table {
+          background: $sh_pos_secondary_color_night_mode;
+        }
+      }
+  
+      .order-button {
+        &.floor-button {
+          background: transparent;
+          box-shadow: none;
+          color: white;
+        }
+      }
+  
+      .floor-selector {
+        .button {
+          background: $sh_pos_night_mode_text_color !important;
+          color: $sh_pos_third_color_night_mode;
+  
+          &.active {
+            background: $sh_pos_third_color_night_mode !important;
+            color: $sh_pos_night_mode_text_color;
+          }
+        }
+      }
+  
+      .splitbill-screen {
+        .order-info {
+          color: $sh_pos_night_mode_text_color;
+        }
+  
+        &.main {
+          .pay-button {
+            button {
+              &:hover {
+                background: $sh_pos_primary_color_night_mode !important;
+              }
+            }
+          }
+        }
+  
+        &.screen {
+          .pay-button {
+            .button {
+              background: $sh_pos_secondary_color_night_mode;
+              border-color: $sh_pos_secondary_color_night_mode;
+              color: $sh_pos_night_mode_text_color;
+              transition: 0.5s;
+  
+              &:hover {
+                background: $sh_pos_primary_color_night_mode;
+                border-color: $sh_pos_primary_color_night_mode;
+              }
+            }
+          }
+        }
+  
+        .order {
+          border: 0;
+          background: $sh_pos_secondary_color_night_mode;
+        }
+      }
+  
+      .popup-numpad {
+        .input-button {
+          background: $sh_pos_secondary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color;
+  
+          img {
+            filter: invert(0.8);
+          }
+  
+          &:active {
+            background: $sh_pos_primary_color_night_mode;
+          }
+        }
+  
+        .mode-button {
+          background: $sh_pos_secondary_color_night_mode !important;
+          color: $sh_pos_night_mode_text_color;
+  
+          &:active {
+            background: $sh_pos_primary_color_night_mode;
+            border-color: $sh_pos_primary_color_night_mode;
+          }
+        }
+  
+        button {
+          &:active {
+            background: $sh_pos_primary_color_night_mode !important;
+          }
+        }
+      }
+  
+      ::-webkit-scrollbar {
+        background: $sh_pos_primary_color_night_mode !important;
+      }
+  
+      .control-buttons {
+        background: $sh_pos_secondary_color_night_mode !important;
+        
+        a , span {
+          color: $sh_pos_night_mode_text_color !important;
+        }
+  
+        @if $sh_action_button_position == "left_side" {
+          background: $sh_pos_secondary_color_night_mode !important;
+        }
+  
+        @if $sh_action_button_position == "right_side" {
+          background: $sh_pos_secondary_color_night_mode !important;
+        }
+  
+        .sh_left_control_buttons {
+          .control-button {
+            &:hover .control-button-number {
+              color: $sh_pos_night_mode_text_color !important;
+            }
+          }
+        }
+      }
+      @if $sh_pos_body_background_type == "bg_img" {
+      
+            .pos-topheader {
+              background: #1c2543d6 !important;
+            }
+            .pos_content {
+              background: rgba(0, 1, 13, 0.85) !important;
+            }
+            .pos-content {
+              .rightpane-header {
+                background: transparent !important;
+              }
+            }
+            .screen {
+              background: transparent !important;
+              .screen-content {
+                background: transparent;
+              }
+              #owl-demo {
+                background: transparent !important;
+              }
+              .leftpane {
+                .order-container {
+                  .order .summary {
+                    background: transparent !important;
+                  }
+                }
+              }
+            }
+            .rightpane {
+              background: transparent !important;
+            }
+            .leftpane {
+              background: transparent !important;
+              .pads {
+                background: transparent !important;
+                .subpads {
+                  background: transparent !important;
+                }
+              }
+            }
+            .splitbill-screen {
+              &.screen {
+                .main {
+                  background: transparent !important;
+                }
+              }
+            }
+      
+      }
+      @if $sh_pos_button_style == "style_3" {
+        .popups {
+          .modal-dialog {
+            main.body {
+              .cash-move {
+                .input-amount {
+                  .input-type.highlight {
+                    &:nth-child(1) {
+                      border-color: $sh_pos_primary_color_night_mode !important;
+                      color: white !important;
+                    }
+                    &:nth-child(2) {
+                      background: #d62f5e !important;
+                      color: white !important;
+                    }
+                  }
+                }
+              }
+            }
+            .popup{
+              &.close-pos-popup {
+                .footer{
+                  .button{
+                    color: $sh_pos_night_mode_text_color !important;
+                    border-color: $sh_pos_primary_color_night_mode !important;
+          
+                    &:hover {
+                      background: $sh_pos_primary_color_night_mode !important;
+                    }
+                    &:not(:last-child) {
+                      color: $sh_pos_night_mode_text_color !important;
+                      border-color: $sh_pos_primary_color_night_mode !important;
+            
+                      &:hover {
+                        background: $sh_pos_primary_color_night_mode !important;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .popup {
+          .footer {
+            .button {
+              &:last-child {
+                background: $sh_pos_primary_color_night_mode !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+    
+              &:nth-child(2) {
+                // background: $sh_pos_primary_color_night_mode !important;
+                color: white !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+    
+              &:nth-child(3) {
+                background: $sh_pos_secondary_color_night_mode !important;
+                color: white !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+            }
+          }
+        }
+      }
+      @if $sh_pos_button_style == "style_2" {
+        .popups {
+          .modal-dialog {
+            main {
+              &.body {
+                .cash-move {
+                  .input-amount {
+                    .input-type {
+                      &:nth-child(1) {
+                        &.highlight {
+                          color: white !important;
+                          border-color: $sh_pos_primary_color_night_mode !important;
+                        }
+                      }
+                      &:nth-child(2) {
+                        &.highlight {
+                          background: rgb(216, 67, 67) !important;
+                          color: white !important;
+                          border-color: rgb(216, 67, 67) !important;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .popup {
+              &.close-pos-popup {
+                .footer {
+                  .button {
+                    &.highlight{
+                      border-color: $sh_pos_primary_color !important;
+                    }
+                    &[title='Visit the Backend but keep session open']{
+                      border-color: $sh_pos_primary_color !important;
+                    }
+                    &:not(:last-child) {
+                      border-color: $sh_pos_primary_color_night_mode ;
+                      color: $sh_pos_night_mode_text_color !important;
+                      &:hover {
+                        background: $sh_pos_primary_color_night_mode !important;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .popup {
+          .footer {
+            .button {
+              &:last-child {
+                background: $sh_pos_primary_color_night_mode !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+              &:nth-child(2) {
+                // background: $sh_pos_secondary_color_night_mode !important;
+                color: white !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+    
+              &:nth-child(3) {
+                background: $sh_pos_secondary_color_night_mode !important;
+                color: white !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+            }
+          }
+        }
+      
+      }
+      @if $sh_pos_button_style == "style_1" {
+        .popups {
+          .modal-dialog {
+            main {
+              &.body {
+                .cash-move {
+                  .input-amount {
+                    .input-type {
+                      &:nth-child(2).highlight {
+                        background: rgb(216, 67, 67) !important;
+                        border-color: rgb(216, 67, 67) !important;
+                        color: white !important;
+                      }
+                      &:nth-child(1).highlight {
+                        border-color: $sh_pos_primary_color_night_mode !important;
+                        color: white !important;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .popup {
+          .footer {
+            .button {
+              // background: $sh_pos_primary_color_night_mode !important;
+              color: white !important;
+    
+              &:not(:last-child) {
+                // border-color: $sh_pos_primary_color_night_mode !important;
+                color: white !important;
+    
+                &:hover {
+                  background: $sh_pos_primary_color_night_mode !important;
+                  color: white !important;
+                }
+              }
+    
+              &.cancel {
+                background: $sh_pos_primary_color_night_mode !important;
+                color: $sh_pos_night_mode_text_color !important;
+                border-color: $sh_pos_primary_color_night_mode !important;
+              }
+    
+              &:not(:last-child) {
+                // background: $sh_pos_primary_color_night_mode !important;
+              }
+            }
+          }
+        }
+      
+      }  
+      @if $sh_pos_theme_style == "style_4" {
+        .pos-content {
+          .window {
+            .subwindow {
+              .subwindow-container {
+                .screens {
+                  .screen {
+                    background: $sh_pos_third_color_night_mode;
+                    .screen-full-width {
+                      .rightpane {
+                        background: $sh_pos_third_color_night_mode !important;
+                        .orders {
+                          .order-row {
+                            &.highlight {
+                              .col {
+                                color: white !important;
+                              }
+                            }
+                          }
+                        }
+                        .controls {
+                          .pos-search-bar {
+                            .search {
+                              .fields {
+                                ul {
+                                  li {
+                                    &.highlight {
+                                      background: linear-gradient(
+                                        119deg,
+                                        rgba(
+                                            darken($sh_pos_primary_color, 10%),
+                                            $alpha: 0.8
+                                          )
+                                          18%,
+                                        rgba(
+                                          $sh_pos_gradient_color,
+                                          $alpha: 0.35
+                                        )
+                                      ) !important;
+                                      color: white !important;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            .filter {
+                              .options {
+                                background: $sh_pos_third_color_night_mode !important;
+                              }
+                            }
+                          }
+                          .buttons {
+                            .discard {
+                              border: 0;
+                            }
+                          }
+                        }
+                        .products-widget {
+                          .products-widget-control {
+                            .rightpane-header {
+                              .search-bar-container {
+                                .pos-search-bar {
+                                  input {
+                                    color: white !important;
+                                    &::placeholder {
+                                      color: white;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                          .product-list-container {
+                            .search-more-button {
+                              .button {
+                                color: white;
+                              }
+                            }
+                          }
+                        }
+                      }
+                      @if $sh_pos_body_background_type == "bg_img" {
+                        .rightpane {
+                          background: transparent !important;
+                          .products-widget {
+                            .product-list-container {
+                              background: transparent !important;
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .contents {
+                      .top-content {
+                        .button {
+                          &.back {
+                            outline: 0;
+                          }
+                        }
+                        // .search-bar-container .pos-search-bar{
+                        //   background: $sh_pos_primary_color_night_mode !important;
+                        // }
+                      }
+                      .main {
+                        .lines {
+                          .order {
+                            .orderlines {
+                              .orderline {
+                                &.selected {
+                                  background: linear-gradient(
+                                    119deg,
+                                    rgba($sh_pos_primary_color, $alpha: 0.4)
+                                      18%,
+                                    rgba($sh_pos_gradient_color, $alpha: 0.4)
+                                  ) !important;
+                                }
+                              }
+                            }
+                          }
+                        }
+                        .controls {
+                          .pay-button {
+                            .button {
+                              color: white !important;
+                            }
+                          }
+                        }
+                      }
+                    }
+                    div{
+                      &.screen-content-flexbox{
+                        .floor-selector{
+                          .button{
+                            &.active {
+                            box-shadow: inset 10px 15px 20px #9d989875, 5px 5px 15px #9d989875,
+                              10px 10px 15px #5e555575;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .login-overlay {
+                    .screen-login {
+                      .login-body {
+                        .login-element {
+                          .login-button {
+                            color: white !important;
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .screen-content {
+                    background: $sh_pos_third_color_night_mode;
+                    .full-content {
+                      .partner-window {
+                        .subwindow {
+                          .subwindow-container {
+                            .subwindow-container-fix {
+                              .partner-list {
+                                tbody {
+                                  tr {
+                                    td {
+                                      .edit-partner-button {
+                                        color: white;
+                                      }
+                                    }
+                                    &.highlight {
+                                      td {
+                                        color: white !important;
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .top-content {
+                      .button {
+                        &.back {
+                          color: white !important;
+                          outline: 0;
+                        }
+                      }
+                      .top-right-buttons {
+                        .button {
+                          &.more-info {
+                            a {
+                              color: white !important;
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .main-content {
+                      .left-content {
+                        .paymentmethods-container {
+                          .paymentlines {
+                            .paymentline {
+                              div {
+                                color: #a3a3a3;
+                              }
+                              &:hover {
+                                div {
+                                  color: white;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .button {
+                      &.validation {
+                        color: white !important;
+                      }
+                    }
+                  }
+                  .screen-content-flexbox {
+                    .floor-selector {
+                      .button {
+                        background: transparent !important;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .popups {
+          .modal-dialog {
+            .popup {
+              .body {
+                .payment-methods-overview {
+                  table {
+                    thead {
+                      tr {
+                        th {
+                          color: white !important;
+                        }
+                      }
+                    }
+                  }
+                }
+                .cash-move {
+                  .input-amount {
+                    .input-type {
+                      background: $sh_pos_primary_color_night_mode;
+                      &.highlight {
+                        color: white !important;
+                      }
+                      &.red-highlight {
+                        background: #bd2222 !important;
+                      }
+                    }
+                  }
+                }
+              }
+              .footer {
+                .button {
+                  color: white !important;
+                  outline: 0 !important;
+                  &.cancel {
+                    outline: 0;
+                  }
+                }
+              }
+              &.close-pos-popup {
+                footer {
+                  &.footer {
+                    div {
+                      &.button {
+                        &.highlight {
+                          color: white !important;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

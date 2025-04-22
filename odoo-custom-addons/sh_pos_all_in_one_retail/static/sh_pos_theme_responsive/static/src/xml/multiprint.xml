@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+
+
+
+    <t t-name="OrderChangeReceipt">
+
+
+
+        <div class="pos-receipt">
+    <!-- <div style="text-align:center;"> 
+    <p><t t-esc="changes.name_pos"/></p></div> -->
+<!-- <div style="border: 2px solid black; padding: 10px; display: block; width: fit-content; margin:auto; text-align: center;">
+    <p><t t-esc="changes.name_pos"/></p>
+</div>
+ -->
+<div style="border: 2px solid black; padding: 10px; display: block; width: fit-content; margin: auto; text-align: center; border-radius: 10px;">
+    <p><t t-esc="changes.name_pos"/></p>
+</div>
+
+
+<div  style="text-align: center;margin:7px; padding: 10px">
+            <t t-esc='changes.time.formattedDate'/>
+</div>
+<div style="text-align: center;">
+            <h4>
+    <t t-esc="changes.name"/>
+</h4>
+
+</div>
+
+            <t t-if="changes.floor_name || changes.table_name">
+                <br/>
+                <div class="pos-receipt-title">
+                    <t t-esc="changes.floor_name"/>
+                    /
+                    <t t-esc="changes.table_name"/>
+                </div>
+            </t>
+            <br/>
+            <br/>
+
+
+            <t t-if="changes.cancelled.length > 0">
+                <div class="pos-order-receipt-cancel">
+                    <div class="pos-receipt-title">
+                        CANCELLED
+                    </div>
+                    <br/>
+                    <table class="table-cancel"> 
+
+                        <t t-foreach="changes.cancelled" t-as="change">
+                            <tr class="tables-tr">
+
+                                 <td> <span class="product-quantity" t-esc="change.quantity"/></td>
+
+                                <!--                       <td class="cancelled-td"> <div  >  X </div>-->
+                                <!--                           <span class="product-name product-name-flex1" t-esc="change.name"/></td>-->
+                                <!--                              -->
+                                <td class="product-name-td-cancel"><span class="product-name-cancel" t-esc="change.name"/></td>
+                                <td class="cancelled-td-mark"> X </td>
+
+                            </tr>
+
+
+                        </t>
+                    </table>
+                    <br/>
+                    <br/>
+                    <div style="border-bottom-style: dashed;  width:100%;"></div>
+                    <br/>
+                    <br/>
+                </div>
+            </t>
+
+            <t t-if="changes.new.length > 0">
+                <div class="pos-receipt-title">
+                    NEW
+                </div>
+                <br/>
+                <br/>
+                <table class="table-new">
+                    <t t-foreach="changes.new" t-as="change">
+                        <tr class="tables-tr">
+                            <td class="cls-quant">
+                                <span class="product-quantity" t-esc="change.quantity"/>
+                            </td>
+                            <td class="product-name-note">
+                                <span class="product-name" t-esc="change.name"/>
+                                <br/>
+
+
+                                  <t t-if="changes.order_lines">
+                                    <t t-foreach="changes.order_lines" t-as="line">
+                                        <t t-if="line.product_name == change.name and line.note">
+                                            <div class="pos-receipt-left-padding note">
+                                                <strong>Note:</strong> <t t-esc="line.note" />
+                                            </div>
+                                        </t>
+                                    </t>
+                                </t>
+ 
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+                <br/>
+                <br/>
+            </t>
+            <div class="name-company" style="text-align:center;">  Magic Quantum</div>
+        </div>
+    </t>
+
+</templates>
+
+

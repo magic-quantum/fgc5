@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Sub Categories  -->
+    <record id="pos_receipt_design1" model="pos.receipt">
+        <field name="name">Design 1</field>
+        <field name="design_receipt"><![CDATA[<div class="pos-receipt">
+        <div class="pos-receipt">
+    <!-- LOGO -->
+    <t t-if='receipt.company.logo'>
+        <img class="pos-receipt-logo" t-att-src='receipt.company.logo' alt="Logo"/>
+    </t>
+    <!-- COMPANY-INFO -->
+    <div style="font-size: 23px; text-align:center;">
+        <!-- <t t-if='!receipt.company.logo'>
+            <h2 class="pos-receipt-center-align">
+                <t t-esc='receipt.company.name' />
+            </h2>
+        </t>
+        <t t-if='receipt.company.contact_address'>
+            <div><t t-esc='receipt.company.contact_address' /></div>
+        </t>
+        <t t-if='receipt.company.phone'>
+            <div>Tel:<t t-esc='receipt.company.phone' /></div>
+        </t>
+        <t t-if='receipt.company.website'>
+            <div><t t-esc='receipt.company.website' /></div>
+        </t> -->
+        <t t-if='receipt.header_html'>
+            <t t-raw='receipt.header_html' />
+        </t>
+        <t t-if='!receipt.header_html and receipt.header'>
+            <div><t t-esc='receipt.header' /></div>
+        </t>
+    </div>
+    <!-- Orderlines -->
+    <div class='orderlines'>
+        <div style="text-align:center; font-size: 23px;">
+            <!-- border-top: 2px dashed black;border-bottom: 2px dashed black;padding-top: 5px;padding-bottom: 5px; -->
+            <div>--------------------------------</div>
+            <t t-if='receipt.cashier'>
+                <div class='cashier'>
+                    <div>
+                        Served by : 
+                        <t t-esc='receipt.cashier' style="font-style: bold"/>
+                    </div>
+                </div>
+            </t>
+            <t t-if='receipt.partner'>
+                <div>
+                    Client : 
+                    <t t-esc='receipt.partner.name' style="font-style: bold" />
+                </div>
+            </t>
+            <t t-if="receipt.partner.phone">
+                <div>
+                    Phone :  
+                    <t t-esc='receipt.partner.phone' style="font-style: bold" />
+                </div>
+            </t>
+            <t t-if="receipt.partner.street">
+                <div>
+                    Street :  
+                    <t t-esc='receipt.partner.street' style="font-style: bold" />
+                </div>
+            </t>
+            <t t-if="receipt.table">
+                <div>
+                    Table :  
+                    <t t-esc='table' />
+                    <t t-esc="receipt.table"/>
+                </div>
+            </t>    
+            <br/>
+            <div>
+                <!-- Receipt :  -->
+                <span t-esc='receipt.name' />
+            </div>
+            <div>
+                <!-- Date :  -->
+                <t t-if="order.formatted_validation_date">
+                    <span t-esc='order.formatted_validation_date' />
+                </t>
+                <t t-else="">
+                    <span t-esc='order.validation_date' />
+                </t>
+            </div>
+        </div>
+        <br/>
+        <table style="width: 100%;">
+            <tr style="border-top: 2px solid black; border-bottom: 2px solid black;font-size:24px;">
+            <th style="text-align:left;">Product</th>
+            <th>Qty</th>
+            <th style="text-align: center;">Unit Price</th>
+            <th>Amount</th>
+            </tr>
+            <tr t-foreach="receipt.orderlines" t-as="line" style="border-bottom: 5px solid #ddd;font-size: 24px;font-family: initial;">
+            <td><div style="padding-top: 10px;padding-bottom: 10px;">
+                <span t-esc='line.product_name_wrapped[0]'/>
+                <t t-if='line.discount !== 0'>
+                    <h5 style="margin-top: 0%;margin-bottom: 0%;font-size: 12px;color: #848484;">
+                        <t t-esc='line.discount' />% Discount 
+                    </h5>
+                </t>
+                <t t-if="line.customer_note">
+                    <div style="font-size: 22px;" t-esc="line.customer_note"/>
+                </t>
+                </div>
+            </td>
+            <td style="text-align: center;"><span t-esc="line.quantity"/><span t-if='line.unit_name !== "Units"' t-esc='line.unit_name'/></td>
+            <td style="text-align: center;"><span t-esc="widget.pos.format_currency_no_symbol(line.price)"/></td>
+            <td style="text-align: center;"><span t-esc='widget.pos.format_currency_no_symbol(line.price_display)'/></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+    <!-- Subtotal -->
+    <!-- <t t-set='taxincluded' t-value='Math.abs(receipt.subtotal - receipt.total_with_tax) &lt;= 0.000001' />
+    <t t-if='!taxincluded'>
+        <br/> 
+        <div style="font-weight: 700;text-align: right; font-size: 20px;border-top: 2px solid;margin-left: 30%; padding-top: 2%;">Subtotal : <span t-esc='widget.pos.format_currency(receipt.subtotal)' class="pos-receipt-right-align"/></div>
+        <t t-foreach='receipt.tax_details' t-as='tax'>
+            <div style="font-weight: 700;text-align: right;">
+                <t t-esc='tax.name' />
+                <span t-esc='widget.pos.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
+            </div>
+        </t>
+    </t> -->
+    <!-- Total -->
+    <div style="font-size: 20px;text-align: right;font-weight: 700; border-top: 2px solid;margin-left: 30%;padding-top: 2%;">
+        TOTAL :
+        <span t-esc='widget.pos.format_currency(receipt.total_with_tax)'/>
+    </div>
+    <!-- <br/> -->
+    <!-- PAYMENT -->
+    <t t-foreach="paymentlines" t-as="line">
+        <div style="font-weight: 700; font-size: 24px;">
+            <span style="margin-left: 40%;">PAYMENT : </span>
+            <span t-esc="widget.pos.format_currency(line.get_amount())" class="pos-receipt-right-align"/>
+        </div>
+    </t>
+    <!-- <br/> -->
+    <!-- CHANGE -->
+    <div style="font-weight: 700; font-size: 24px;">
+        <span style="margin-left: 40%;">CHANGE : </span>
+        <span t-esc="widget.pos.format_currency(receipt.change)" class="pos-receipt-right-align"/>
+    </div>
+    <!-- Extra Payment Info -->
+    <!-- <t t-if='receipt.total_discount'>
+        <div style="font-size: 14px;text-align: right;border-top: 1px solid;margin-left: 30%;padding-top: 2%;">
+            Discounts
+            <span t-esc='widget.pos.format_currency(receipt.total_discount)'/>
+        </div>
+    </t>
+    <br/> -->
+    <!-- <t t-if='taxincluded'>
+        <t t-foreach='receipt.tax_details' t-as='tax'>
+            <div style="font-size: 15px; text-align: right; font-weight: 700; border-top: 1px solid;margin-left: 30%;padding-top: 2%;">
+                <t t-esc='tax.name' />
+                <span t-esc='widget.pos.format_currency_no_symbol(tax.amount)'/>
+            </div>
+        </t>
+        <div style="font-size: 15px; text-align: right; font-weight: 700;">
+            Total Taxes :
+            <span t-esc='widget.pos.format_currency(receipt.total_tax)'/>
+        </div>
+    </t> -->
+    </div>
+    <!-- <br/> -->
+    <!-- Payment Lines -->
+    <!-- <div style="border-top: 1px dashed black;padding-top: 5%;border-bottom: 1px dashed black;">
+        <t t-foreach='paymentlines' t-as='line'>
+            <div style="font-size: 14px;">
+                <t t-esc='line.name' />
+                <span t-esc='widget.pos.format_currency_no_symbol(line.get_amount())' class="pos-receipt-right-align"/>
+            </div>
+        </t>
+        <br/>
+        <div class="receipt-change" style="font-size: 14px;">
+            CHANGE
+            <span t-esc='widget.pos.format_currency(receipt.change)' class="pos-receipt-right-align"/>
+        </div>
+        <br/>
+    </div> -->
+    <div class='before-footer'>
+        <!-- Footer -->
+        <div t-if='receipt.footer_html'  class="pos-receipt-center-align" style="font-size: 14px;">
+            <t t-raw='receipt.footer_html'/>
+        </div>
+        <div t-if='!receipt.footer_html and receipt.footer'  class="pos-receipt-center-align" style="font-size: 24px;">
+            <br/>
+            <t t-esc='receipt.footer'/>
+            <br/>
+        </div>
+        <div class='after-footer' style="font-size: 14px;">
+            <t t-foreach='paymentlines' t-as='line'>
+                <t t-if='line.ticket'>
+                    <br />
+                    <div class="pos-payment-terminal-receipt">
+                        <t t-raw='line.ticket'/>
+                    </div>
+                </t>
+            </t>
+        </div>
+        <br/>
+        <div style="font-size: 25px; text-align: center;">
+            شركة خليج المستقبل للوكلات التجارية
+        </div>        
+        <div style="font-size: 24px; text-align: center;">
+            07718818872 - 07716666818
+        </div>
+        <br/>
+        <div style="font-size: 13px; text-align: center;">
+            Powerd By: 
+            Magic Quantum Technologies
+        </div>
+        <div style="font-size: 13px; text-align: center;">
+            www.magic-quantum.com
+        </div>
+        <div style="font-size: 13px; text-align: center;">
+            07744 000 582 - 7844 000 582
+        </div>
+    </div>
+</div>
+</div>]]></field>
+    </record>
+    <record id="pos_receipt_design2_demo" model="pos.receipt">
+        <field name="name">Design 2</field>
+        <field name="design_receipt"><![CDATA[<div class="pos-receipt">
+        <t t-if="receipt.pos.custom_logo_type == 'logo'">
+<img class="pos-receipt-logo" t-att-src="receipt.company.logo" alt="Logo"/>
+<br/>
+</t>
+<t t-else="">
+<h2 class="pos-receipt-center-align">
+<t t-esc="receipt.pos.custom_text"/>
+</h2>
+<br/>
+</t> 
+            <div style="font-size:13px; text-align: center;">
+                <t t-esc="widget.pos.company.name"/><br />
+                Phone: <t t-esc="widget.pos.company.phone || ''"/><br />
+            </div>
+
+            <br/>
+            <div style="font-size:13px; text-align: center;">
+                Date :
+                <t t-if="order.formatted_validation_date">
+                    <t t-esc="order.formatted_validation_date"/>
+                </t>
+                <t t-else="">
+                    <t t-esc="order.validation_date"/>
+                </t>
+                <br />
+                Order : <t t-esc="order.name"/><br />
+            </div>
+            <br />
+            <div style="font-size:13px; text-align: center;">
+                Cashier :  <t t-esc='receipt.cashier' /><br />
+                <t t-if="receipt.partner.name">
+                Customer :  <t t-esc='receipt.partner.name' style="font-style: bold" />
+                </t>
+                <br />
+            </div>
+            <br/>
+            <t t-if="receipt.header">
+                <div style='text-align:center; font-size:13px'>
+                    <t t-esc="receipt.header" />
+                </div>
+                <br />
+            </t>
+            <div>
+                <table class='receipt-orderlines' style="font-size:15px; border-style: double;
+            border-left: none;border-right: none;border-bottom: none;width: 100%;">
+                <colgroup>
+                    <col width='40%' />
+                    <col width='30%' />
+                    <col width='30%' />
+                </colgroup>
+                <tr style="border-bottom: 1px dashed black;">
+                    <th style="text-align:left;">Product</th>
+                    <th style="text-align:center;">Qty</th>
+                    <th style="text-align:center;">Amount</th>
+                </tr>
+                <tr t-foreach="orderlines" t-as="orderline">
+                    <td style="padding-top: 1%;padding-bottom: 1%;">
+                        <t t-esc="orderline.get_product().display_name"/>
+                        <t t-if="orderline.get_discount() > 0">
+                            <div style="font-size: 12px;font-style: italic;color: #808080;">
+                                <t t-esc="orderline.get_discount()"/>% discount
+                            </div>
+                        </t>
+                        <t t-if="orderline.customerNote">
+                            <div style="font-size: 14px;" t-esc="orderline.customerNote"/>
+                        </t>
+                    </td>
+                    <td class="pos-center-align">
+                        <t t-esc="orderline.get_quantity_str_with_unit()"/>
+                    </td>
+                    <td class="pos-center-align">
+                        <t t-esc="widget.pos.format_currency(orderline.get_display_price())"/>
+                    </td>
+                </tr>
+                </table>
+            </div>
+            <br />
+            <div style="padding-top: 6px;">
+                <!-- Subtotal -->
+                <t t-set='taxincluded' t-value='Math.abs(receipt.subtotal - receipt.total_with_tax) &lt;= 0.000001' />
+                <t t-if='!taxincluded'>
+                    <br/>
+                    <div style="font-weight: 700; font-size: 14px; border-top:1px dashed;"><span style="margin-left: 40%;">Subtotal : </span><span t-esc='widget.pos.format_currency(receipt.subtotal)' class="pos-receipt-right-align"/></div>
+                    <t t-foreach='receipt.tax_details' t-as='tax'>
+                        <div style="font-weight: 700; font-size: 14px;">
+                            <span style="margin-left: 40%;"><t t-esc='tax.name' /></span>
+                            <span t-esc='widget.pos.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
+                        </div>
+                    </t>
+                </t>
+                <!-- Total -->
+                <br/>
+                <div style="font-weight: 700; font-size: 14px;">
+                    <span style="margin-left: 40%;">TOTAL : </span>
+                    <span t-esc='widget.pos.format_currency(receipt.total_with_tax)' class="pos-receipt-right-align"/>
+                </div>
+                <br/><br/>
+            </div>
+            <!-- Payment Lines -->
+            <t t-foreach='paymentlines' t-as='line'>
+                <div style="font-size: 14px;border-top:1px dashed;padding-top: 5px;">
+                    <span style="margin-left: 40%;"><t t-esc='line.name' /></span>
+                    <span t-esc='widget.pos.format_currency_no_symbol(line.get_amount())' class="pos-receipt-right-align"/>
+                </div>
+            </t>
+            <br/>
+            <div class="receipt-change" style="font-size: 14px;">
+            <span style="margin-left: 40%;">CHANGE : </span>
+                <span t-esc='widget.pos.format_currency(receipt.change)' class="pos-receipt-right-align"/>
+            </div>
+            <br/>
+            <!-- Extra Payment Info -->
+            <t t-if='receipt.total_discount'>
+                <div style="font-size: 14px; border-top:1px dashed;padding-top: 5px;">
+                    <span style="margin-left: 40%;">Discounts : </span>
+                    <span t-esc='widget.pos.format_currency(receipt.total_discount)' class="pos-receipt-right-align"/>
+                </div>
+            </t>
+            <t t-if='taxincluded'>
+                <t t-foreach='receipt.tax_details' t-as='tax'>
+                    <div style="font-size: 14px;">
+                        <span style="margin-left: 40%;"><t t-esc='tax.name' /></span>
+                        <span t-esc='widget.pos.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+                <div style="font-size: 14px;">
+                    <span style="margin-left: 40%;">Total Taxes : </span>
+                    <span t-esc='widget.pos.format_currency(receipt.total_tax)' class="pos-receipt-right-align"/>
+                </div>
+            </t>
+            <div class='before-footer' />
+            <!-- Footer -->
+            <div t-if='receipt.footer_html' style="text-align: center; font-size: 14px;">
+                <t t-raw='receipt.footer_html'/>
+            </div>
+            <div t-if='!receipt.footer_html and receipt.footer' style="text-align: center;font-size: 14px;">
+                <br/>
+                <t t-esc='receipt.footer'/>
+                <br/><br/>
+            </div>
+            <div class='after-footer' style="font-size: 14px;">
+                <t t-foreach='paymentlines' t-as='line'>
+                    <t t-if='line.ticket'>
+                        <br />
+                        <div class="pos-payment-terminal-receipt">
+                            <t t-raw='line.ticket'/>
+                        </div>
+                    </t>
+                </t>
+            </div>
+            <br/><br/>
+            <div style="font-size: 14px; text-align: center;">
+                Thank You... Please Visit Again ...
+            </div>
+        </div>]]></field>
+    </record>
+
+
+
+
+
+<record id="pos_receipt_design4" model="pos.receipt">
+    <field name="name">Design 4</field>
+    <field name="design_receipt"><![CDATA[
+
+<div class="pos-receipt">
+    <!-- LOGO -->
+    <t t-if="receipt.company.logo">
+        <img class="pos-receipt-logo" t-att-src="receipt.company.logo" alt="Logo"/>
+    </t>
+    
+    <t t-if="receipt.company.contact_address">
+        <div style="font-size: 20px; text-align: center;"><t t-esc="receipt.company.contact_address"/></div>
+    </t>
+    <t t-if="receipt.company.phone">
+        <div style="font-size: 20px; text-align: center;">Tel: <t t-esc="receipt.company.phone"/></div>
+    </t>
+    <t t-if="receipt.company.website">
+        <div style="font-size: 20px;text-align: center;"><t t-esc="receipt.company.website"/></div>
+    </t>
+
+
+ <div style="text-align: center; font-size: 20px; font-weight: normal;">
+    
+    <t t-if="!receipt.header_html and receipt.header">
+        <t t-esc="receipt.header"/>
+    
+    </t>
+</div>
+
+    <t t-if="receipt.header_html">
+        <div style="text-align: center;">
+            <t t-raw="receipt.header_html"/>
+        </div>
+    </t>
+
+    <div style="text-align: center;">----------------------------------</div>
+    <t t-if="receipt.partner">
+        <div class="cashier" style="font-size: 20px;">
+            <div style="text-align: center;">
+                Served by: 
+                <t t-esc="receipt.cashier" style="font-weight: bold"/>
+            </div>
+        </div>
+        <t t-if="receipt.partner.name">
+            <div style="text-align: center; font-size: 20px">Client: <t t-esc="receipt.partner.name" /></div>
+        </t>
+        <t t-if="receipt.partner.phone">
+            <div style="text-align: center;font-size: 20px">Phone: <t t-esc="receipt.partner.phone" /></div>
+        </t>
+        <t t-if="receipt.partner.street">
+            <div style="text-align: center;font-size: 20px">Street: <t t-esc="receipt.partner.street"/></div>
+        </t>
+    </t>
+
+    <t t-if="receipt.table">
+        <div style="text-align: center;font-size: 20px">Table: <t t-esc="receipt.table"/></div>
+    </t>
+
+    <br/>
+    <div style="text-align: center;font-size: 25px">
+        <span t-esc="receipt.name"/>
+    </div>
+
+
+    <!--<t t-set="formatted_date" t-value="order.formatted_validation_date"/>-->
+    <div style="text-align: center;font-size: 25px">
+        <span t-esc="formattedDate"/>
+        <!--<span>-->
+        <!--    <t t-raw="formatted_date.split(' ')[1].split(':')[0] + ':' + formatted_date.split(' ')[1].split(':')[1]"/>-->
+        <!--</span>-->
+        <!--<span>-->
+        <!--    <t t-raw="(formatted_date.split(' ')[1].split(':')[0]|int) >= 12 and 'PM' or 'AM'"/>-->
+        <!--</span>-->
+        <!--<span>-->
+        <!--    <t t-raw="formatted_date.split(' ')[0]"/>-->
+        <!--</span>-->
+    </div>
+
+    <br/>
+
+
+    <table class="pos-receipt-products" style="width: 100%; margin: 5px auto 10px auto; border-collapse: collapse; border-spacing: 0px;">
+        <thead>
+            <tr style="background-color: #333; color: #fff; height: 30px;">
+                <th style="text-align: left; font-size: 25px; font-weight: bold; padding: 15px; border: 2px solid #000; white-space: nowrap;">Product</th>
+                <th style="text-align: center; font-size: 25px; font-weight: bold; padding: 15px; border: 2px solid #000; white-space: nowrap;">Qty</th>
+                <th style="text-align: right; font-size: 25px; font-weight: bold; padding: 15px; border: 2px solid #000; white-space: nowrap;">Unit Price</th>
+                <th style="text-align: right; font-size: 25px; font-weight: bold; padding: 15px; border: 2px solid #000; white-space: nowrap;">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <t t-foreach="receipt.orderlines" t-as="line">
+                <tr style="background-color: #f5f5f5; height: 30px;">
+                    <td style="font-size: 18px; font-weight: bold; padding: 15px; border: 2px solid #000;">
+                        <t t-esc="line.product_name_wrapped[0]"/>
+                    </td>
+                    <td style="text-align: center; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000;">
+                        <t t-esc="line.quantity"/>
+                    </td>
+                    <td style="text-align: right; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000;">
+                        <t t-esc="widget.pos.format_currency_no_symbol(line.price)"/>
+                    </td>  
+                    <td style="text-align: right; font-size: 20px; font-weight: bold; padding: 15px; border: 2px solid #000; white-space: nowrap; overflow: visible;">
+                        <t t-esc="widget.pos.format_currency_no_symbol(line.price_display)"/>
+                    </td>
+                </tr>
+            </t>
+        </tbody>
+    </table>
+
+    <div>
+        <div style="font-size: 25px; display: flex; justify-content: space-between; font-weight: 700; padding-top: 2%;">
+            <span>TOTAL: </span>
+            <span t-esc="widget.pos.format_currency(receipt.total_with_tax)"/>
+        </div>
+        <t t-if="paymentlines">
+            <t t-foreach="paymentlines" t-as="line">
+                <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 25px;">
+                    <span>PAYMENT: </span>
+                    <span t-esc="widget.pos.format_currency(line.get_amount())" class="pos-receipt-right-align"/>
+                </div>
+            </t>
+        </t>
+        <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 25px;">
+            <span>CHANGE: </span>
+            <span t-esc="widget.pos.format_currency(receipt.change)" class="pos-receipt-right-align"/>
+        </div>
+    </div>
+
+    <div class="before-footer">
+        <div t-if="receipt.footer_html" class="pos-receipt-center-align" style="font-size: 14px;">
+            <t t-raw="receipt.footer_html"/>
+        </div>
+        <div t-if="!receipt.footer_html and receipt.footer" class="pos-receipt-center-align" style="font-size: 24px;">
+            <br/>
+            <t t-esc="receipt.footer"/>
+            <br/>
+        </div>
+        <div class="after-footer" style="font-size: 14px;">
+            <t t-foreach="paymentlines" t-as="line">
+                <t t-if="line.ticket">
+                    <br />
+                    <div class="pos-payment-terminal-receipt">
+                        <t t-raw="line.ticket"/>
+                    </div>
+                </t>
+            </t>
+        </div>
+
+        <br/>
+        <div style="font-size: 25px; text-align: center;">
+            شركة خليج المستقبل للوكلات التجارية
+        </div>        
+        <div style="font-size: 24px; text-align: center;">
+            07718818872 - 07716666818
+        </div>
+        <br/>
+        <div style="font-size: 13px; text-align: center;">
+            Powered By: Magic Quantum Technologies
+        </div>
+        <div style="font-size: 13px; text-align: center;">
+            www.magic-quantum.com
+        </div>
+        <div style="font-size: 13px; text-align: center;">
+            07744 000 582 - 7844 000 582
+        </div>
+    </div>
+</div>
+
+    ]]></field>
+</record>
+
+
+
+</odoo>

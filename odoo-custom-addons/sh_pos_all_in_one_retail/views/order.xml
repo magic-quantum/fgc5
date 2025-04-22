@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Paid Action -->
+        <!-- <record id="action_paid" model="ir.actions.server">
+            <field name="name"> دفع </field>
+            <field name="model_id" ref="model_pos_order"/>
+            <field name="binding_model_id" ref="model_pos_order"/> 
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    record.action_paid()
+            </field>
+        </record> -->
+        <!-- Cancelle Action -->
+        <!-- <record id="action_cancelle" model="ir.actions.server">
+            <field name="name"> إلغاء </field>
+            <field name="model_id" ref="model_pos_order"/>
+            <field name="binding_model_id" ref="model_pos_order"/> 
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    record.action_cancel()
+            </field>
+        </record> -->
+        <!-- form for custom POS orders -->
+        <record id="view_pos_order_form_custom" model="ir.ui.view">
+            <field name="name">pos.order.form.custom</field>
+            <field name="model">pos.order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" decoration-bf="1"/>
+                            <field name="session_id"/>
+                            <field name="date_order_x"/>
+                            <field name="pos_reference"/>
+                            <field name="partner_id"/>
+                            <field string="Cashier" name="user_id" widget="many2one_avatar_user"/>
+                            <field name="x_customer_address" decoration-bf="x_customer_address"/>
+                            <field name="x_customer_mobile" decoration-bf="x_customer_mobile"/>
+                            <field name="x_delivery_person_name" decoration-bf="x_delivery_person_name"/>
+                            <field name="x_delivery_status"
+                                widget="badge"
+                                decoration-info="x_delivery_status == 'delivered'"
+                                decoration-warning="x_delivery_status == 'onway'"
+                                decoration-primary="x_delivery_status == 'notsend'"/>
+                            <field name="amount_total" sum="Amount total" widget="monetary" decoration-bf="1"/>
+                            <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state not in ('draft','cancel')"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- tree for custom POS orders -->
+        <record id="view_pos_order_tree_custom" model="ir.ui.view">
+            <field name="name">pos.order.tree.custom</field>
+            <field name="model">pos.order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" decoration-bf="1"/>
+                    <field name="session_id"/>
+                    <field name="date_order_x"/>
+                    <field name="pos_reference"/>
+                    <field name="partner_id"/>
+                    <field string="Cashier" name="user_id" widget="many2one_avatar_user"/>
+                    <field name="x_customer_address" decoration-bf="x_customer_address"/>
+                    <field name="x_customer_mobile" decoration-bf="x_customer_mobile"/>
+                    <field name="x_delivery_person_name" decoration-bf="x_delivery_person_name"/>
+                    <field name="x_delivery_status"
+                        widget="badge"
+                        decoration-info="x_delivery_status == 'delivered'"
+                        decoration-warning="x_delivery_status == 'onway'"
+                        decoration-primary="x_delivery_status == 'notsend'"/>
+                    <field name="amount_total" sum="Amount total" widget="monetary" decoration-bf="1"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state not in ('draft','cancel')"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_pos_order_search_custom" model="ir.ui.view">
+            <field name="name">pos.order.search.custom</field>
+            <field name="model">pos.order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!-- <field name="session_id"/>
+                    <filter string="Last Session" domain="[('session_id', '=', last_session_id)]"/>
+                         -->
+                    <separator/>
+                    <filter string="Order Date" name="order_date" date="date_order_x"/>
+                    <filter string="Today" name="today" domain="[('date_order_x','&gt;=',context_today())]"/>
+                    <separator/>
+                    <!-- <filter string="Not Sent" name="x_delivery_status_notsent" domain="[('x_delivery_status', '=', 'notsend')]"/>
+                    <filter string="On Way" name="x_delivery_status_onway" domain="[('x_delivery_status', '=', 'onway')]"/>
+                    <filter string="Delivered" name="x_delivery_status_delivered" domain="[('x_delivery_status', '=', 'delivered')]"/> -->
+                <group expand="0" string="Group By">
+                    <filter string="Session" name="session" domain="[]" context="{'group_by': 'session_id'}"/>
+                    <filter string="Cashier" name="user_id" domain="[]" context="{'group_by': 'user_id'}"/>
+                    <filter string="Customer" name="customer" domain="[]" context="{'group_by': 'partner_id'}"/>
+                    <filter string="State" name="status" domain="[]" context="{'group_by': 'state'}"/>
+                    <separator/>
+                    <filter string="Delivery Status" name="x_delivery_status" domain="[]" context="{'group_by': 'x_delivery_status'}"/>
+                    <filter string="Delivery Person" name="x_delivery_person_name" domain="[]" context="{'group_by': 'x_delivery_person_name'}"/>
+                <separator/>
+                    <filter string="Order Date" name="order_month" domain="[]" context="{'group_by': 'date_order'}"/>
+                </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_pos_order_custom" model="ir.actions.act_window">
+            <field name="name">Custom POS Orders</field>
+            <field name="res_model">pos.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0), 
+                                        (0, 0, {'view_mode': 'tree', 'view_id': ref('view_pos_order_tree_custom')}), 
+                                        (0, 0, {'view_mode': 'form', 'view_id': ref('view_pos_order_form_custom')})]"/>
+            <field name="search_view_id" ref="view_pos_order_search_custom"/>
+        </record>
+
+        <menuitem id="menu_pos_order_custom" 
+                  name="Custom POS Orders" 
+                  parent="point_of_sale.menu_point_root" 
+                  action="action_pos_order_custom" 
+                  sequence="10"/>
+    </data>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <record id="action_validate_order" model="ir.actions.server">
+            <field name="name">Validate Order</field>
+            <field name="model_id" ref="point_of_sale.model_pos_order"/>
+            <field name="binding_model_id" ref="point_of_sale.model_pos_order"/>
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    if record.state != 'paid':
+                        raise UserError("Order %s is not fully paid." % record.name)
+                    
+                    if record.x_cancelled == 'cancelle':
+                        raise UserError("Order %s is cancelled and cannot be validated." % record.name)
+                    
+                    # Mark order as validated
+                    record.action_pos_order_paid()
+                    
+                    if record.to_invoice:
+                        record._create_invoice()
+                        record.action_pos_order_invoice()
+                    
+                    record.action_pos_order_done()
+            </field>
+        </record> -->

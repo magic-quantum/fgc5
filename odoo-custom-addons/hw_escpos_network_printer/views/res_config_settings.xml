@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hw_escpos_network_printer</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+
+            <div id="pos_connected_devices_section" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="ip_escpos_printer">
+                    <div class="o_setting_left_pane">
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label string="Network Receipt Printer IP &amp; Port" for="pos_iface_network_printer_ip_address"/>
+                        <field name="pos_iface_network_printer_ip_address" placeholder="192.168.0.1:9100"/>
+                        <div class="text-muted mb16">
+                            Connect your IP receipt printer directly to POS without an IoT Box.
+                        </div>
+                        <field name="pos_iface_cashdrawer"/>
+                        <label string="Cash drawer" for="pos_iface_cashdrawer"/>
+                        <div class="text-muted mb16">
+                            Automatically open cash drawer after printing receipt.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>

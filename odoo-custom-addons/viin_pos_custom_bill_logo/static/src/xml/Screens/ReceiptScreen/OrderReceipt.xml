@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+	<t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" owl="1">
+		<xpath expr="//div[hasclass('pos-receipt')]//t[@t-if='receipt.company.logo']" position="replace">
+			<t t-if="receipt.pos.custom_logo_type == 'logo'">
+				<img class="pos-receipt-logo" t-att-src="receipt.company.logo" alt="Logo" />
+				<br />
+			</t>
+			<t t-else="">
+				<h2 class="pos-receipt-center-align">
+					<t t-esc="receipt.pos.custom_text" />
+				</h2>
+				<br />
+			</t>
+		</xpath>
+	</t>
+
+</templates>

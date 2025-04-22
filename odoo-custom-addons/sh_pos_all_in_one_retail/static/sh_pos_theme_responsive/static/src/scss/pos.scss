@@ -1,0 +1,159 @@
+.hide_cart_screen_show {display: none !important;}
+.hide_product_screen_show {display: none !important;}
+.pos .leftpane .pads .subpads {display: block !important;}
+.actionpad {display: flex !important;}
+.numpad {width: 100%;}
+@media only screen and (min-width: 768px){
+	.pos .actionpad .button.pay {height: 54px !important;}
+}
+.pos .actionpad .button .fa.fa-chevron-right {position: absolute !important;left: 13px !important;top: 13px !important;margin-right: 8px;font-size: 18px;background: rgb(86, 86, 86);line-height: 30px;width: 30px;border-radius: 100%;}	
+.pay-circle {background: none !important;}
+.toggle .slide_toggle_button .fa.fa-arrow-circle-o-down {font-size: 18px;background: rgba(255, 255, 255, 0.5);line-height: 30px;width: 30px;border-radius: 100%;}
+.pos .payment-numpad .numpad {gap: 5px !important;}
+.hide_send_mail {display: none !important;}
+.sh_receipt_actions {background: #e6e6e6;}
+.actions.sh_receipt_actions {margin: 73px 1.5rem !important;}
+.sh_receipt_top_content {border-bottom: unset !important;}
+.sh_payment_customer_button, .sh_payment_controls {width: 147px;height: 56px;float: left;font-weight: bold;color: #555555;border-radius: 0;border-right: 1px solid;border-bottom: 1px solid;border-color: #bfbfbf;transition: all 150ms linear;background: #e2e2e2;font-size: 17px;}
+.sh_payment_customer_click_button, .sh_payment_invoice_click_button {width: 147px;height: 56px;}
+.sh_product_numpad {width: 100% !important;display: inline-block;}
+.sh_product_numpad button {width: 62.5px;}
+.sh_left_control_buttons {width: 115px;}
+.sh_client_pos_content {top: 0px !important;}
+.clientlist-screen.screen .top-content {justify-content: flex-end;}
+.cart_icon {float: right;padding: 14px;color: #5eb937;font-size: 20px;}
+
+.pos .rightpane .rightpane-header {
+	flex-direction: row !important;
+	padding: 10px 0px 10px 10px !important;
+}
+.pos .rightpane .search-bar-container.sb-product {
+	padding: 0px 10px !important;
+	background-color: #fff !important;
+	order: 2 !important;
+}
+
+
+
+
+
+#totar_button {
+    background: linear-gradient(to bottom, #fce4ec, #f8bbd0); /* تدرج وردي ناعم */
+    border: 1px solid #f8bbd0;
+    color: #880e4f;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+#totar_button i {
+    color: #5e35b1;
+}
+
+#totar_button:hover {
+    background: #7E57C2 !important;
+    color: white !important;
+}
+#totar_button:hover i {
+    color: white !important;
+}
+
+#customer_disable {
+    
+
+    background: linear-gradient(to bottom, #e3f2fd, #bbdefb); /* تدرج أزرق ناعم */
+    border: 1px solid #90caf9;
+    color: #0d47a1;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 rgba(0,0,0,0); /* no inner shadow */
+    transition: all 0.3s ease;
+}
+
+#customer_disable i {
+    color: #6a1b9a;
+}
+#customer_disable:hover {
+    background: #7E57C2 !important;
+    color: white !important;
+}
+#customer_disable:hover i {
+    color: white !important;
+}
+
+#payment_disable {
+    background: linear-gradient(to bottom, #fff3e0, #ffe0b2); /* تدرج مشمشي ناعم */
+    border: 1px solid #ffe0b2;
+    color: #e65100;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#payment_disable i {
+    color: #512da8;
+}
+#payment_disable:hover {
+    background: #7E57C2 !important;
+    color: white !important;
+}
+#payment_disable:hover i {
+    color: white !important;
+}
+
+
+
+
+
+
+
+
+
+
+// kitchen printer css file
+.table-new {
+    width: 100%;
+    border-collapse: separate; /* Use separate borders for cells */
+    border-spacing: 5px; /* Add space between cells */
+}
+
+.table-new td {
+    border: 1px solid black; /* Add border to each cell */
+    padding: 5px; /* Add padding inside each cell */
+    text-align: left; /* Align text to the left */
+    vertical-align: middle; /* Vertically center the content */
+border-radius: 5px;
+}
+
+.cls-quant span.product-quantity {
+    display: inline-block; /* Ensure it behaves like a block */
+     /* Add border for quantity */
+    padding: 3px; /* Add padding inside the quantity */
+    margin: 2px; /* Add margin to separate it from the td border */
+}
+
+.product-name-note span.product-name {
+    display: inline-block; /* Ensure it behaves like a block */
+    padding: 3px; /* Add padding inside the name */
+    margin: 2px; /* Add margin to separate it from the td border */
+}
+
+
+.table-cancel
+{
+    width: 100%;
+    border-collapse: separate; /* Use separate borders for cells */
+    border-spacing: 5px; /* Add space between cells */
+}
+
+.tables-tr td {
+    border: 1px solid black; /* Add border to each cell */
+    padding: 5px; /* Add padding inside each cell */
+    text-align: center; /* Align text to the left */
+    vertical-align: middle; /* Vertically center the content */
+border-radius: 5px;
+}
+
+h3 {
+    font-size: 20px; /* Set the font size */
+    font-weight: bold; /* Make the text bold */
+}
