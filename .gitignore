@@ -1,0 +1,24 @@
+# Ignore everything by default
+*
+
+# But keep these folders
+!odoo/
+!odoo-custom-addons/
+
+# Inside those folders, ignore unnecessary files
+odoo/__pycache__/
+odoo/*.pyc
+odoo/*.pyo
+
+odoo-custom-addons/__pycache__/
+odoo-custom-addons/*.pyc
+odoo-custom-addons/*.pyo
+
+# Ignore other common stuff
+.vscode/
+*.log
+*.swp
+*.zip
+*.tar.gz
+*.egg-info/
+*.DS_Store
