@@ -10,6 +10,10 @@ odoo.define("sh_pos_advance_cache.cache_product", function (require) {
         async _processData(loadedData) {
             console.log("----------------------------------")
             console.log("----------------------------------")
+            console.log("FORCE REFRESH: CLEARING PRODUCT CACHE")
+            // Force remove product cache to always get fresh data
+            localStorage.removeItem('Products');
+            
             const productModel = 'product.product'
             //Have to set pricelist items bcz pricelist pass with blank list
             await this.env.services.rpc({

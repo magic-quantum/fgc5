@@ -162,3 +162,39 @@ odoo.define("sh_pos_all_in_one_retail.sh_pos_advance_cache.indexedDB", function 
     return indexedDB_dic;
 
 });
+
+odoo.define("sh_pos_all_in_one_retail.force_refresh", function (require) {
+    "use strict";
+
+    var indexedDB = require('sh_pos_advance_cache.indexedDB');
+    const { PosGlobalState } = require('point_of_sale.models');
+    const Registries = require('point_of_sale.Registries');
+    const Chrome = require('point_of_sale.Chrome');
+
+    const PosForceRefreshModel = (PosGlobalState) => class PosForceRefreshModel extends PosGlobalState {
+        async _processData(loadedData) {
+            // Force clear localStorage to ensure fresh data load
+            localStorage.removeItem('Products');
+            localStorage.removeItem('Customers');
+            
+            console.log("Forcing POS data refresh");
+            
+            // Continue with normal processing
+            return super._processData(...arguments);
+        }
+    }
+    
+    Registries.Model.extend(PosGlobalState, PosForceRefreshModel);
+
+    // Also add a Chrome component extension to ensure bus notifications are properly handled
+    const PosForceRefreshChrome = (Chrome) => class PosForceRefreshChrome extends Chrome {
+        setup() {
+            super.setup();
+            // Clear localStorage on load
+            localStorage.removeItem('Products');
+            localStorage.removeItem('Customers');
+        }
+    }
+    
+    Registries.Component.extend(Chrome, PosForceRefreshChrome);
+});

@@ -351,10 +351,18 @@ ShApplyFilter(event) {
         
         print_pos_order(event) {
             var self = this;
+            var current_order = this.env.pos.get_order()
+                if (!current_order) {
+                    console.error('No order found.');
+                    return;
+                }
             var order_id = $(event.currentTarget.closest("tr")).data('order-id')
             var order_data = self.env.pos.db.order_by_id[order_id];
-            var order_line = [];
+            // var order_line = self.env.pos.db.all_orders_line
 
+            // console.log("order_line order_line order_line", self.env.pos.db);
+            // console.log("order_line order_line order_line", order_data);
+            
             if (self.env.pos.get_order() && self.env.pos.get_order().get_orderlines() && self.env.pos.get_order().get_orderlines().length > 0) {
                 var orderlines = self.env.pos.get_order().get_orderlines();
                 _.each(orderlines, function (each_orderline) {
@@ -388,6 +396,7 @@ ShApplyFilter(event) {
                 if (!line_data) {
                     line_data = self.env.pos.db.order_line_by_id[each_order_line[2].sh_line_id];
                 }
+                console.log("order_line order_line order_line", line_data);
                 product = self.env.pos.db.get_product_by_id(line_data.product_id);
                 if (!product) {
                     var product = self.env.pos.db.get_product_by_id(line_data.product_id[0]);
@@ -399,18 +408,24 @@ ShApplyFilter(event) {
                         discount: line_data.discount,
                     });
                 }
+                if (line_data.customer_note) {
+                    current_order.customerNote = line_data.customer_note;
+                }
+                
             });
             current_order.name = order_data.pos_reference;
             current_order.assigned_config = order_data.assigned_config;
             current_order.payment_data = order_data.payment_data;
             current_order.amount_return = order_data.amount_return;
             current_order.is_reprint = true;
+            console.log("order line order line order line ", current_order);
+            
             // self.trigger("close-temp-screen");
             self.env.pos.sh_uniq_id--
             // self.showScreen("ReceiptScreen");
             const orderReceipt = current_order.export_for_printing(); 
-            this._printOrderReceipt(order_id, orderReceipt);
-            this.env.pos.add_new_order();
+                        this._printOrderReceipt(order_id, orderReceipt);
+                        this.env.pos.add_new_order();
         }
     }
     TicketScreen_x.template = "TicketScreen_x";

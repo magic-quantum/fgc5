@@ -8,6 +8,10 @@ odoo.define("sh_pos_advance_cache.cache_customer", function (require) {
 
     const shPosCustomerModel = (PosGlobalState) => class shPosCustomerModel extends PosGlobalState {
         async _processData(loadedData) {
+            console.log("FORCE REFRESH: CLEARING CUSTOMER CACHE");
+            // Force remove customer cache to always get fresh data
+            localStorage.removeItem('Customers');
+            
             const customerModel = 'res.partner'
             if (localStorage.getItem('Customers') === 'loaded') {
                 // Remove deleted partners from indexed db
