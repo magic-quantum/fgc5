@@ -40,7 +40,11 @@
         </xpath>
         <xpath expr="//SaleDetailsButton" position="replace">
         </xpath>
-        <xpath expr="//TicketButton" position="replace">
-        </xpath>
+        
+            <xpath expr="//TicketButton" position="replace">
+            <t t-if="env.pos and env.pos.config and !env.pos.config.sh_enable_order_list">    
+                <TicketButton />
+            </t>
+            </xpath>
     </t>
 </templates>

@@ -279,7 +279,8 @@ async _Print_To_kitchen(order_name) {
         // console.log("The order is clicked");
         // console.log("The order has changes to print", order.hasChangesToPrint());
         if (order.hasChangesToPrint()) {
-            const isPrintSuccessful = await order.printChanges();
+            let is_cancel =true
+            const isPrintSuccessful = await order.printChanges(is_cancel=true);
             // console.log("The order has changes to print");
             if (isPrintSuccessful) {
                 order.updatePrintedResume();
@@ -395,22 +396,35 @@ async click_print_line(event) {
                 current_order = self.env.pos.orders.find(order => order.name === order_data.pos_reference)
             }
         }
+        console.log("the products in Current Order", current_order.orderlines);
 
 
         if (order_data) {
             console.log("Order found:", order_data);
             // console.log("Order Lines before removal:", order_data.lines);
 
+
+
+
+            const cancelledLines = [];
             for (let pos_order_line of order_data.lines) {
                 var line = self.env.pos.db.order_line_by_id[pos_order_line];
                 // console.log("Order Line ID:", pos_order_line);
-                // console.log("Line Data:", line);
+                console.log("Line Data:", line);
 
                 if (line && line.product_id) {
                     const product_id = line.product_id[0]; 
                     const name = line.product_id[1];
                     const quantity = line.qty;
+                    const orderline_obj = current_order.orderlines.find(l => 
+                        l.product.id === line.product_id[0] && l.quantity === line.qty
+                    );
+                    const pos_categ_id = orderline_obj?.product?.pos_categ_id ? orderline_obj.product.pos_categ_id[0] : null;
+                    console.log("orderline_obj orderline_obj orderline_obj", orderline_obj);
+                    console.log("pos_categ_id pos_categ_id pos_categ_id:", pos_categ_id);
 
+
+                    
                     if (self.env.pos.db.quant_by_product_id[product_id]) {
                         const actual_quantity = self.env.pos.db.quant_by_product_id[product_id][self.env.pos.config.sh_pos_location[0]];
                         const newQty = actual_quantity + quantity;
@@ -438,7 +452,8 @@ async click_print_line(event) {
                     self.env.pos.get_order().printingChanges['cancelled'].push({
                         product_id: product_id,
                         name: name,
-                        quantity: quantity
+                        quantity: quantity,
+                        pos_categ_id:pos_categ_id
                     });
                     self.env.pos.get_order().remove_orderline(self.env.pos.get_order().get_selected_orderline());
                 } else {

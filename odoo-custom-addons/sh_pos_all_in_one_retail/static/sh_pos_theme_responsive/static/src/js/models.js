@@ -173,7 +173,7 @@ odoo.define("sh_pos_theme_responsive.models", function (require) {
         //     return isPrintSuccessful;
         // }
 
-        async printChanges() {
+        async printChanges(is_cancel=false) {
             // const isDeliveryEnabled = this.pos.config.sh_enable_order_delivery_list;
             // console.log("is Delivery enabel :",isDeliveryEnabled);
             let isPrintSuccessful = true;
@@ -213,76 +213,143 @@ odoo.define("sh_pos_theme_responsive.models", function (require) {
             if (!this.printingChanges) {
                 this.printingChanges = { new: [], cancelled: [] };
             }
-        
+            console.log("printingChanges printingChanges printingChanges", this.printingChanges);
+            
             const uniqueNewChanges = new Set(this.printingChanges.new.map(change => change.product_id));
             const uniqueCancelledChanges = new Set(this.printingChanges.cancelled.map(change => change.product_id));
-            for (const printer of this.pos.unwatched.printers) {
-                const changes = this._getPrintingCategoriesChanges(printer.config.product_categories_ids);
-                // Enrich 'new' changes with notes
-                changes['new'].forEach(change => {
-                    const line = this.orderlines.find(l => l.product.id === change.product_id);
-                    change.note = line ? (line.line_note || '') : '';
+            if (is_cancel != true){
+                for (const printer of this.pos.unwatched.printers) {
+                    // const changes = this._getPrintingCategoriesChanges(printer.config.product_categories_ids);
+                    // Enrich 'new' changes with notes
+                    const categoryIds = printer.config.product_categories_ids || [];
+                    const linesToPrint = this.orderlines.filter(line => {
+                    const posCategId = line.product.pos_categ_id?.[0];
+                    return posCategId && categoryIds.includes(posCategId);
                 });
-
-                // Enrich 'cancelled' changes with notes
-                changes['cancelled'].forEach(change => {
-                    const line = this.orderlines.find(l => l.product.id === change.product_id);
-                    change.note = line ? (line.line_note || '') : '';
-                });         
-
-                // Add only unique items to the new and cancelled arrays
-                changes['new'].forEach(change => {
-                    if (!uniqueNewChanges.has(change.product_id)) {
-                        uniqueNewChanges.add(change.product_id);
-                        this.printingChanges.new.push(change);
-                    }
-                });
-        
-                changes['cancelled'].forEach(change => {
-                    if (!uniqueCancelledChanges.has(change.product_id)) {
-                        uniqueCancelledChanges.add(change.product_id);
-                        this.printingChanges.cancelled.push(change);
-                    }
-                });
-
-
-                           
-                
-
-
-                if (changes['new'].length > 0 || changes['cancelled'].length > 0) {
-                    console.log("Updated printing changes:", this.printingChanges);
-        
-                    const printingChanges = {
-                        new: this.printingChanges.new,
-                        cancelled: this.printingChanges.cancelled,
-                        table_name: this.pos.config.iface_floorplan ? this.getTable().name : false,
-                        floor_name: this.pos.config.iface_floorplan ? this.getTable().floor.name : false,
-                        name: this.name || 'unknown order',
-                        time: {
-                            hours,
-                            minutes,
-                            formattedDate,
-                        },
-                        name_pos : name_pos,
-                        order_lines:orderLinesWithNotes
-                    };
+                console.log("linesToPrint linesToPrint linesToPrint", linesToPrint);
+    
+                if (!linesToPrint.length) {
+                    // لا تطبع شيء إذا لم توجد أسطر مُصنَّفة لهذه الطابعة
+                    continue;
+                }
+    
+    
+                    // changes['new'].forEach(change => {
+                    //     const line = this.orderlines.find(l => l.product.id === change.product_id);
+                    //     change.note = line ? (line.line_note || '') : '';
+                    // });
+    
+                    // // Enrich 'cancelled' changes with notes
+                    // changes['cancelled'].forEach(change => {
+                    //     const line = this.orderlines.find(l => l.product.id === change.product_id);
+                    //     change.note = line ? (line.line_note || '') : '';
+                    // });
+    
+                    // // Add only unique items to the new and cancelled arrays
+                    // changes['new'].forEach(change => {
+                    //     if (!uniqueNewChanges.has(change.product_id)) {
+                    //         uniqueNewChanges.add(change.product_id);
+                    //         this.printingChanges.new.push(change);
+                    //     }
+                    // });
+            
+                    // changes['cancelled'].forEach(change => {
+                    //     if (!uniqueCancelledChanges.has(change.product_id)) {
+                    //         uniqueCancelledChanges.add(change.product_id);
+                    //         this.printingChanges.cancelled.push(change);
+                    //     }
+                    // });
+    
+    
+                               
                     
-        
-                    const receipt = QWeb.render('OrderChangeReceipt', { changes: printingChanges });
-                    console.log("object changes : ",changes);
-                    // console.log("delivery _value : ",printingChanges.isDeliveryEnabled);
-                    console.log("printingChanges:",printingChanges);
-        
-                    console.log("Generated Receipt for Order Changes:");
-        
+    
+    
+                    // if (changes['new'].length > 0 || changes['cancelled'].length > 0) {
+                    //     console.log("Updated printing changes:", this.printingChanges);
+                    const changes = {
+                        new: linesToPrint.map(line => ({
+                            product_id: line.product.id,
+                            name: line.product.display_name,
+                            quantity: line.quantity,
+                            note: line.line_note || '',
+                        })),
+                        cancelled: [],  // إذا كنت تريد دعم الإلغاء، تقدر تضيف منطق مماثل هنا
+                    };
+                        // const printingChanges = {
+                        //     new: this.printingChanges.new,
+                        //     cancelled: this.printingChanges.cancelled,
+                        //     table_name: this.pos.config.iface_floorplan ? this.getTable().name : false,
+                        //     floor_name: this.pos.config.iface_floorplan ? this.getTable().floor.name : false,
+                        //     name: this.name || 'unknown order',
+                        //     time: {
+                        //         hours,
+                        //         minutes,
+                        //         formattedDate,
+                        //     },
+                        //     name_pos : name_pos,
+                        //     order_lines:orderLinesWithNotes
+                        // };
+                        const printingChanges = {
+                            new: changes.new,
+                            cancelled: changes.cancelled,
+                            table_name: this.pos.config.iface_floorplan ? this.getTable().name : false,
+                            floor_name: this.pos.config.iface_floorplan ? this.getTable().floor.name : false,
+                            name: this.name || 'unknown order',
+                            time: { formattedDate },
+                            name_pos,
+                            order_lines: orderLinesWithNotes,
+                        };
+                        
+            
+                        const receipt = QWeb.render('OrderChangeReceipt', { changes: printingChanges });
+                        console.log("object changes : ",changes);
+                        // console.log("delivery _value : ",printingChanges.isDeliveryEnabled);
+                        console.log("printingChanges:",printingChanges);
+            
+                        console.log("Generated Receipt for Order Changes:");
+            
+                        console.log("receipt receipt receipt ", receipt)
+                        const result = await printer.print_receipt(receipt);
+                        if (!result.successful) {
+                            isPrintSuccessful = false;
+                        }
+                    // }
+                }
+            } else{
+                for (const printer of this.pos.unwatched.printers) {
+                    // const changes = this._getPrintingCategoriesChanges(printer.config.product_categories_ids);
+                    // Enrich 'new' changes with notes
+                    const categoryIds = printer.config.product_categories_ids || [];
+                    let cancelledItems = [];
+
+                    cancelledItems = (this.printingChanges.cancelled || [])
+                    .filter(ch => categoryIds.includes(ch.pos_categ_id))
+                    .map(ch => ch);
+                    console.log("Categories allowed for printer:", categoryIds);
+                    console.log("Categories allowed for printer:", this.printingChanges);
+
+                    const changes = {
+                        new:         this.printingChanges.new,
+                        cancelled:   cancelledItems,
+                        table_name:  this.pos.config.iface_floorplan ? this.getTable().name          : false,
+                        floor_name:  this.pos.config.iface_floorplan ? this.getTable().floor.name    : false,
+                        name:        this.name || 'unknown order',
+                        time:        { formattedDate },
+                        name_pos,
+                        order_lines: orderLinesWithNotes,
+                    };
+
+                    const receipt = QWeb.render('OrderChangeReceipt', { changes });
                     console.log("receipt receipt receipt ", receipt)
-                    const result = await printer.print_receipt(receipt);
+                    const result  = await printer.print_receipt(receipt);
                     if (!result.successful) {
                         isPrintSuccessful = false;
-                    }
-                }
+                        console.error(`Printing failed on ${printer.config.name}`);
             }
+            }
+        }
+            
         
             // Clear printing changes after printing
             this.printingChanges = { new: [], cancelled: [] };
