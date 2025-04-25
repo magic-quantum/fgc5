@@ -173,7 +173,7 @@ odoo.define("sh_pos_theme_responsive.models", function (require) {
         //     return isPrintSuccessful;
         // }
 
-        async printChanges(is_cancel=false) {
+        async printChangess(is_cancel=false) {
             // const isDeliveryEnabled = this.pos.config.sh_enable_order_delivery_list;
             // console.log("is Delivery enabel :",isDeliveryEnabled);
             let isPrintSuccessful = true;
@@ -274,7 +274,7 @@ odoo.define("sh_pos_theme_responsive.models", function (require) {
                             quantity: line.quantity,
                             note: line.line_note || '',
                         })),
-                        cancelled: [],  // إذا كنت تريد دعم الإلغاء، تقدر تضيف منطق مماثل هنا
+                        cancelled: [], 
                     };
                         // const printingChanges = {
                         //     new: this.printingChanges.new,
@@ -302,7 +302,7 @@ odoo.define("sh_pos_theme_responsive.models", function (require) {
                         };
                         
             
-                        const receipt = QWeb.render('OrderChangeReceipt', { changes: printingChanges });
+                        const receipt = QWeb.render('OrderChangeReceipts', { changes: printingChanges });
                         console.log("object changes : ",changes);
                         // console.log("delivery _value : ",printingChanges.isDeliveryEnabled);
                         console.log("printingChanges:",printingChanges);
@@ -340,7 +340,7 @@ odoo.define("sh_pos_theme_responsive.models", function (require) {
                         order_lines: orderLinesWithNotes,
                     };
 
-                    const receipt = QWeb.render('OrderChangeReceipt', { changes });
+                    const receipt = QWeb.render('OrderChangeReceipts', { changes });
                     console.log("receipt receipt receipt ", receipt)
                     const result  = await printer.print_receipt(receipt);
                     if (!result.successful) {

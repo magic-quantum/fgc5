@@ -11,7 +11,7 @@
     "summary": """New Retail Point Of Sale Solution Retail POS""",          
     "description": """ This is the fully retail solution for any kind of retail shop or bussiness., "custom_receipts_for_pos"  ,'pos_restaurant' """,     
     "version": "16.0.13",
-    "depends": ["point_of_sale", 'pos_restaurant', 'pos_sale_product_configurator', "utm", "portal", "pos_hr", "purchase"],
+    "depends": ["point_of_sale", "utm", "portal", "pos_hr", "purchase"],
     "application": True,
     "license": "OPL-1",
     "data": [

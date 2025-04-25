@@ -194,7 +194,8 @@ async _onValidateAndClick() {
                     console.log("The order is clicked");
                     console.log("The order is clicked", order.hasChangesToPrint());
                     if (order.hasChangesToPrint()) {
-                        const isPrintSuccessful = await order.printChanges();
+                        let is_cancel=false
+                        const isPrintSuccessful = await order.printChangess(is_cancel=false);
                         console.log("The order has changes to print");
                         if (isPrintSuccessful) {
                             order.updatePrintedResume();

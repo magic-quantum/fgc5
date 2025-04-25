@@ -104,7 +104,8 @@ odoo.define("sh_pos_order_list.PaymentScreen", function (require) {
                         console.log("The order is clicked");
                         console.log("The order is clicked", order.hasChangesToPrint(x));
                         if (order.hasChangesToPrint()) {
-                            const isPrintSuccessful = await order.printChanges();
+                            let is_cancel=false
+                            const isPrintSuccessful = await order.printChangess(is_cancel=false);
                             console.log("The order has changes to print");
                             if (isPrintSuccessful) {
                                 order.updatePrintedResume();
