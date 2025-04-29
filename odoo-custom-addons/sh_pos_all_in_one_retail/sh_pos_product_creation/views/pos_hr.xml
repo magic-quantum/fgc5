@@ -11,6 +11,9 @@
             <xpath expr="//page[@name='point_of_sale']/group" position="inside">                  
                 <field name="sh_enbale_cancel"/>
             </xpath>
+            <xpath expr="//page[@name='point_of_sale']/group" position="inside">                  
+                <field name="sh_enbale_paid"/>
+            </xpath>
         </field>
     </record>
 </odoo>

@@ -1,7 +1,7 @@
 <t t-name="TicketScreen_x" t-inherit="sh_pos_all_in_one_retail.TicketScreen_x" t-inherit-mode="extension" owl="1">
     <xpath expr="//td[hasclass('pos_order_state')]" position="after">
         <td class="sh_order_return_icon_td" t-if="env.pos.config.sh_enable_order_list">
-            <t t-if="pos_order.company_order_id == '' and pos_order.state != 'cancel' and pos_order.x_delivery_status != 'delivered' and pos_order.state != 'paid' and pos_order.state != 'invoiced'">
+            <t t-if="env.pos.config.sh_enable_send_order and pos_order.company_order_id == '' and pos_order.state != 'cancel' and pos_order.x_delivery_status != 'delivered' and pos_order.state != 'paid' and pos_order.state != 'invoiced'">
                 <span class="order_exchange">
                     <span class="tool" data-tip="delivery person" title="delivery person">
                         <i aria-hidden="true" t-attf-data-order-id="{{ pos_order.id }}" 
@@ -9,7 +9,7 @@
                     </span>
                 </span>
                 </t>
-                <t t-if="pos_order.company_order_id and pos_order.company_order_id != '' and pos_order.state != 'cancel' and pos_order.x_delivery_status != 'delivered' and pos_order.state != 'paid' and pos_order.state != 'invoiced'">
+                <t t-if="env.pos.config.sh_enable_send_invoiced and pos_order.company_order_id and pos_order.company_order_id != '' and pos_order.state != 'cancel' and pos_order.x_delivery_status != 'delivered' and pos_order.state != 'paid' and pos_order.state != 'invoiced'">
                     <span class="order_exchange">
                         <span class="tool" data-tip="Company" title="Company">
                             <i style="font-size: 18px;" aria-hidden="true" 

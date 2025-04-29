@@ -363,7 +363,14 @@ get posorderdetail() {
             templates = _.filter(templates, function (template) {
                 return template.company_order_id;
             });
-        } else {
+        } else if (filterValue === "notsend") {
+            templates = _.filter(templates, function (template) {
+                return (
+                    template.x_delivery_status &&
+                    template.x_delivery_status.toLowerCase() === "notsend" &&
+                    !template.company_order_id
+                );
+            });}else {
             templates = _.filter(templates, function (template) {
                 return (
                     (template.name && template.name.toLowerCase().includes(filterValue)) ||

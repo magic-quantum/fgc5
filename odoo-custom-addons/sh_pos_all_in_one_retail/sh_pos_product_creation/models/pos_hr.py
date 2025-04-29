@@ -7,10 +7,14 @@ class ShHrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     sh_enbale_product_create = fields.Boolean(string="Allow to Create Product ?")
+    sh_enbale_product_ = fields.Boolean(string="Allow to Create sh_enbale_product_ ?")
     sh_enbale_cancel = fields.Boolean(string="Can Cancel ?")
+    sh_enbale_paid = fields.Boolean(string="Can Pay ?")
 
 class ShHrEmployeePublic(models.Model):
     _inherit = "hr.employee.public"
 
     sh_enbale_product_create = fields.Boolean(related='employee_id.sh_enbale_product_create')
+    sh_enbale_product_ = fields.Boolean(related='employee_id.sh_enbale_product_create')
     sh_enbale_cancel = fields.Boolean(related='employee_id.sh_enbale_cancel')
+    sh_enbale_paid = fields.Boolean(related='employee_id.sh_enbale_paid')

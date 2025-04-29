@@ -320,10 +320,12 @@
                                                         <!-- <t t-if="env.pos.user.groups_id.indexOf(env.pos.config.allow_sh_pos_cancel[0]) != -1"> -->
                                                             <td class="td_cancel_fronted_order">
                                                                 <!-- <t t-if="pos_order.state == 'draft' and pos_order.x_delivery_status != 'notsend'"> -->
-                                                                <t t-if="pos_order.x_delivery_status == 'onway' and pos_order.state != 'cancel'">    
-                                                                    <span title="Paid">
-                                                                        <i aria-hidden="true" t-on-click="click_paid" style="font-size: 18px; vertical-align: middle;">💲</i>
-                                                                    </span>
+                                                                <t t-if="state.enable_paid_button">    
+                                                                    <t t-if="pos_order.x_delivery_status == 'onway' and pos_order.state != 'cancel'">    
+                                                                        <span title="Paid">
+                                                                            <i aria-hidden="true" t-on-click="click_paid" style="font-size: 18px; vertical-align: middle;">💲</i>
+                                                                        </span>
+                                                                    </t>
                                                                 </t>
                                                             </td>
                                                             <!-- <td class="td_cancel_fronted_order">
@@ -334,10 +336,13 @@
                                                                 </t>
                                                             </td> -->
                                                             <td class="td_cancel_fronted_order">
-                                                                <!-- <t t-if="pos_order.x_delivery_status != 'delivered' and pos_order.state != 'cancel' and pos_order.state != 'paid'">
-                                                                    <span title="Cancel">
-                                                                        <span class="sh_cancel_delete" t-on-click="click_print_line" style="color: red; font-size: 18px;">❌</span>
-                                                                    </span>
+                                                                <!-- <t t-if="!env.pos.config.group_disable_cancel || env.pos.user.groups_id.indexOf(env.pos.config.group_disable_cancel[0]) !== -1"> -->
+                                                                <!-- <t t-if="(env.pos.get_cashier().sh_enbale_cancel)">
+                                                                    <t t-if="pos_order.x_delivery_status != 'delivered' and pos_order.state != 'cancel' and pos_order.state != 'paid'">
+                                                                        <span title="Cancel">
+                                                                            <span class="sh_cancel_delete" t-on-click="click_print_line" style="color: red; font-size: 18px;">❌</span>
+                                                                        </span>
+                                                                    </t>
                                                                 </t> -->
                                                                 <t t-if="state.enable_cancel_button">
     <t t-if="pos_order.x_delivery_status != 'delivered' and pos_order.state != 'cancel' and pos_order.state != 'paid'">

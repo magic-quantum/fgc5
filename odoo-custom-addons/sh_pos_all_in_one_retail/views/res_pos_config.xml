@@ -140,12 +140,22 @@
                             <label for="pos_sh_enable_totar" />
                         </div>
                     </div>
+                    
                     <div class="col-xs-6 col-md-6 o_setting_box">
                         <div style="width:200px">
                             <label for="pos_sh_totar" attrs="{'invisible': [('pos_sh_enable_totar', '!=', True)]}" />
                         </div>
                         <div class="o_setting_right_pane">
                             <field name="pos_sh_totar" placeholder="Select Totar" attrs="{'invisible': [('pos_sh_enable_totar', '!=', True)], 'required' :[ ('pos_sh_enable_totar', '=', True)]}" />
+                        </div>
+                    </div>
+
+                    <div id="autocomplete_address" class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_sh_enable_send_invoiced" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_sh_enable_send_invoiced" />
                         </div>
                     </div>
                 </div>
@@ -242,6 +252,14 @@
                         </div>
                         <div class="o_setting_right_pane">
                             <label for="pos_sh_enable_order_delivery_list" />
+                        </div>
+                    </div>
+                    <div id="autocomplete_address" class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_sh_enable_send_order" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_sh_enable_send_order" />
                         </div>
                     </div>
                 </div>

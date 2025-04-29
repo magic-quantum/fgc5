@@ -1,0 +1,6 @@
+*.log
+*.swp
+*.zip
+*.tar.gz
+*.egg-info/
+*.DS_Store

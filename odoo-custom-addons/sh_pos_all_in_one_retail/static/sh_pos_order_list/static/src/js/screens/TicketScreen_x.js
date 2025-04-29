@@ -15,8 +15,9 @@ odoo.define("sh_pos_order_list.TicketScreen_x", function (require) {
             this.state = {
                 query: null,
                 search: '',
-                enable_cancel_button: false,
                 selectedTemplate: this.props.template,
+                enable_cancel_button: false,
+                enable_paid_button: false,
             };
 
             onMounted(this.onMounted);
@@ -42,16 +43,23 @@ odoo.define("sh_pos_order_list.TicketScreen_x", function (require) {
             self.env.services.rpc({
                 model: "hr.employee",
                 method: "search_read",
-                args: [[["name", "=", cashier_name]], ["sh_enbale_cancel"]],
+                args: [[["name", "=", cashier_name]], ["sh_enbale_cancel", "sh_enbale_paid"]],
             }).then(function (employees) {
                 if (employees.length > 0 && employees[0].sh_enbale_cancel) {
                     self.state.enable_cancel_button = true;
-            console.log("cashier_namecashier_namecashier_namecashier_namecashier_name", cashier_name);
+                    console.log("cashier_namecashier_namecashier_namecashier_namecashier_name", cashier_name);
                 } else {
                     self.state.enable_cancel_button = false;
-            console.log("cashier_namecashier_nme", cashier_name);
-        }
-                self.render(); // إعادة رسم الشاشة بعد تحديث الحالة
+                    console.log("cashier_namecashier_nme", cashier_name);
+                }
+                if (employees.length > 0 && employees[0].sh_enbale_paid) {
+                    self.state.enable_paid_button = true;
+                    console.log("cashier_namecashier_namecashier_namecashier_namecashier_name", cashier_name);
+                } else {
+                    self.state.enable_paid_button = false;
+                    console.log("cashier_namecashier_nme", cashier_name);
+                }
+                self.render();
             });
             if (this.props.filter_by_partner){
                 $('.sh_pos_order_search').val(self.props.filter_by_partner);
@@ -358,7 +366,7 @@ ShApplyFilter(event) {
                 }
             var order_id = $(event.currentTarget.closest("tr")).data('order-id')
             var order_data = self.env.pos.db.order_by_id[order_id];
-            // var order_line = self.env.pos.db.all_orders_line
+            var order_line = self.env.pos.db.all_orders_line
 
             // console.log("order_line order_line order_line", self.env.pos.db);
             // console.log("order_line order_line order_line", order_data);

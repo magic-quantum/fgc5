@@ -14,3 +14,6 @@ class PosConfig(models.Model):
     sh_enable_totar = fields.Boolean("Enable Company Delivery")
     sh_totar_id = fields.Many2one(
         'res.partner', string="Totar")
+    
+    sh_enable_send_invoiced = fields.Boolean("Enable Send Invoiced Button")
+    sh_enable_send_order = fields.Boolean("Enable Send Order Button")
